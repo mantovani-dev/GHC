@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import GhcBio from "./pages/GhcBio"; // <-- Importe a nova página aqui
 
 const queryClient = new QueryClient();
 
@@ -17,8 +18,13 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
+            {/* Rota principal (Landing Page) */}
             <Route path="/" element={<Index />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            
+            {/* Nova rota Cyber Link */}
+            <Route path="/bio" element={<GhcBio />} /> 
+            
+            {/* Rota 404 (sempre por último) */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
