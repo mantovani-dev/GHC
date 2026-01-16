@@ -67,7 +67,7 @@ const TestimonialsSection = ({ id }: TestimonialsSectionProps) => {
           <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
             Histórias de quem
             <br />
-            <span className="border-b-4 border-foreground">realizou o sonho</span>
+            <span className="border-b-4 border-foreground">já realizou o sonho</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
             Conheça alguns dos profissionais brasileiros que conquistaram suas vagas 

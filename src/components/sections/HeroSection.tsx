@@ -38,8 +38,8 @@ const HeroSection = ({ id }: HeroSectionProps) => {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8 leading-relaxed">
-            Conectamos profissionais brasileiros às melhores oportunidades de trabalho no exterior. 
-            Faça parte da nossa comunidade e dê o próximo passo na sua carreira global.
+            Conectamos brasileiros a oportunidades reais de trabalho na Polônia e Europa. 
+            Sem promessas irreais, apenas caminhos viáveis com processos estruturados e acompanhamento humano.
           </p>
 
           {/* CTA Buttons */}

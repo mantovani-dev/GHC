@@ -1,4 +1,4 @@
-import { Target, Eye, Heart, Award, Globe, Users } from "lucide-react";
+import { Target, Eye, Heart, Award, Globe, Users, ShieldCheck } from "lucide-react";
 
 interface AboutSectionProps {
   id?: string;
@@ -7,7 +7,7 @@ interface AboutSectionProps {
 const AboutSection = ({ id }: AboutSectionProps) => {
   const values = [
     {
-      icon: Globe,
+      icon: Eye,
       title: "Transparência",
       description: "Informações claras sobre vagas, processos e expectativas desde o primeiro contato.",
     },
@@ -17,7 +17,7 @@ const AboutSection = ({ id }: AboutSectionProps) => {
       description: "Tratamos cada candidato como único, oferecendo suporte personalizado em toda a jornada.",
     },
     {
-      icon: Award,
+      icon: ShieldCheck,
       title: "Responsabilidade",
       description: "Trabalhamos apenas com empresas sérias e oportunidades reais verificadas.",
     },
@@ -34,18 +34,18 @@ const AboutSection = ({ id }: AboutSectionProps) => {
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 border-2 border-border px-4 py-2 mb-6 bg-background shadow-xs">
-            <span className="text-sm font-medium">Sobre Nós</span>
+            <span className="text-sm font-medium">Sobre a GHC</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-            Transformando sonhos em
+            Não vendemos destinos...
             <br />
-            <span className="border-b-4 border-foreground">carreiras globais</span>
+            <span className="border-b-4 border-foreground">... construímos caminhos.</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            A GHC - Global Hiring & Careers surgiu a partir da experiência prática com recrutamento internacional e da necessidade de estruturar um processo profissional, transparente e responsável para brasileiros que desejam trabalhar no exterior.
+            A GHC - Global Hiring & Careers, nasceu da necessidade de trazer clareza e organização para brasileiros que buscam o mercado internacional. Atuamos como ponte entre candidatos e empregadores, com foco em vagas operacionais e técnicas.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            A empresa nasceu com o propósito de conectar pessoas a oportunidades reais de trabalho fora do Brasil, oferecendo clareza sobre etapas, responsabilidades e limites legais, evitando promessas irreais ou atalhos inseguros.
+            Nossa base é o propósito de conectar pessoas a oportunidades reais de trabalho fora do Brasil, oferecendo clareza sobre etapas, responsabilidades e limites legais, evitando promessas irreais ou atalhos inseguros.
           </p>
         </div>
 

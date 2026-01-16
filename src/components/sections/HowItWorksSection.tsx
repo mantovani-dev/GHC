@@ -12,28 +12,28 @@ const HowItWorksSection = ({ id }: HowItWorksSectionProps) => {
       icon: UserPlus,
       title: "Captação do Candidato",
       description:
-        "Primeiramente o candidato se identifica com nossa proposta, seja por meio do conteúdo compartilhado, pela comunidade ou indicações.",
+        "Acesso à nossa comunidade onde as vagas reais são divulgadas e explicadas.",
     },
     {
       number: "02",
       icon: Search,
       title: "Triagem de Perfil",
       description:
-        "Depois, fazemos a triagem do perfil do candidato para entender suas habilidades, experiências e objetivos profissionais.",
+        "Análise técnica do seu perfil para entender habilidades e compatibilidade com as vagas.",
     },
     {
       number: "03",
       icon: FileCheck,
       title: "Direcionamento",
       description:
-        "Direcionamos o candidato para uma vaga que seja compatível com seu perfil, alinhando expectativas e intermediando as interações com parceiros e empregadores, oferecendo orientação e suporte contínuo.",
+        "Intermediação com empregadores parceiros e organização do fluxo documental.",
     },
     {
       number: "04",
       icon: Plane,
-      title: "Embarque para o Sucesso",
+      title: "Embarque",
       description:
-        "Com a vaga conquistada, acompanhamos você até a última despedida no aeroporto!",
+        "Preparação final e orientações pré-embarque para sua nova jornada na Europa.",
     },
   ];
 

@@ -5,10 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -75,21 +71,21 @@ All colors MUST be HSL.
 
     --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-    --shadow-2xs: 1px 1px 0px 0px #000000;
+    --shadow-2xs: 1px 1px 0px 0px #1c202b;
 
-    --shadow-xs: 2px 2px 0px 0px #000000;
+    --shadow-xs: 2px 2px 0px 0px #1c202b;
 
-    --shadow-sm: 3px 3px 0px 0px #000000;
+    --shadow-sm: 3px 3px 0px 0px #1c202b;
 
-    --shadow: 5px 5px 0px 0px #000000;
+    --shadow: 5px 5px 0px 0px #1c202b;
 
-    --shadow-md: 8px 8px 0px 0px #000000;
+    --shadow-md: 8px 8px 0px 0px #1c202b;
 
-    --shadow-lg: 12px 12px 0px 0px #000000;
+    --shadow-lg: 12px 12px 0px 0px #1c202b;
 
-    --shadow-xl: 16px 16px 0px 0px #000000;
+    --shadow-xl: 16px 16px 0px 0px #1c202b;
 
-    --shadow-2xl: 24px 24px 0px 0px #000000;
+    --shadow-2xl: 24px 24px 0px 0px #1c202b;
 
     --tracking-normal: 0em;
 
