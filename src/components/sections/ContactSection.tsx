@@ -10,16 +10,16 @@ const ContactSection = ({ id }: ContactSectionProps) => {
     {
       icon: MessageCircle,
       title: "WhatsApp",
-      value: "+55 11 99999-9999",
+      value: "+55 11 94003-3692",
       description: "Resposta em até 24h",
-      action: () => window.open("https://wa.me/5511999999999", "_blank"),
+      action: () => window.open("https://wa.me/5511940033692", "_blank"),
     },
     {
       icon: Mail,
       title: "E-mail",
-      value: "contato@globaltalent.com.br",
+      value: "atendimento@globalhiringcareers.com",
       description: "Para parcerias e empresas",
-      action: () => window.open("mailto:contato@globaltalent.com.br", "_blank"),
+      action: () => window.open("mailto:atendimento@globalhiringcareers.com", "_blank"),
     },
     {
       icon: Clock,
@@ -57,7 +57,7 @@ const ContactSection = ({ id }: ContactSectionProps) => {
 
             <Button
               size="lg"
-              onClick={() => window.open("https://wa.me/5511999999999", "_blank")}
+              onClick={() => window.open("https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D", "_blank")}
               className="shadow-md hover:shadow-lg hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all"
             >
               <MessageCircle className="w-5 h-5 mr-2" />

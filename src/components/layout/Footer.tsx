@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: MessageCircle, href: "https://wa.me/5511999999999", label: "WhatsApp" },
+    { icon: MessageCircle, href: "https://wa.me/5511940033692", label: "WhatsApp" },
     { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
     { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
@@ -74,18 +74,18 @@ const Footer = () => {
             <div className="font-bold mb-4">Contato</div>
             <div className="flex flex-col gap-2 text-sm text-background/70">
               <a
-                href="https://wa.me/5511999999999"
+                href="https://wa.me/5511940033692"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-background transition-colors"
               >
-                +55 11 94977-3855
+                +55 11 94003-3692
               </a>
               <a
                 href="mailto:contato@ghcareers.com.br"
                 className="hover:text-background transition-colors"
               >
-                contato@ghcareers.com.br
+                atendimento@globalhiringcareers.com
               </a>
               <span>São Paulo, Brasil</span>
             </div>
