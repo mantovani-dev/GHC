@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,6 +17,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
+    /* Cor primária no modo claro (Preto) */
     --primary: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
 
@@ -25,129 +27,67 @@
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 0 0% 90%;
-    --accent-foreground: 0 0% 0%;
+    /* Accent usa o Azul do Logo #33bae9 */
+    --accent: 196 80% 56%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 0%;
     --input: 0 0% 0%;
-    --ring: 0 0% 0%;
+    --ring: 196 80% 56%;
 
     --radius: 0rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 0 0% 0%;
-
-    --sidebar-primary: 0 0% 0%;
-
-    --sidebar-primary-foreground: 0 0% 100%;
-
-    --sidebar-accent: 0 0% 90%;
-
-    --sidebar-accent-foreground: 0 0% 0%;
-
-    --sidebar-border: 0 0% 0%;
-
-    --sidebar-ring: 0 0% 0%;
-
-    --chart-1: 12 76% 61%;
-
-    --chart-2: 173 58% 39%;
-
-    --chart-3: 197 37% 24%;
-
-    --chart-4: 43 74% 66%;
-
-    --chart-5: 27 87% 67%;
-
-    --sidebar: 0 0% 98%;
-
-    --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-
-    --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-
-    --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-
-    --shadow-2xs: 1px 1px 0px 0px #1c202b;
-
-    --shadow-xs: 2px 2px 0px 0px #1c202b;
-
-    --shadow-sm: 3px 3px 0px 0px #1c202b;
-
-    --shadow: 5px 5px 0px 0px #1c202b;
-
-    --shadow-md: 8px 8px 0px 0px #1c202b;
-
-    --shadow-lg: 12px 12px 0px 0px #1c202b;
-
-    --shadow-xl: 16px 16px 0px 0px #1c202b;
-
-    --shadow-2xl: 24px 24px 0px 0px #1c202b;
-
-    --tracking-normal: 0em;
-
-    --spacing: 0.25rem;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    /* Sombras Neo-brutalistas (Preto no modo claro) */
+    --shadow-color: 0 0% 0%;
+    --shadow-xs: 2px 2px 0px 0px hsla(var(--shadow-color) / 1);
+    --shadow-sm: 3px 3px 0px 0px hsla(var(--shadow-color) / 1);
+    --shadow: 4px 4px 0px 0px hsla(var(--shadow-color) / 1);
+    --shadow-md: 6px 6px 0px 0px hsla(var(--shadow-color) / 1);
+    --shadow-lg: 10px 10px 0px 0px hsla(var(--shadow-color) / 1);
   }
 
   .dark {
-    --background: 0 0% 0%;
+    /* Fundo Predominante #1c202b */
+    --background: 224 21% 14%;
     --foreground: 0 0% 100%;
 
-    --card: 0 0% 0%;
+    --card: 224 21% 14%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 0%;
+    --popover: 224 21% 14%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
+    /* No modo escuro, o Primary vira o azul do logo #33bae9 */
+    --primary: 196 80% 56%;
+    --primary-foreground: 224 21% 14%;
 
-    --secondary: 0 0% 15%;
+    --secondary: 224 21% 20%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 224 21% 20%;
+    --muted-foreground: 224 10% 70%;
 
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 196 80% 56%;
+    --accent-foreground: 224 21% 14%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 100%;
-    --input: 0 0% 100%;
-    --ring: 0 0% 100%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 0 0% 100%;
-    --sidebar-primary-foreground: 0 0% 0%;
-    --sidebar-accent: 0 0% 15%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 0 0% 100%;
-    --sidebar-ring: 0 0% 100%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar: 0 0% 5%;
-    --radius: 0rem;
-    --shadow-2xs: 1px 1px 0px 0px #ffffff;
-    --shadow-xs: 2px 2px 0px 0px #ffffff;
-    --shadow-sm: 3px 3px 0px 0px #ffffff;
-    --shadow: 5px 5px 0px 0px #ffffff;
-    --shadow-md: 8px 8px 0px 0px #ffffff;
-    --shadow-lg: 12px 12px 0px 0px #ffffff;
-    --shadow-xl: 16px 16px 0px 0px #ffffff;
-    --shadow-2xl: 24px 24px 0px 0px #ffffff;
+    /* Removida a borda cinza: agora usamos branco sólido ou transparente para evitar o efeito "sujo" */
+    --border: 0 0% 100% / 0; /* Totalmente transparente para remover a borda cinza dos botões */
+    --input: 0 0% 100% / 0.2; /* Apenas uma sugestão leve para inputs */
+    --ring: 196 80% 56%;
+
+    /* Sombras no modo escuro ajustadas */
+    --shadow-color: 0 0% 0%;
+    --shadow-xs: 1px 1px 0px 0px hsla(0, 0%, 100%, 0.5);
+    --shadow-sm: 2px 2px 0px 0px hsla(0, 0%, 100%, 0.5);
+    --shadow: 3px 3px 0px 0px hsla(196, 80%, 56%, 0.6); 
+    --shadow-md: 4px 4px 0px 0px hsla(0, 0%, 100%, 0.5);
+    --shadow-lg: 6px 6px 0px 0px hsla(196, 80%, 56%, 0.6);
   }
 }
 
@@ -157,26 +97,48 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  /* Estilização Global do Footer */
+  footer {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-top: none !important;
+  }
+
+  footer p, footer span, footer div {
+    color: #ffffff !important;
+  }
+
+  footer a {
+    @apply text-gray-300 hover:text-white transition-colors !important;
   }
 }
 
 @layer utilities {
-@keyframes float {
-0%, 100% { transform: translateY(0px); }
-50% { transform: translateY(-20px); }
-}
+  /* Animações Cyber */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
 
-@keyframes pulse-glow {
-0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); }
-50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.6); }
-}
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 15px rgba(51, 186, 233, 0.4); }
+    50% { box-shadow: 0 0 30px rgba(51, 186, 233, 0.7); }
+  }
 
-.animate-float {
-animation: float 4s ease-in-out infinite;
-}
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
 
-.animate-pulse-glow {
-animation: pulse-glow 2s ease-in-out infinite;
-}
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
 }

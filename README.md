@@ -68,22 +68,7 @@ npm install
 npm run dev
 ```
 
-O projeto será executado localmente, geralmente em `http://localhost:5173`.
-
----
-
-## 🧩 Painel Administrativo (Frontend)
-
-O painel administrativo incluído neste projeto contempla:
-
-* Estrutura visual e navegação
-* Componentes prontos para:
-
-  * gerenciamento de vagas
-  * gerenciamento de conteúdos
-  * gerenciamento de cases
-
-As funcionalidades dependem de integração backend futura, já prevista na arquitetura do frontend.
+O projeto será executado localmente, geralmente em `http://localhost:8080`.
 
 ---
 
@@ -92,16 +77,6 @@ As funcionalidades dependem de integração backend futura, já prevista na arqu
 * O projeto foi desenvolvido com foco em **boas práticas**, legibilidade e separação de responsabilidades
 * Não há regras de negócio ou persistência de dados no frontend
 * Toda lógica sensível deverá residir no backend
-
----
-
-## 📈 Evolução Futura (Planejada)
-
-* Integração com API backend
-* Autenticação e controle de acesso
-* Publicação e gestão de vagas
-* Gerenciamento dinâmico de conteúdos
-* Logs e auditoria administrativa
 
 ---
 

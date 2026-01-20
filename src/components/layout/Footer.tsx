@@ -1,4 +1,5 @@
-import { MessageCircle, Instagram, Linkedin, Youtube } from "lucide-react";
+import { MessageCircle, Instagram, Linkedin, Youtube, Code2 } from "lucide-react";
+
 import logoGhc from "@/assets/logo-ghc-invisible-white.png";
 
 const Footer = () => {
@@ -6,9 +7,8 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: MessageCircle, href: "https://wa.me/5511940033692", label: "WhatsApp" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
+    { icon: Instagram, href: "https://instagram.com/globalhiringcareers?igsh=dDlwNGZjY2kzczl5", label: "Instagram" },
+    { icon: Linkedin, href: "https://linkedin.com/company/global-hiring-careers/", label: "LinkedIn" },
   ];
 
   const footerLinks = [
@@ -27,16 +27,23 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-foreground text-background py-12 md:py-16">
+    <footer className="bg-black text-white py-8 md:py-10 border-t-2 border-white/10">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {/* Brand */}
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
+          {/* Marca / Logo */}
           <div>
-            <img src={logoGhc} alt="Global Hiring & Careers" className="h-10 mb-4" />
-            <p className="text-background/70 text-sm leading-relaxed mb-6">
+            <img 
+              src={logoGhc} 
+              alt="Global Hiring & Careers" 
+              className="h-10 mb-3" 
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
+            />
+            <p className="text-gray-400 text-sm leading-relaxed mb-4">
               Conectando talentos brasileiros às melhores oportunidades de trabalho no exterior.
             </p>
-            {/* Social Links */}
+            {/* Links Sociais */}
             <div className="flex gap-3">
               {socialLinks.map((social, index) => (
                 <a
@@ -44,7 +51,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 border-2 border-background/30 flex items-center justify-center hover:bg-background hover:text-foreground transition-colors"
+                  className="w-9 h-9 border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-black transition-colors"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
@@ -53,15 +60,15 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Navegação */}
           <div>
-            <div className="font-bold mb-4">Navegação</div>
-            <nav className="flex flex-col gap-2">
+            <div className="font-bold mb-3 text-white">Navegação</div>
+            <nav className="flex flex-col gap-1.5">
               {footerLinks.map((link, index) => (
                 <button
                   key={index}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-background/70 text-sm hover:text-background transition-colors text-left"
+                  className="text-gray-300 text-sm hover:text-white transition-colors text-left"
                 >
                   {link.label}
                 </button>
@@ -69,41 +76,53 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Contact */}
+          {/* Contato */}
           <div>
-            <div className="font-bold mb-4">Contato</div>
-            <div className="flex flex-col gap-2 text-sm text-background/70">
+            <div className="font-bold mb-3 text-white">Contato</div>
+            <div className="flex flex-col gap-1.5 text-sm text-gray-300">
               <a
                 href="https://wa.me/5511940033692"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-background transition-colors"
+                className="hover:text-white transition-colors"
               >
                 +55 11 94003-3692
               </a>
               <a
                 href="mailto:contato@ghcareers.com.br"
-                className="hover:text-background transition-colors"
+                className="hover:text-white transition-colors"
               >
                 atendimento@globalhiringcareers.com
               </a>
-              <span>São Paulo, Brasil</span>
+              <span className="text-gray-400">São Paulo, Brasil</span>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 border-t border-background/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-sm text-background/50">
+        {/* Barra Inferior */}
+        <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
+          <div className="text-sm text-gray-500">
             © {currentYear} Global Hiring & Careers (GHC). Todos os direitos reservados.
           </div>
-          <div className="flex gap-6 text-sm text-background/50">
-            <a href="#" className="hover:text-background transition-colors">
+          <div className="flex gap-6 text-sm text-gray-500">
+            <a href="#" className="hover:text-white transition-colors">
               Política de Privacidade
             </a>
-            <a href="#" className="hover:text-background transition-colors">
+            <a href="#" className="hover:text-white transition-colors">
               Termos de Uso
             </a>
+          </div>
+        </div>
+
+        {/* Créditos do Desenvolvedor */}
+        <div className="flex flex-col items-center justify-center pt-6 border-t border-white/5">
+          <p className="text-[9px] uppercase tracking-[0.2em] text-gray-600 mb-1 font-medium">
+            Desenvolvido por André Mantovani
+          </p>
+          <div className="group cursor-default select-none">
+            <span className="font-mono text-xs tracking-tighter text-gray-500 group-hover:text-primary transition-colors duration-500">
+              {"</"}saint<span className="text-gray-600 group-hover:text-primary">♱</span>code{">"}
+            </span>
           </div>
         </div>
       </div>

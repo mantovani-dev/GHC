@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Mail, MapPin, Clock } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface ContactSectionProps {
   id?: string;
@@ -39,7 +40,7 @@ const ContactSection = ({ id }: ContactSectionProps) => {
     <section id={id} className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left Column - Text */}
+          {/* Coluna Esquerda - Texto */}
           <div>
             <div className="inline-flex items-center gap-2 border-2 border-border px-4 py-2 mb-6 bg-secondary shadow-xs">
               <span className="text-sm font-medium">Contato</span>
@@ -65,22 +66,29 @@ const ContactSection = ({ id }: ContactSectionProps) => {
             </Button>
           </div>
 
-          {/* Right Column - Contact Cards */}
+          {/* Coluna Direita - Cards de Contato */}
           <div className="grid sm:grid-cols-2 gap-4">
             {contactInfo.map((info, index) => (
               <div
                 key={index}
                 onClick={info.action}
-                className={`border-2 border-border bg-background p-6 shadow-xs transition-all ${
-                  info.action
-                    ? "cursor-pointer hover:shadow-sm hover:translate-x-[-2px] hover:translate-y-[-2px]"
-                    : ""
-                }`}
+                className={cn(
+                  "border-2 border-border bg-background p-6 shadow-xs transition-all flex flex-col h-full",
+                  info.action ? "cursor-pointer hover:shadow-sm hover:translate-x-[-2px] hover:translate-y-[-2px]" : ""
+                )}
               >
-                <info.icon className="w-6 h-6 mb-3" />
-                <div className="text-sm text-muted-foreground mb-1">{info.title}</div>
-                <div className="font-bold mb-1">{info.value}</div>
-                <div className="text-sm text-muted-foreground">{info.description}</div>
+                <info.icon className="w-6 h-6 mb-3 shrink-0" />
+                <div className="text-sm text-muted-foreground mb-1 font-medium">{info.title}</div>
+                
+                {/* Correção da Quebra de E-mail: break-all e ajuste de fonte */}
+                <div className={cn(
+                  "font-bold mb-1 leading-tight",
+                  info.title === "E-mail" ? "break-all text-sm sm:text-base" : "text-base"
+                )}>
+                  {info.value}
+                </div>
+                
+                <div className="text-sm text-muted-foreground mt-auto">{info.description}</div>
               </div>
             ))}
           </div>
