@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Quote, MapPin, Briefcase } from "lucide-react";
 
 interface TestimonialsSectionProps {
@@ -5,99 +6,91 @@ interface TestimonialsSectionProps {
 }
 
 const TestimonialsSection = ({ id }: TestimonialsSectionProps) => {
+  const { t } = useTranslation();
+
   const testimonials = [
     {
       name: "Anderson Inácio",
-      location: "Polônia",
-      role: "Desenvolvedor Full Stack",
-      quote:
-        "Sempre sonhei em trabalhar na Europa, mas não sabia por onde começar. Através da comunidade, encontrei uma vaga perfeita em Lisboa e todo o suporte que precisava. Hoje vivo meu sonho!",
+      location: t("testimonials.list.case1.location"),
+      role: t("testimonials.list.case1.role"),
+      quote: t("testimonials.list.case1.quote"),
       initials: "AI",
     },
     {
       name: "Carlos Augusto",
-      location: "Áustria",
-      role: "Engenheiro de Software",
-      quote:
-        "O processo foi muito mais simples do que imaginei. As vagas são reais, verificadas, e a equipe me ajudou em cada etapa. Em 6 meses eu já estava em Toronto.",
+      location: t("testimonials.list.case2.location"),
+      role: t("testimonials.list.case2.role"),
+      quote: t("testimonials.list.case2.quote"),
       initials: "CA",
     },
     {
       name: "André Mantovani",
-      location: "Itália",
-      role: "Designer UX/UI",
-      quote:
-        "Tentei por conta própria por anos sem sucesso. Quando entrei na comunidade, em 3 meses já tinha uma proposta firme. A diferença foi o acesso a vagas exclusivas e orientação de quem entende.",
+      location: t("testimonials.list.case3.location"),
+      role: t("testimonials.list.case3.role"),
+      quote: t("testimonials.list.case3.quote"),
       initials: "AM",
     },
     {
       name: "Letícia Cacique",
-      location: "Inglaterra",
-      role: "Analista de Dados",
-      quote:
-        "Além das vagas, o melhor é a rede de apoio. Conheci outros brasileiros que me ajudaram com dicas práticas sobre a mudança. Hoje faço o mesmo por quem está chegando.",
+      location: t("testimonials.list.case4.location"),
+      role: t("testimonials.list.case4.role"),
+      quote: t("testimonials.list.case4.quote"),
       initials: "LC",
     },
     {
       name: "Gabriel Borges",
-      location: "Holanda",
-      role: "Product Manager",
-      quote:
-        "A transparência foi o que me conquistou. Nada de promessas vazias, apenas informações reais e suporte genuíno. Recomendo para qualquer brasileiro que quer internacionalizar a carreira.",
+      location: t("testimonials.list.case5.location"),
+      role: t("testimonials.list.case5.role"),
+      quote: t("testimonials.list.case5.quote"),
       initials: "GB",
     },
     {
-      name: "Filomena da Siva",
-      location: "Reino Unido",
-      role: "DevOps Engineer",
-      quote:
-        "Recebi várias propostas de vagas que se encaixavam no meu perfil. A curadoria é excelente — não perdi tempo com oportunidades que não faziam sentido pra mim.",
+      name: "Filomena da Silva",
+      location: t("testimonials.list.case6.location"),
+      role: t("testimonials.list.case6.role"),
+      quote: t("testimonials.list.case6.quote"),
       initials: "FS",
     },
   ];
 
   return (
-    <section id={id} className="py-20 md:py-32 bg-secondary">
+    <section id={id} className="py-20 md:py-32 bg-secondary transition-colors duration-300">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
+        {/* Cabeçalho da Seção */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 border-2 border-border px-4 py-2 mb-6 bg-background shadow-xs">
-            <span className="text-sm font-medium">Cases de Sucesso</span>
+          <div className="inline-flex items-center gap-2 border-2 border-border px-4 py-2 mb-6 bg-background shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] font-bold uppercase text-xs tracking-widest">
+            <span>{t("testimonials.tag")}</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-            Histórias de quem
+            {t("testimonials.title")}
             <br />
-            <span className="border-b-4 border-foreground">já realizou o sonho</span>
+            <span className="border-b-4 border-foreground">{t("testimonials.titleAccent")}</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Conheça alguns dos profissionais brasileiros que conquistaram suas vagas 
-            no exterior através da nossa comunidade.
+            {t("testimonials.description")}
           </p>
         </div>
 
-        {/* Testimonials Grid */}
+        {/* Grelha de Testemunhos */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="border-2 border-border bg-background p-6 shadow-sm hover:shadow-md hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all flex flex-col"
+              className="border-2 border-border bg-background p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[7px_7px_0px_0px_rgba(255,255,255,1)] transition-all flex flex-col"
             >
-              {/* Quote Icon */}
-              <Quote className="w-8 h-8 mb-4 text-muted-foreground" />
+              <Quote className="w-8 h-8 mb-4 text-primary opacity-50 shrink-0" />
 
-              {/* Quote Text */}
-              <p className="text-foreground mb-6 flex-grow leading-relaxed">
+              <p className="text-foreground mb-6 flex-grow leading-relaxed italic">
                 "{testimonial.quote}"
               </p>
 
-              {/* Author Info */}
               <div className="flex items-center gap-4 pt-4 border-t-2 border-border">
-                <div className="w-12 h-12 border-2 border-border flex items-center justify-center font-bold bg-secondary">
+                <div className="w-12 h-12 border-2 border-border flex items-center justify-center font-bold bg-secondary shrink-0 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">
                   {testimonial.initials}
                 </div>
-                <div>
-                  <div className="font-bold">{testimonial.name}</div>
-                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                <div className="min-w-0">
+                  <div className="font-bold truncate">{testimonial.name}</div>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <Briefcase className="w-3 h-3" />
                       {testimonial.role}

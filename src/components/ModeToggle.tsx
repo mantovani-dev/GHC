@@ -1,12 +1,10 @@
 import { Moon, Sun } from "lucide-react";
-// Corrigindo a importação para usar o alias do projeto, garantindo que o caminho seja resolvido corretamente
 import { useTheme } from "@/components/ThemeProvider";
 import { cn } from "@/lib/utils";
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
 
-  // Função para alternar entre os temas claro e escuro
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };

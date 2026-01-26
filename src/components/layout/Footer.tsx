@@ -1,8 +1,10 @@
 import { MessageCircle, Instagram, Linkedin, Youtube, Code2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 import logoGhc from "@/assets/logo-ghc-invisible-white.png";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
@@ -12,11 +14,11 @@ const Footer = () => {
   ];
 
   const footerLinks = [
-    { label: "Início", href: "#inicio" },
-    { label: "Sobre", href: "#sobre" },
-    { label: "Como Funciona", href: "#como-funciona" },
-    { label: "Cases", href: "#cases" },
-    { label: "Contato", href: "#contato" },
+    { label: t("footer.labels.home"), href: "#inicio" },
+    { label: t("footer.labels.about"), href: "#sobre" },
+    { label: t("footer.labels.works"), href: "#como-funciona" },
+    { label: t("footer.labels.cases"), href: "#cases" },
+    { label: t("footer.labels.contact"), href: "#contato" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -41,7 +43,7 @@ const Footer = () => {
               }}
             />
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              Conectando talentos brasileiros às melhores oportunidades de trabalho no exterior.
+              {t("footer.description")}
             </p>
             {/* Links Sociais */}
             <div className="flex gap-3">
@@ -62,7 +64,7 @@ const Footer = () => {
 
           {/* Navegação */}
           <div>
-            <div className="font-bold mb-3 text-white">Navegação</div>
+            <div className="font-bold mb-3 text-white">{t("footer.nav")}</div>
             <nav className="flex flex-col gap-1.5">
               {footerLinks.map((link, index) => (
                 <button
@@ -78,7 +80,7 @@ const Footer = () => {
 
           {/* Contato */}
           <div>
-            <div className="font-bold mb-3 text-white">Contato</div>
+            <div className="font-bold mb-3 text-white">{t("footer.labels.contact")}</div>
             <div className="flex flex-col gap-1.5 text-sm text-gray-300">
               <a
                 href="https://wa.me/5511940033692"
@@ -102,14 +104,14 @@ const Footer = () => {
         {/* Barra Inferior */}
         <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
           <div className="text-sm text-gray-500">
-            © {currentYear} Global Hiring & Careers (GHC). Todos os direitos reservados.
+            © {currentYear} Global Hiring & Careers (GHC). {t("footer.rights")}
           </div>
           <div className="flex gap-6 text-sm text-gray-500">
             <a href="#" className="hover:text-white transition-colors">
-              Política de Privacidade
+              {t("footer.privacy")}
             </a>
             <a href="#" className="hover:text-white transition-colors">
-              Termos de Uso
+              {t("footer.terms")}
             </a>
           </div>
         </div>
@@ -117,7 +119,7 @@ const Footer = () => {
         {/* Créditos do Desenvolvedor */}
         <div className="flex flex-col items-center justify-center pt-6 border-t border-white/5">
           <p className="text-[9px] uppercase tracking-[0.2em] text-gray-600 mb-1 font-medium">
-            Desenvolvido por André Mantovani
+            {t("footer.developed")}
           </p>
           <div className="group cursor-default select-none">
             <span className="font-mono text-xs tracking-tighter text-gray-500 group-hover:text-primary transition-colors duration-500">

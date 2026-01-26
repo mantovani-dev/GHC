@@ -2,7 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ModeToggle } from "../ModeToggle";
+import { ModeToggle } from "@/components/ModeToggle";
+import { LanguageToggle } from "@/components/LanguageToggle"; 
+import { useTranslation } from "react-i18next";
 
 import logoGhc from "@/assets/logo-ghc-invisible.png";
 import logoGhcWhite from "@/assets/logo-ghc-invisible-white.png";
@@ -11,13 +13,14 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("inicio");
   const isManualScrolling = useRef(false);
+  const { t } = useTranslation();
 
   const navLinks = [
-    { href: "inicio", label: "Início" },
-    { href: "sobre", label: "Sobre" },
-    { href: "como-funciona", label: "Como Funciona" },
-    { href: "cases", label: "Cases" },
-    { href: "contato", label: "Contato" },
+    { href: "inicio", label: "header.inicio" },
+    { href: "sobre", label: "header.sobre" },
+    { href: "como-funciona", label: "header.comoFunciona" },
+    { href: "cases", label: "header.cases" },
+    { href: "contato", label: "header.contato" },
   ];
 
   useEffect(() => {
@@ -75,15 +78,13 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b-2 border-border transition-colors duration-300">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo Dinâmico: Troca baseada na classe .dark do Tailwind */}
+          {/* Logo Dinâmico com suporte a tema claro/escuro */}
           <button onClick={() => scrollToSection("inicio")} className="flex items-center">
-            {/* Logo para Modo Claro */}
             <img 
               src={logoGhc} 
               alt="Global Hiring & Careers" 
               className="h-10 md:h-12 block dark:hidden transition-transform hover:scale-105" 
             />
-            {/* Logo para Modo Escuro */}
             <img 
               src={logoGhcWhite} 
               alt="Global Hiring & Careers" 
@@ -91,7 +92,7 @@ const Header = () => {
             />
           </button>
 
-          {/* Navegação Desktop */}
+          {/* Navegação Desktop com textos traduzidos */}
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
@@ -106,7 +107,7 @@ const Header = () => {
                       : "text-muted-foreground hover:text-primary hover:bg-secondary/40"
                   )}
                 >
-                  {link.label}
+                  {t(link.label)}
                   <span className={cn(
                     "absolute bottom-0 left-0 h-[3px] bg-primary transition-all duration-300",
                     isActive ? "w-full opacity-100" : "w-0 opacity-0"
@@ -116,20 +117,22 @@ const Header = () => {
             })}
           </nav>
 
-          {/* Ações Desktop */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Ações Desktop: Alternadores de Idioma, Tema e CTA */}
+          <div className="hidden md:flex items-center gap-3">
+            <LanguageToggle />
             <ModeToggle />
             <Button
               onClick={() => window.open("https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D", "_blank")}
               className="font-bold border-2 border-border shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] dark:hover:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]"
             >
               <MessageCircle className="w-4 h-4 mr-2" />
-              Comunidade
+              {t('header.comunidade')}
             </Button>
           </div>
 
           {/* Ações Mobile */}
           <div className="flex md:hidden items-center gap-2">
+            <LanguageToggle />
             <ModeToggle />
             <button
               className="p-2 border-2 border-border bg-background shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all"
@@ -140,7 +143,7 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Menu Mobile */}
+        {/* Menu Mobile Retrátil */}
         {isMenuOpen && (
           <div className="md:hidden border-t-2 border-border bg-background animate-in slide-in-from-top duration-300">
             <nav className="flex flex-col p-2 gap-1">
@@ -157,7 +160,7 @@ const Header = () => {
                         : "border-transparent text-muted-foreground hover:bg-secondary/50"
                     )}
                   >
-                    {link.label}
+                    {t(link.label)}
                   </button>
                 );
               })}
