@@ -13,6 +13,7 @@ const resources = {
         contato: "Contato",
         comunidade: "Comunidade",
       },
+
       hero: {
         tag: "Recrutamento Internacional",
         title: "Sua carreira internacional",
@@ -23,9 +24,24 @@ const resources = {
         professionals: "Profissionais Conectados",
         destinations: "Países de Destino",
         positions: "Vagas Preenchidas",
+        pillars: {
+          security: {
+            label: "Segurança Jurídica",
+            sub: "Processos 100% dentro das leis migratórias",
+          },
+          support: {
+            label: "Suporte Total",
+            sub: "Acompanhamento real na chegada ao destino",
+          },
+          verified: {
+            label: "Vagas Verificadas",
+            sub: "Contratos diretos com empresas europeias",
+          }
+        }
       },
+
       about: {
-          tag: "Sobre a GHC",
+        tag: "Sobre a GHC",
         title: "Não vendemos destinos...",
         titleAccent: "... construímos caminhos.",
         description1: "A GHC - Global Hiring & Careers, nasceu da necessidade de trazer clareza e organização para brasileiros que buscam o mercado internacional. Atuamos como ponte entre candidatos e empregadores, com foco em vagas operacionais e técnicas.",
@@ -57,6 +73,7 @@ const resources = {
           }
         }
       },
+
       howItWorks: {
         tag: "Como Funciona",
         title: "Seu caminho para uma",
@@ -82,6 +99,7 @@ const resources = {
           }
         }
       },
+
       testimonials: {
         tag: "Cases de Sucesso",
         title: "Histórias de quem",
@@ -96,6 +114,7 @@ const resources = {
           case6: { role: "DevOps Engineer", location: "Reino Unido", quote: "Recebi várias propostas que se encaixavam no meu perfil. A curadoria é excelente — não perdi tempo com oportunidades sem sentido." }
         }
       },
+
       contact: {
         tag: "Contato",
         title: "Pronto para dar o",
@@ -113,6 +132,7 @@ const resources = {
         city: "São Paulo, Brasil",
         scope: "Atendemos todo o Brasil"
       },
+
       footer: {
         nav: "Navegação",
         legal: "Informações",
@@ -131,6 +151,7 @@ const resources = {
       }
     },
   },
+  
   en: {
     translation: {
       header: {
@@ -141,6 +162,7 @@ const resources = {
         contato: "Contact",
         comunidade: "Community",
       },
+      
       hero: {
         tag: "International Recruitment",
         title: "Your international career",
@@ -151,7 +173,22 @@ const resources = {
         professionals: "Conected Professionals",
         destinations: "Destination Countries",
         positions: "Positions Filled",
+        pillars: {
+          security: {
+            label: "Legal Security",
+            sub: "Processes 100% within immigration laws.",
+          },
+          support: {
+            label: "Full Support",
+            sub: "Real-time assistance upon arrival at your destination",
+          },
+          verified: {
+            label: "Real Jobs",
+            sub: "Direct contracts with European companies",
+          }
+        }
       },
+
       about: {
         tag: "About GHC",
         title: "We don't sell destinations...",
@@ -185,6 +222,7 @@ const resources = {
           }
         }
       },
+
       howItWorks: {
         tag: "How it Works",
         title: "Your path to an",
@@ -198,6 +236,7 @@ const resources = {
           step4: { title: "Boarding", description: "Final preparation and pre-departure guidance for your new journey in Europe." }
         }
       },
+
       testimonials: {
         tag: "Success Stories",
         title: "Stories from those",
@@ -212,6 +251,7 @@ const resources = {
           case6: { role: "DevOps Engineer", location: "UK", quote: "I received several proposals that fit my profile. The curation is excellent — no time wasted on irrelevant offers." }
         }
       },
+
       contact: {
         tag: "Contact",
         title: "Ready to take the",
@@ -229,6 +269,7 @@ const resources = {
         city: "São Paulo, Brazil",
         scope: "Serving all of Brazil"
       },
+
       footer: {
         nav: "Navigation",
         legal: "Legal",
@@ -247,6 +288,7 @@ const resources = {
       }
     },
   },
+
   es: {
     translation: {
       header: {
@@ -257,6 +299,7 @@ const resources = {
         contato: "Contacto",
         comunidade: "Comunidad",
       },
+
       hero: {
         tag: "Reclutamiento Internacional",
         title: "Tu carrera internacional",
@@ -267,7 +310,22 @@ const resources = {
         professionals: "Profesionales Conectados",
         destinations: "Países de Destino",
         positions: "Posiciones Ocupadas",
+        pillars: {
+          security: {
+            label: "Seguridad Jurídica",
+            sub: "Procesos 100% dentro de las leyes migratorias",
+          },
+          support: {
+            label: "Soporte Completo",
+            sub: "Asistencia en tiempo real a su llegada a su destino",
+          },
+          verified: {
+            label: "Trabajos Reales",
+            sub: "Contratos directos con empresas europeas",
+          }
+        }
       },
+
       about: {
         tag: "Sobre GHC",
         title: "No vendemos destinos...",
@@ -301,6 +359,7 @@ const resources = {
           }
         }
       },
+
       howItWorks: {
         tag: "Cómo Funciona",
         title: "Tu camino hacia una",
@@ -314,6 +373,7 @@ const resources = {
           step4: { title: "Embarque", description: "Preparación final y orientaciones previas al viaje para tu nueva jornada en Europa." }
         }
       },
+
       testimonials: {
         tag: "Casos de Éxito",
         title: "Historias de quienes",
@@ -328,6 +388,7 @@ const resources = {
           case6: { role: "Ingeniero DevOps", location: "Reino Unido", quote: "Recibí varias propuestas que encajaban con mi perfil. La curaduría es excelente — no perdí tiempo con ofertas irrelevantes." }
         }
       },
+
       contact: {
         tag: "Contacto",
         title: "¿Listo para dar el",
@@ -345,6 +406,7 @@ const resources = {
         city: "São Paulo, Brasil",
         scope: "Atendemos a todo Brasil"
       },
+
       footer: {
         nav: "Navegación",
         legal: "Legal",
