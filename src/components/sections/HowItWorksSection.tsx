@@ -1,8 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, UserPlus, Search, FileCheck, Plane } from "lucide-react";
-import { cn } from "@/lib/utils";
-
 import { useTranslation } from "react-i18next";
 
 interface HowItWorksSectionProps {
@@ -42,7 +40,6 @@ const HowItWorksSection = ({ id }: HowItWorksSectionProps) => {
   return (
     <section id={id} className="py-20 md:py-32 bg-background">
       <div className="container mx-auto px-4">
-        {/* Cabeçalho da Seção */}
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 border-2 border-border px-4 py-2 mb-6 bg-secondary shadow-xs font-bold uppercase text-xs tracking-widest">
             <span>{t("howItWorks.tag")}</span>
@@ -57,16 +54,16 @@ const HowItWorksSection = ({ id }: HowItWorksSectionProps) => {
           </p>
         </div>
 
-        {/* Grelha de Passos */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {steps.map((step, index) => (
             <div
               key={index}
               className="relative border-2 border-border bg-background p-6 shadow-sm hover:shadow-md hover:translate-x-[-3px] hover:translate-y-[-3px] transition-all group flex flex-col h-full"
             >
-              <div className="text-6xl font-bold text-secondary group-hover:text-primary transition-colors mb-4 opacity-50 select-none">
+              <div className="text-6xl font-bold text-muted-foreground/20 group-hover:text-primary transition-colors duration-300 mb-4 select-none">
                 {step.number}
               </div>
+              
               <step.icon className="w-8 h-8 mb-4 text-primary shrink-0" />
               <h3 className="text-xl font-bold mb-2">{step.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
@@ -74,7 +71,6 @@ const HowItWorksSection = ({ id }: HowItWorksSectionProps) => {
           ))}
         </div>
 
-        {/* Chamada para Ação (CTA) */}
         <div className="text-center">
           <Button
             size="lg"
