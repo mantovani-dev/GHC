@@ -79,8 +79,8 @@ const TestimonialsSection = ({ id }: TestimonialsSectionProps) => {
                 <Instagram className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <h3 className="font-bold text-lg leading-tight">Case em Vídeo</h3>
-                <p className="text-xs text-muted-foreground">Assista ao relato completo</p>
+                <h3 className="font-bold text-lg leading-tight">Depoimento da Tamires e do Guilherme</h3>
+                <p className="text-xs text-muted-foreground">Quem conta com a GHC recomenda</p>
               </div>
             </div>
 

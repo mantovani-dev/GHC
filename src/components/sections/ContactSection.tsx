@@ -12,13 +12,13 @@ const ContactSection = ({ id }: ContactSectionProps) => {
   const { t } = useTranslation();
 
   const contactInfo = [
-    {
-      icon: MessageCircle,
-      title: t("contact.whatsapp"),
-      value: "+55 11 94003-3692",
-      description: t("contact.response"),
-      action: () => window.open("https://wa.me/5511940033692", "_blank"),
-    },
+    // {
+    //   icon: MessageCircle,
+    //   title: t("contact.whatsapp"),
+    //   value: "+55 11 94003-3692",
+    //   description: t("contact.response"),
+    //   action: () => window.open("https://wa.me/5511940033692", "_blank"),
+    // },
     {
       icon: Mail,
       title: t("contact.email"),
