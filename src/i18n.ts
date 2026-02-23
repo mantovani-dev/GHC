@@ -18,7 +18,7 @@ const resources = {
         tag: "Recrutamento Internacional",
         title: "Sua carreira internacional",
         titleAccent: "começa aqui",
-        description: "Conectamos brasileiros a oportunidades reais de trabalho na Polônia e Europa. Sem promessas irreais, apenas caminhos viáveis.",
+        description: "Conectamos brasileiros a oportunidades de trabalho no Exterior. Sem promessas irreais, apenas caminhos viáveis.",
         cta: "Entrar na Comunidade",
         learnMore: "Saiba Mais",
         professionals: "Profissionais Conectados",
@@ -31,11 +31,15 @@ const resources = {
           },
           support: {
             label: "Suporte Total",
-            sub: "Acompanhamento real na chegada ao destino",
+            sub: "Te acompanhamos em todas as etapas do processo",
           },
           verified: {
             label: "Vagas Verificadas",
             sub: "Contratos diretos com empresas europeias",
+          },
+          people: {
+            label: "+100 Pessoas",
+            sub: "Já conectadas a oportunidades reais!",
           }
         }
       },
@@ -151,7 +155,7 @@ const resources = {
       }
     },
   },
-  
+
   en: {
     translation: {
       header: {
@@ -162,12 +166,12 @@ const resources = {
         contato: "Contact",
         comunidade: "Community",
       },
-      
+
       hero: {
         tag: "International Recruitment",
         title: "Your international career",
         titleAccent: "starts here",
-        description: "We connect Brazilians to real job opportunities in Poland and Europe. No unrealistic promises, just viable paths.",
+        description: "We connect Brazilians to real job opportunities abroad. No unrealistic promises, just viable paths.",
         cta: "Join Community",
         learnMore: "Learn More",
         professionals: "Conected Professionals",
@@ -180,11 +184,15 @@ const resources = {
           },
           support: {
             label: "Full Support",
-            sub: "Real-time assistance upon arrival at your destination",
+            sub: "We accompany you in all stages of the process",
           },
           verified: {
             label: "Real Jobs",
             sub: "Direct contracts with European companies",
+          },
+          people: {
+            label: "+100 People",
+            sub: "Already connected to real opportunities!",
           }
         }
       },
@@ -304,7 +312,7 @@ const resources = {
         tag: "Reclutamiento Internacional",
         title: "Tu carrera internacional",
         titleAccent: "comienza aquí",
-        description: "Conectamos a brasileños con oportunidades reales de trabajo en Polonia e Europa. Sin promesas irreais, solo caminos viables.",
+        description: "Conectamos a brasileños con oportunidades reales de trabajo en el Exterior. Sin promesas irreais, solo caminos viables.",
         cta: "Unirse a la Comunidad",
         learnMore: "Saber más",
         professionals: "Profesionales Conectados",
@@ -317,11 +325,15 @@ const resources = {
           },
           support: {
             label: "Soporte Completo",
-            sub: "Asistencia en tiempo real a su llegada a su destino",
+            sub: "Te acompañamos en todas las etapas del proceso",
           },
           verified: {
             label: "Trabajos Reales",
             sub: "Contratos directos con empresas europeas",
+          },
+          people: {
+            label: "+100 Personas",
+            sub: "¡Ya conectadas a oportunidades reales!",
           }
         }
       },

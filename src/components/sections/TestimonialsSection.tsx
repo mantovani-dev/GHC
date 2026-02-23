@@ -1,5 +1,5 @@
+import { Quote, MapPin, Briefcase, Instagram } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Quote, MapPin, Briefcase } from "lucide-react";
 
 interface TestimonialsSectionProps {
   id?: string;
@@ -56,7 +56,6 @@ const TestimonialsSection = ({ id }: TestimonialsSectionProps) => {
   return (
     <section id={id} className="py-20 md:py-32 bg-secondary transition-colors duration-300">
       <div className="container mx-auto px-4">
-        {/* Cabeçalho da Seção */}
         <div className="max-w-3xl mb-16">
           <div className="inline-flex items-center gap-2 border-2 border-border px-4 py-2 mb-6 bg-background shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] font-bold uppercase text-xs tracking-widest">
             <span>{t("testimonials.tag")}</span>
@@ -71,12 +70,37 @@ const TestimonialsSection = ({ id }: TestimonialsSectionProps) => {
           </p>
         </div>
 
-        {/* Grelha de Testemunhos */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+          
+          <div className="border-2 border-border bg-background shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[7px_7px_0px_0px_rgba(255,255,255,1)] transition-all flex flex-col h-full lg:row-span-2 overflow-hidden">
+            
+            <div className="flex items-center gap-3 p-4 md:p-6 border-b-2 border-border bg-secondary/30">
+              <div className="bg-primary/10 p-2 rounded-full border-2 border-border">
+                <Instagram className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg leading-tight">Case em Vídeo</h3>
+                <p className="text-xs text-muted-foreground">Assista ao relato completo</p>
+              </div>
+            </div>
+
+            <div className="w-full flex-grow bg-background relative min-h-[660px] md:min-h-[700px]">
+              <iframe
+                src="https://www.instagram.com/reel/DU1NtmCkSVp/embed"
+                className="absolute inset-0 w-full h-full"
+                frameBorder="0"
+                scrolling="no"
+                allowTransparency={true}
+                allow="encrypted-media"
+                title="Depoimento Instagram"
+              ></iframe>
+            </div>
+          </div>
+
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="border-2 border-border bg-background p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[7px_7px_0px_0px_rgba(255,255,255,1)] transition-all flex flex-col"
+              className="border-2 border-border bg-background p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[7px_7px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[7px_7px_0px_0px_rgba(255,255,255,1)] transition-all flex flex-col h-full"
             >
               <Quote className="w-8 h-8 mb-4 text-primary opacity-50 shrink-0" />
 
@@ -84,7 +108,7 @@ const TestimonialsSection = ({ id }: TestimonialsSectionProps) => {
                 "{testimonial.quote}"
               </p>
 
-              <div className="flex items-center gap-4 pt-4 border-t-2 border-border">
+              <div className="flex items-center gap-4 pt-4 border-t-2 border-border mt-auto">
                 <div className="w-12 h-12 border-2 border-border flex items-center justify-center font-bold bg-secondary shrink-0 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">
                   {testimonial.initials}
                 </div>

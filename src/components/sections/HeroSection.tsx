@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, ArrowRight, Globe, ShieldCheck, CheckCircle2, MapPin } from "lucide-react";
+import { MessageCircle, ArrowRight, Globe, ShieldCheck, CheckCircle2, MapPin, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -64,6 +64,11 @@ const HeroSection = ({ id }: HeroSectionProps) => {
       label: t("hero.pillars.verified.label"),
       sub: t("hero.pillars.verified.sub"),
     },
+    // {
+    //   icon: Users,
+    //   label: t("hero.pillars.people.label"),
+    //   sub: t("hero.pillars.people.sub"),
+    // }
   ];
 
   return (
