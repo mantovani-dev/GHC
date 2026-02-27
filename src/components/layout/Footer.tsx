@@ -34,10 +34,10 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Marca / Logo */}
           <div>
-            <img 
-              src={logoGhc} 
-              alt="Global Hiring & Careers" 
-              className="h-10 mb-3" 
+            <img
+              src={logoGhc}
+              alt="Global Hiring & Careers"
+              className="h-10 mb-3"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = 'none';
               }}
@@ -81,22 +81,15 @@ const Footer = () => {
           {/* Contato */}
           <div>
             <div className="font-bold mb-3 text-white">{t("footer.labels.contact")}</div>
-            <div className="flex flex-col gap-1.5 text-sm text-gray-300">
-              {/* <a
-                href="https://wa.me/5511940033692"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors"
-              >
-                +55 11 94003-3692
-              </a> */}
+            <div className="flex flex-col gap-1.5 text-sm text-gray-400">
               <a
-                href="mailto:contato@ghcareers.com.br"
-                className="hover:text-white transition-colors"
+                href="mailto:atendimento@globalhiringcareers.com"
+                className="text-gray-400 hover:text-white transition-colors"
               >
                 atendimento@globalhiringcareers.com
               </a>
-              <span className="text-gray-400">São Paulo, Brasil</span>
+              <span className="text-gray-400">Av. Salgado Filho, 2120</span>
+              <span className="text-gray-400">Guarulhos, São Paulo - Brasil</span>
             </div>
           </div>
         </div>
