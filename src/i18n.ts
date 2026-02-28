@@ -133,7 +133,7 @@ const resources = {
         partnerships: "Para parcerias e empresas",
         week: "Segunda a Sexta",
         schedule: "9h às 18h (horário de Brasília)",
-        city: "São Paulo, Brasil",
+        city: "Guarulhos - SP, Brasil",
         scope: "Atendemos todo o Brasil"
       },
 
@@ -415,7 +415,7 @@ const resources = {
         partnerships: "Para alianzas y empresas",
         week: "Lunes a Viernes",
         schedule: "9 AM a 6 PM (Hora de Brasilia)",
-        city: "São Paulo, Brasil",
+        city: "Guarulhos - SP, Brasil",
         scope: "Atendemos a todo Brasil"
       },
 
