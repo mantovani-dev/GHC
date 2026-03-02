@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Globe } from "lucide-react";
 
 const GhcBio = () => {
   return (
@@ -12,7 +12,7 @@ const GhcBio = () => {
       />
       
       {/* Logo Section */}
-      <div className="animate-float mb-16 relative z-10 text-center">
+      <div className="animate-float mb-12 relative z-10 text-center">
         <div className="relative inline-block">
           <h1 
             className="text-7xl md:text-9xl font-bold tracking-tighter text-white"
@@ -29,25 +29,39 @@ const GhcBio = () => {
       </div>
 
       {/* Tagline */}
-      <p className="text-gray-400 text-lg md:text-xl mb-12 text-center max-w-md relative z-10 font-medium">
+      <p className="text-gray-400 text-lg md:text-xl mb-10 text-center max-w-md relative z-10 font-medium">
         Tenha acesso à vagas exclusivas diariamente. 
         <br />
         Entre no nosso canal exclusivo!
       </p>
 
-      {/* WhatsApp Button */}
-      <a
-        href="https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group relative inline-flex items-center gap-3 px-10 py-5 bg-[#33bae9] text-black font-black text-xl rounded-full transition-all duration-300 hover:scale-110 animate-pulse-glow z-10"
-      >
-        <MessageCircle className="w-7 h-7 fill-current" />
-        <span>Entrar no Canal</span>
+      {/* Container dos Botões */}
+      <div className="flex flex-col gap-5 w-full max-w-sm relative z-10">
         
-        {/* Hover ring effect */}
-        <span className="absolute inset-0 rounded-full border-4 border-[#33bae9] opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500" />
-      </a>
+        {/* WhatsApp Button (Principal) */}
+        <a
+          href="https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative flex items-center justify-center gap-3 w-full px-8 py-5 bg-[#33bae9] text-black font-black text-xl rounded-full transition-all duration-300 hover:scale-105 animate-pulse-glow"
+        >
+          <MessageCircle className="w-7 h-7 fill-current" />
+          <span>Entrar no Canal</span>
+          
+          {/* Hover ring effect */}
+          <span className="absolute inset-0 rounded-full border-4 border-[#33bae9] opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" />
+        </a>
+
+        {/* Website Button (Secundário) */}
+        <a
+          href="/"
+          className="group relative flex items-center justify-center gap-3 w-full px-8 py-5 bg-transparent border-2 border-[#33bae9] text-white font-bold text-xl rounded-full transition-all duration-300 hover:bg-[#33bae9]/10 hover:scale-105"
+        >
+          <Globe className="w-6 h-6 text-[#33bae9]" />
+          <span>Entre no nosso site</span>
+        </a>
+
+      </div>
 
       {/* Bottom decoration */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-4 opacity-50">
