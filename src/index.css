@@ -9,85 +9,93 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    --foreground: 0 0% 6%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    --card-foreground: 0 0% 6%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover-foreground: 0 0% 6%;
 
-    /* Cor primária no modo claro (Preto) */
-    --primary: 0 0% 0%;
+    /* Cor primária no modo claro (Quase preto) */
+    --primary: 0 0% 6%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary-foreground: 0 0% 10%;
 
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted-foreground: 0 0% 46%;
 
     /* Accent usa o Azul do Logo #33bae9 */
-    --accent: 196 80% 56%;
+    --accent: 196 78% 54%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 0%;
-    --input: 0 0% 0%;
-    --ring: 196 80% 56%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 196 78% 54%;
 
-    --radius: 0rem;
+    /* Raio sutil — mantém caráter neo-brutalista mas menos pesado */
+    --radius: 0.25rem;
 
-    /* Sombras Neo-brutalistas (Preto no modo claro) */
+    /* Sombras Neo-brutalistas ligeiramente mais suaves no modo claro */
     --shadow-color: 0 0% 0%;
-    --shadow-xs: 2px 2px 0px 0px hsla(var(--shadow-color) / 1);
-    --shadow-sm: 3px 3px 0px 0px hsla(var(--shadow-color) / 1);
-    --shadow: 4px 4px 0px 0px hsla(var(--shadow-color) / 1);
-    --shadow-md: 6px 6px 0px 0px hsla(var(--shadow-color) / 1);
-    --shadow-lg: 10px 10px 0px 0px hsla(var(--shadow-color) / 1);
+    --shadow-2xs: 1px 1px 0px 0px hsla(var(--shadow-color) / 0.75);
+    --shadow-xs:  2px 2px 0px 0px hsla(var(--shadow-color) / 0.8);
+    --shadow-sm:  3px 3px 0px 0px hsla(var(--shadow-color) / 0.85);
+    --shadow:     4px 4px 0px 0px hsla(var(--shadow-color) / 0.9);
+    --shadow-md:  5px 5px 0px 0px hsla(var(--shadow-color) / 1);
+    --shadow-lg:  7px 7px 0px 0px hsla(var(--shadow-color) / 1);
+    --shadow-xl: 10px 10px 0px 0px hsla(var(--shadow-color) / 1);
+    --shadow-2xl:14px 14px 0px 0px hsla(var(--shadow-color) / 1);
   }
 
   .dark {
     /* Fundo Predominante #1c202b */
-    --background: 224 21% 14%;
-    --foreground: 0 0% 100%;
+    --background: 224 21% 13%;
+    --foreground: 0 0% 95%;
 
-    --card: 224 21% 14%;
-    --card-foreground: 0 0% 100%;
+    /* Cards ligeiramente mais claros que o fundo para dar profundidade */
+    --card: 224 21% 17%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 224 21% 14%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 224 21% 17%;
+    --popover-foreground: 0 0% 95%;
 
     /* No modo escuro, o Primary vira o azul do logo #33bae9 */
-    --primary: 196 80% 56%;
-    --primary-foreground: 224 21% 14%;
+    --primary: 196 78% 54%;
+    --primary-foreground: 224 21% 13%;
 
     --secondary: 224 21% 20%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary-foreground: 0 0% 90%;
 
     --muted: 224 21% 20%;
-    --muted-foreground: 224 10% 70%;
+    --muted-foreground: 224 10% 62%;
 
-    --accent: 196 80% 56%;
-    --accent-foreground: 224 21% 14%;
+    --accent: 196 78% 54%;
+    --accent-foreground: 224 21% 13%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Removida a borda cinza: agora usamos branco sólido ou transparente para evitar o efeito "sujo" */
-    --border: 0 0% 100% / 0; /* Totalmente transparente para remover a borda cinza dos botões */
-    --input: 0 0% 100% / 0.2; /* Apenas uma sugestão leve para inputs */
-    --ring: 196 80% 56%;
+    /* Borda sutil branca — evita o efeito "sujo" mas dá estrutura */
+    --border: 0 0% 100% / 0.1;
+    --input: 0 0% 100% / 0.14;
+    --ring: 196 78% 54%;
 
-    /* Sombras no modo escuro ajustadas */
-    --shadow-color: 0 0% 0%;
-    --shadow-xs: 1px 1px 0px 0px hsla(0, 0%, 100%, 0.5);
-    --shadow-sm: 2px 2px 0px 0px hsla(0, 0%, 100%, 0.5);
-    --shadow: 3px 3px 0px 0px hsla(196, 80%, 56%, 0.6); 
-    --shadow-md: 4px 4px 0px 0px hsla(0, 0%, 100%, 0.5);
-    --shadow-lg: 6px 6px 0px 0px hsla(196, 80%, 56%, 0.6);
+    /* Sombras no modo escuro: cyan suave em vez de branco puro */
+    --shadow-color: 196 78% 54%;
+    --shadow-2xs: 1px 1px 0px 0px hsla(196, 78%, 54%, 0.2);
+    --shadow-xs:  2px 2px 0px 0px hsla(196, 78%, 54%, 0.25);
+    --shadow-sm:  2px 2px 0px 0px hsla(196, 78%, 54%, 0.3);
+    --shadow:     3px 3px 0px 0px hsla(196, 78%, 54%, 0.35);
+    --shadow-md:  4px 4px 0px 0px hsla(196, 78%, 54%, 0.4);
+    --shadow-lg:  5px 5px 0px 0px hsla(196, 78%, 54%, 0.45);
+    --shadow-xl:  7px 7px 0px 0px hsla(196, 78%, 54%, 0.5);
+    --shadow-2xl: 9px 9px 0px 0px hsla(196, 78%, 54%, 0.55);
   }
 }
 
@@ -104,6 +112,21 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+  }
+
+  /* Scrollbar personalizada */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-sm;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/60;
   }
 
   /* Estilização Global do Footer */
@@ -123,22 +146,60 @@
 }
 
 @layer utilities {
-  /* Animações Cyber */
+  /* Padrão de pontos sutil para seções secundárias */
+  .dot-pattern {
+    background-image: radial-gradient(hsla(var(--foreground) / 0.045) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* Animação float — mais suave e lenta */
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
+    50%       { transform: translateY(-8px); }
   }
 
+  /* Glow pulse — mais gentil */
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 15px rgba(51, 186, 233, 0.4); }
-    50% { box-shadow: 0 0 30px rgba(51, 186, 233, 0.7); }
+    0%, 100% { box-shadow: 0 0 12px rgba(51, 186, 233, 0.3); }
+    50%       { box-shadow: 0 0 24px rgba(51, 186, 233, 0.6); }
   }
 
-  .animate-float {
-    animation: float 4s ease-in-out infinite;
+  /* Entrada de baixo para cima */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0);    }
   }
 
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+  /* Fade simples */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
+
+  /* Slide da esquerda */
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-20px); }
+    to   { opacity: 1; transform: translateX(0);     }
+  }
+
+  /* Slide da direita */
+  @keyframes slide-in-right {
+    from { opacity: 0; transform: translateX(20px); }
+    to   { opacity: 1; transform: translateX(0);    }
+  }
+
+  /* Pulse ring — para o botão flutuante */
+  @keyframes ping-soft {
+    0%   { transform: scale(1);    opacity: 0.6; }
+    70%  { transform: scale(1.45); opacity: 0;   }
+    100% { transform: scale(1.45); opacity: 0;   }
+  }
+
+  .animate-float        { animation: float 6s ease-in-out infinite; }
+  .animate-pulse-glow   { animation: pulse-glow 3s ease-in-out infinite; }
+  .animate-fade-up      { animation: fade-up 0.6s ease-out forwards; }
+  .animate-fade-in      { animation: fade-in 0.5s ease-out forwards; }
+  .animate-slide-left   { animation: slide-in-left 0.6s ease-out forwards; }
+  .animate-slide-right  { animation: slide-in-right 0.6s ease-out forwards; }
+  .animate-ping-soft    { animation: ping-soft 2.2s cubic-bezier(0, 0, 0.2, 1) infinite; }
 }

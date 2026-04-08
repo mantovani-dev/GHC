@@ -3,97 +3,97 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/ModeToggle";
-import { LanguageToggle } from "@/components/LanguageToggle"; 
+import { LanguageToggle } from "@/components/LanguageToggle";
 import { useTranslation } from "react-i18next";
 
-import logoGhc from "@/assets/logo-ghc-invisible.png";
+import logoGhc      from "@/assets/logo-ghc-invisible.png";
 import logoGhcWhite from "@/assets/logo-ghc-invisible-white.png";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen]     = useState(false);
   const [activeSection, setActiveSection] = useState("inicio");
-  const isManualScrolling = useRef(false);
+  const [scrolled, setScrolled]         = useState(false);
+  const isManualScrolling               = useRef(false);
   const { t } = useTranslation();
 
   const navLinks = [
-    { href: "inicio", label: "header.inicio" },
-    { href: "sobre", label: "header.sobre" },
-    { href: "como-funciona", label: "header.comoFunciona" },
-    { href: "cases", label: "header.cases" },
-    { href: "contato", label: "header.contato" },
+    { href: "inicio",        label: "header.inicio"      },
+    { href: "sobre",         label: "header.sobre"       },
+    { href: "como-funciona", label: "header.comoFunciona"},
+    { href: "cases",         label: "header.cases"       },
+    { href: "contato",       label: "header.contato"     },
   ];
 
+  /* Detecta scroll para aplicar fundo mais sólido */
   useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "-80px 0px -80% 0px",
-      threshold: 0,
-    };
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
-      if (isManualScrolling.current) return;
-
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(handleIntersect, observerOptions);
-
-    navLinks.forEach((link) => {
-      const element = document.getElementById(link.href);
-      if (element) {
-        observer.observe(element);
-      }
+  /* Intersection Observer para seção ativa */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (isManualScrolling.current) return;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { root: null, rootMargin: "-80px 0px -80% 0px", threshold: 0 }
+    );
+    navLinks.forEach(({ href }) => {
+      const el = document.getElementById(href);
+      if (el) observer.observe(el);
     });
-
     return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
+    const el = document.getElementById(id);
+    if (el) {
       isManualScrolling.current = true;
       setActiveSection(id);
       const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-      setTimeout(() => {
-        isManualScrolling.current = false;
-      }, 800);
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
+      setTimeout(() => { isManualScrolling.current = false; }, 900);
     }
     setIsMenuOpen(false);
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b-2 border-border transition-colors duration-300">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo Dinâmico com suporte a tema claro/escuro */}
-          <button onClick={() => scrollToSection("inicio")} className="flex items-center">
-            <img 
-              src={logoGhc} 
-              alt="Global Hiring & Careers" 
-              className="h-10 md:h-12 block dark:hidden transition-transform hover:scale-105" 
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        scrolled
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
+          : "bg-background/80 backdrop-blur-sm border-b border-border/40"
+      )}
+    >
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-15 md:h-18" style={{ height: "60px" }}>
+
+          {/* Logo */}
+          <button
+            onClick={() => scrollToSection("inicio")}
+            className="flex items-center shrink-0"
+            aria-label="Ir para o início"
+          >
+            <img
+              src={logoGhc}
+              alt="Global Hiring & Careers"
+              className="h-9 md:h-11 block dark:hidden transition-transform hover:scale-105"
             />
-            <img 
-              src={logoGhcWhite} 
-              alt="Global Hiring & Careers" 
-              className="h-10 md:h-12 hidden dark:block transition-transform hover:scale-105" 
+            <img
+              src={logoGhcWhite}
+              alt="Global Hiring & Careers"
+              className="h-9 md:h-11 hidden dark:block transition-transform hover:scale-105"
             />
           </button>
 
-          {/* Navegação Desktop com textos traduzidos */}
-          <nav className="hidden md:flex items-center gap-1">
+          {/* Nav Desktop */}
+          <nav className="hidden md:flex items-center gap-0.5">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
               return (
@@ -101,51 +101,62 @@ const Header = () => {
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
                   className={cn(
-                    "px-4 py-2 text-sm font-bold transition-all relative rounded-none",
+                    "px-3.5 py-2 text-sm font-semibold transition-all relative rounded-sm",
                     isActive
                       ? "text-primary bg-secondary/80"
-                      : "text-muted-foreground hover:text-primary hover:bg-secondary/40"
+                      : "text-muted-foreground hover:text-primary hover:bg-secondary/50"
                   )}
                 >
                   {t(link.label)}
-                  <span className={cn(
-                    "absolute bottom-0 left-0 h-[3px] bg-primary transition-all duration-300",
-                    isActive ? "w-full opacity-100" : "w-0 opacity-0"
-                  )} />
+                  <span
+                    className={cn(
+                      "absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-primary rounded-full transition-all duration-300",
+                      isActive ? "w-4/5 opacity-100" : "w-0 opacity-0"
+                    )}
+                  />
                 </button>
               );
             })}
           </nav>
 
-          {/* Ações Desktop: Alternadores de Idioma, Tema e CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Ações Desktop */}
+          <div className="hidden md:flex items-center gap-2.5">
             <LanguageToggle />
             <ModeToggle />
             <Button
               onClick={() => window.open("https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D", "_blank")}
-              className="font-bold border-2 border-border shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] dark:hover:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)]"
+              size="sm"
+              className="font-bold border border-border rounded-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,0.8)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.85)] transition-all duration-200 dark:shadow-[2px_2px_0px_0px_rgba(51,186,233,0.3)] dark:hover:shadow-[4px_4px_0px_0px_rgba(51,186,233,0.45)]"
             >
-              <MessageCircle className="w-4 h-4 mr-2" />
-              {t('header.comunidade')}
+              <MessageCircle className="w-3.5 h-3.5 mr-1.5" />
+              {t("header.comunidade")}
             </Button>
           </div>
 
           {/* Ações Mobile */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex md:hidden items-center gap-1.5">
             <LanguageToggle />
             <ModeToggle />
             <button
-              className="p-2 border-2 border-border bg-background shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)] active:shadow-none active:translate-x-[2px] active:translate-y-[2px] transition-all"
+              className="p-2 border border-border rounded-sm bg-background shadow-xs active:shadow-none active:translate-x-[1px] active:translate-y-[1px] transition-all duration-150"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen
+                ? <X    className="w-5 h-5" />
+                : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
-        {/* Menu Mobile Retrátil */}
-        {isMenuOpen && (
-          <div className="md:hidden border-t-2 border-border bg-background animate-in slide-in-from-top duration-300">
+        {/* Menu Mobile */}
+        <div
+          className={cn(
+            "md:hidden overflow-hidden transition-all duration-300 ease-out",
+            isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          )}
+        >
+          <div className="border-t border-border/60 bg-background/98 backdrop-blur-sm">
             <nav className="flex flex-col p-2 gap-1">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.href;
@@ -154,19 +165,32 @@ const Header = () => {
                     key={link.href}
                     onClick={() => scrollToSection(link.href)}
                     className={cn(
-                      "py-4 px-6 text-left font-bold transition-all border-2",
+                      "py-3.5 px-5 text-left font-semibold text-sm transition-all rounded-sm",
                       isActive
-                        ? "bg-primary text-primary-foreground border-border shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,1)]"
-                        : "border-transparent text-muted-foreground hover:bg-secondary/50"
+                        ? "bg-primary text-primary-foreground shadow-xs"
+                        : "text-muted-foreground hover:bg-secondary/60 hover:text-foreground"
                     )}
                   >
                     {t(link.label)}
                   </button>
                 );
               })}
+              <div className="pt-2 pb-1 px-5">
+                <Button
+                  onClick={() => {
+                    window.open("https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D", "_blank");
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full font-bold border border-border rounded-sm shadow-xs transition-all"
+                  size="sm"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 mr-2" />
+                  {t("header.comunidade")}
+                </Button>
+              </div>
             </nav>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );
