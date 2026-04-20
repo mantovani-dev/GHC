@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/ModeToggle";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { useTranslation } from "react-i18next";
+import { useCommunityLink } from "@/hooks/useCommunityLink";
 
 import logoGhc      from "@/assets/logo-ghc-invisible.png";
 import logoGhcWhite from "@/assets/logo-ghc-invisible-white.png";
@@ -15,6 +16,7 @@ const Header = () => {
   const [scrolled, setScrolled]         = useState(false);
   const isManualScrolling               = useRef(false);
   const { t } = useTranslation();
+  const communityLink = useCommunityLink();
 
   const navLinks = [
     { href: "inicio",        label: "header.inicio"      },
@@ -124,7 +126,7 @@ const Header = () => {
             <LanguageToggle />
             <ModeToggle />
             <Button
-              onClick={() => window.open("https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D", "_blank")}
+              onClick={() => window.open(communityLink, "_blank")}
               size="sm"
               className="font-bold border border-border rounded-sm shadow-[2px_2px_0px_0px_rgba(0,0,0,0.8)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.85)] transition-all duration-200 dark:shadow-[2px_2px_0px_0px_rgba(51,186,233,0.3)] dark:hover:shadow-[4px_4px_0px_0px_rgba(51,186,233,0.45)]"
             >
@@ -178,7 +180,7 @@ const Header = () => {
               <div className="pt-2 pb-1 px-5">
                 <Button
                   onClick={() => {
-                    window.open("https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D", "_blank");
+                    window.open(communityLink, "_blank");
                     setIsMenuOpen(false);
                   }}
                   className="w-full font-bold border border-border rounded-sm shadow-xs transition-all"

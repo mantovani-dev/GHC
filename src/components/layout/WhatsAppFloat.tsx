@@ -1,17 +1,24 @@
+import { useCommunityLink } from "@/hooks/useCommunityLink";
+
 const WhatsAppFloat = () => {
+  const communityLink = useCommunityLink();
+
   return (
     <a
-      href="https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D"
+      href={communityLink}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-5 right-5 z-50 group"
-      aria-label="Entrar no canal do WhatsApp"
+      aria-label="Entrar na comunidade"
     >
       {/* Anel de pulse */}
       <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping-soft opacity-60 pointer-events-none" />
 
       {/* Botão principal */}
-      <span className="relative flex items-center justify-center w-13 h-13 rounded-full bg-[#25D366] text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,0.3)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.35)] hover:-translate-x-[2px] hover:-translate-y-[2px] active:shadow-none active:translate-x-0 active:translate-y-0 transition-all duration-200" style={{ width: "52px", height: "52px" }}>
+      <span
+        className="relative flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,0.3)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.35)] hover:-translate-x-[2px] hover:-translate-y-[2px] active:shadow-none active:translate-x-0 active:translate-y-0 transition-all duration-200"
+        style={{ width: "52px", height: "52px" }}
+      >
         {/* Ícone SVG do WhatsApp */}
         <svg
           xmlns="http://www.w3.org/2000/svg"

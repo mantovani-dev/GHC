@@ -4,6 +4,7 @@ import { MessageCircle, Mail, MapPin, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "react-i18next";
 import { AnimateIn } from "@/components/ui/animate-in";
+import { useCommunityLink } from "@/hooks/useCommunityLink";
 
 interface ContactSectionProps {
   id?: string;
@@ -11,6 +12,7 @@ interface ContactSectionProps {
 
 const ContactSection = ({ id }: ContactSectionProps) => {
   const { t } = useTranslation();
+  const communityLink = useCommunityLink();
 
   const contactInfo = [
     {
@@ -55,7 +57,7 @@ const ContactSection = ({ id }: ContactSectionProps) => {
 
             <Button
               size="lg"
-              onClick={() => window.open("https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D", "_blank")}
+              onClick={() => window.open(communityLink, "_blank")}
               className="font-bold border border-border rounded-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,0.85)] dark:shadow-[3px_3px_0px_0px_rgba(51,186,233,0.35)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.9)] dark:hover:shadow-[5px_5px_0px_0px_rgba(51,186,233,0.5)] transition-all duration-200 h-auto py-3.5 px-8 w-full sm:w-auto"
             >
               <MessageCircle className="w-4 h-4 mr-2" />

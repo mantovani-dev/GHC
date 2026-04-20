@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useTranslation } from "react-i18next";
+import { useCommunityLink } from "@/hooks/useCommunityLink";
 
 import imgEmbarque   from "@/assets/embarque.jpg";
 import imgPolonia    from "@/assets/polonia.png";
@@ -19,6 +20,7 @@ interface HeroSectionProps {
 
 const HeroSection = ({ id }: HeroSectionProps) => {
   const { t } = useTranslation();
+  const communityLink = useCommunityLink();
   const [isLoaded, setIsLoaded] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -118,7 +120,7 @@ const HeroSection = ({ id }: HeroSectionProps) => {
           <div className="flex flex-col sm:flex-row gap-3 mb-10">
             <Button
               size="lg"
-              onClick={() => window.open("https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D", "_blank")}
+              onClick={() => window.open(communityLink, "_blank")}
               className="font-bold border border-border rounded-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,0.85)] dark:shadow-[3px_3px_0px_0px_rgba(51,186,233,0.35)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.9)] dark:hover:shadow-[5px_5px_0px_0px_rgba(51,186,233,0.5)] active:shadow-none transition-all duration-200 h-auto py-3.5 px-7 text-sm sm:text-base w-full sm:w-auto"
             >
               <MessageCircle className="w-4 h-4 mr-2 shrink-0" />

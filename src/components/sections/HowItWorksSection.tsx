@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, UserPlus, Search, FileCheck, Plane } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { AnimateIn } from "@/components/ui/animate-in";
+import { useCommunityLink } from "@/hooks/useCommunityLink";
 
 interface HowItWorksSectionProps {
   id?: string;
@@ -10,6 +11,7 @@ interface HowItWorksSectionProps {
 
 const HowItWorksSection = ({ id }: HowItWorksSectionProps) => {
   const { t } = useTranslation();
+  const communityLink = useCommunityLink();
 
   const steps = [
     {
@@ -99,7 +101,7 @@ const HowItWorksSection = ({ id }: HowItWorksSectionProps) => {
         <AnimateIn animation="fade-up" delay={200} className="text-center">
           <Button
             size="lg"
-            onClick={() => window.open("https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D", "_blank")}
+            onClick={() => window.open(communityLink, "_blank")}
             className="font-bold border border-border rounded-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,0.85)] dark:shadow-[3px_3px_0px_0px_rgba(51,186,233,0.35)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.9)] dark:hover:shadow-[5px_5px_0px_0px_rgba(51,186,233,0.5)] transition-all duration-200 h-auto py-3.5 px-8"
           >
             <MessageCircle className="w-4 h-4 mr-2" />
