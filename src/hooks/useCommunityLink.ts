@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 const COMMUNITY_LINKS: Record<string, string> = {
   pt: "https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D",
   en: "https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D",
-  es: "https://warreninvest.slack.com/archives/D09J2TW9YG4/p1776701909264299",
+  es: "https://whatsapp.com/channel/0029Vb8Pf7L4SpkGSGcYdE1E",
 };
 
 const DEFAULT_LINK = COMMUNITY_LINKS.pt;
