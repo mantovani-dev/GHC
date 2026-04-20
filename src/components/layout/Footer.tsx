@@ -1,14 +1,16 @@
 import { MessageCircle, Instagram, Linkedin, Youtube, Code2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useCommunityLink } from "@/hooks/useCommunityLink";
 
 import logoGhc from "@/assets/logo-ghc-invisible-white.png";
 
 const Footer = () => {
   const { t } = useTranslation();
+  const communityLink = useCommunityLink();
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: MessageCircle, href: "https://whatsapp.com/channel/0029VbC3MhMChq6KFXJox70D", label: "WhatsApp" },
+    { icon: MessageCircle, href: communityLink, label: "WhatsApp" },
     { icon: Instagram, href: "https://instagram.com/globalhiringcareers?igsh=dDlwNGZjY2kzczl5", label: "Instagram" },
     { icon: Linkedin, href: "https://linkedin.com/company/global-hiring-careers/", label: "LinkedIn" },
   ];
