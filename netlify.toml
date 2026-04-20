@@ -1,0 +1,54 @@
+# ──────────────────────────────────────────────
+# Build settings
+# ──────────────────────────────────────────────
+[build]
+  command   = "npm run build"
+  publish   = "dist"
+
+# ──────────────────────────────────────────────
+# Cache headers
+#
+# Estratégia:
+#   • index.html e qualquer HTML → NUNCA cachear
+#     (browser sempre busca a versão mais nova a cada deploy)
+#   • /assets/* → cachear 1 ano com "immutable"
+#     (o Vite já garante nomes únicos por hash do conteúdo,
+#      então quando o arquivo muda, o nome muda — seguro)
+#   • Demais arquivos estáticos → curto prazo + revalidação
+# ──────────────────────────────────────────────
+
+# 1. Arquivos de assets gerados pelo Vite (JS, CSS, imagens hashed)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# 2. index.html — NUNCA em cache; browser sempre verifica o servidor
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Pragma        = "no-cache"
+    Expires       = "0"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Pragma        = "no-cache"
+    Expires       = "0"
+
+# 3. Outros arquivos (fontes, ícones, manifests etc.)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ──────────────────────────────────────────────
+# SPA redirect — já existe no _redirects, mas
+# duplicar aqui garante que funciona em ambos
+# ──────────────────────────────────────────────
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
