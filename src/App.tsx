@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import UpdatePrompt from "@/components/UpdatePrompt";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import GhcBio from "./pages/GhcBio";
@@ -18,6 +19,7 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          <UpdatePrompt />
           <BrowserRouter>
             <Routes>
               {/* Rota principal (Landing Page) */}
