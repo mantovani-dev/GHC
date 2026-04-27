@@ -5,6 +5,11 @@
   command   = "npm run build"
   publish   = "dist"
 
+# Permite que o npm resolva peer deps com conflito de versão declarada
+# (necessário para vite-plugin-pwa + Vite 7)
+[build.environment]
+  NPM_FLAGS = "--legacy-peer-deps"
+
 # ──────────────────────────────────────────────
 # Cache headers
 #

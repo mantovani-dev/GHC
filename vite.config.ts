@@ -27,10 +27,14 @@ export default defineConfig(({ mode }) => ({
       devOptions: { enabled: false },
 
       workbox: {
-        // Todos os assets gerados pelo Vite ficam em cache via precaching
+        // Precache apenas JS, CSS, HTML e assets pequenos (fontes, ícones, logos)
+        // Imagens grandes do carrossel ficam fora — o cache HTTP do Netlify já as serve
         globPatterns: [
-          "**/*.{js,css,html,ico,png,svg,webp,jpg,jpeg,woff,woff2}",
+          "**/*.{js,css,html,ico,svg,woff,woff2}",
         ],
+
+        // Limite de 500 KB por arquivo no precache (segurança extra)
+        maximumFileSizeToCacheInBytes: 500 * 1024,
 
         // Remove automaticamente caches de versões anteriores no ativamento
         cleanupOutdatedCaches: true,
