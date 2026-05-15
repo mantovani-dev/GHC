@@ -11,7 +11,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: MessageCircle, href: communityLink, label: "WhatsApp" },
-    { icon: Instagram, href: "https://instagram.com/globalhiringcareers?igsh=dDlwNGZjY2kzczl5", label: "Instagram" },
+    { icon: Instagram, href: "https://www.instagram.com/globalhiringcareers_?igsh=MTE4MjgzdGI0aXE5cQ==", label: "Instagram" },
     { icon: Linkedin, href: "https://linkedin.com/company/global-hiring-careers/", label: "LinkedIn" },
   ];
 
