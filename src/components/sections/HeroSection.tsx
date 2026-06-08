@@ -8,11 +8,10 @@ import { useTranslation } from "react-i18next";
 import { useCommunityLink } from "@/hooks/useCommunityLink";
 
 import imgEmbarque   from "@/assets/embarque.jpg";
-import imgPolonia    from "@/assets/polonia.png";
 import imgAnderson   from "@/assets/anderson.jpg";
 import imgDepartures from "@/assets/departures.png";
 
-const HERO_IMAGES = [imgEmbarque, imgPolonia, imgAnderson, imgDepartures];
+const HERO_IMAGES = [imgEmbarque, imgAnderson, imgDepartures];
 
 interface HeroSectionProps {
   id?: string;
