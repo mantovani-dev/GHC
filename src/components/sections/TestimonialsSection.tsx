@@ -9,6 +9,19 @@ interface TestimonialsSectionProps {
 const TestimonialsSection = ({ id }: TestimonialsSectionProps) => {
   const { t } = useTranslation();
 
+  const socialProof =
+    {
+      span: t("socialProof.span"),
+      title1: t("socialProof.title1"),
+      titleSpan: t("socialProof.titleSpan"),
+      title2: t("socialProof.title2"),
+      description: t("socialProof.description"),
+      like: t("socialProof.like"),
+      share: t("socialProof.share"),
+      watch: t("socialProof.watch"),
+      video: t("socialProof.video"),
+    }
+
   const testimonials = [
     {
       name: "Anderson Inácio",
@@ -52,37 +65,36 @@ const TestimonialsSection = ({ id }: TestimonialsSectionProps) => {
           <AnimateIn animation="slide-left" className="max-w-2xl text-center lg:text-left flex-1 w-full">
             <div className="inline-flex items-center gap-2 border border-border px-3 py-1.5 mb-5 bg-background shadow-xs rounded-sm font-bold uppercase text-xs tracking-widest">
               <Instagram className="w-3.5 h-3.5 text-accent" />
-              <span>GHC NAS REDES SOCIAIS</span>
+              <span>{socialProof.span}</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-5 tracking-tight leading-[1.1]">
-              Veja o que estão <br />
+              {socialProof.title1} <br />
               <span className="text-accent inline-block transform -rotate-1 relative">
-                falando de nós
+                {socialProof.titleSpan}
                 <span className="absolute -bottom-1.5 left-0 w-full h-1.5 bg-foreground/15 dark:bg-foreground/40 rounded-sm skew-x-6" />
               </span>{" "}
               <br />
-              na internet!
+              {socialProof.title2}
             </h2>
 
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed font-medium mb-7">
-              Diariamente, milhares de profissionais acompanham o trabalho da GHC.
-              Dê o play e confira a experiência real de quem já iniciou sua jornada na Europa.
+              {socialProof.description}
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 text-foreground/60 font-semibold">
               <div className="flex items-center gap-2">
                 <Heart className="w-5 h-5 fill-current text-red-500" />
-                <span className="text-sm">Curta</span>
+                <span className="text-sm">{socialProof.like}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Share2 className="w-5 h-5" />
-                <span className="text-sm">Compartilhe</span>
+                <span className="text-sm">{socialProof.share}</span>
               </div>
             </div>
 
             <div className="hidden lg:flex items-center gap-2 mt-7 text-foreground/70 font-bold uppercase tracking-widest text-xs">
-              <span>Assista ao depoimento</span>
+              <span>{socialProof.watch}</span>
               <ArrowRight className="w-4 h-4" />
             </div>
           </AnimateIn>
@@ -102,7 +114,7 @@ const TestimonialsSection = ({ id }: TestimonialsSectionProps) => {
                     <Instagram className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-sm leading-tight uppercase tracking-wide">Case em Vídeo</h3>
+                    <h3 className="font-bold text-sm leading-tight uppercase tracking-wide">{socialProof.video}</h3>
                     <p className="text-[10px] font-bold text-muted-foreground tracking-widest">REELS</p>
                   </div>
                 </div>

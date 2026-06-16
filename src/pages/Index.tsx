@@ -12,20 +12,20 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Global Hiring & Careers (GHC) | Recrutamento Internacional para Brasileiros</title>
+        <title>Global Hiring & Careers (GHC) | Recrutamento Internacional para Latino-Americanos</title>
         <meta
           name="description"
-          content="Conectamos profissionais brasileiros às melhores oportunidades de trabalho no exterior. Junte-se à nossa comunidade e dê o próximo passo na sua carreira global."
+          content="Conectamos profissionais latino-americanos às melhores oportunidades de trabalho no exterior. Junte-se à nossa comunidade e dê o próximo passo na sua carreira global."
         />
         <meta
           name="keywords"
-          content="trabalho no exterior, vagas internacionais, recrutamento internacional, emprego exterior, carreira internacional, brasileiros no exterior, GHC"
+          content="trabalho no exterior, vagas internacionais, recrutamento internacional, emprego exterior, carreira internacional, latino-americanos no exterior, GHC"
         />
         <link rel="canonical" href="https://ghc.com.br" />
         <meta property="og:title" content="GHC | Recrutamento Internacional" />
         <meta
           property="og:description"
-          content="Conectamos profissionais brasileiros às melhores oportunidades de trabalho no exterior."
+          content="Conectamos profissionais latino-americanos às melhores oportunidades de trabalho no exterior."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ghc.com.br" />

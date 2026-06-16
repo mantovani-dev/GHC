@@ -13,7 +13,7 @@ import GhcBio from "./pages/GhcBio";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <ThemeProvider defaultTheme="light" storageKey="ghc-theme">
+  <ThemeProvider defaultTheme="system" storageKey="ghc-theme">
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>

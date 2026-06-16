@@ -18,7 +18,7 @@ const resources = {
         tag: "Recrutamento Internacional",
         title: "Sua carreira internacional",
         titleAccent: "começa aqui",
-        description: "Conectamos brasileiros a oportunidades de trabalho no Exterior. Sem promessas irreais, apenas caminhos viáveis.",
+        description: "Conectamos profissionais latino-americanos a oportunidades de trabalho no Exterior. Sem promessas irreais, apenas caminhos viáveis.",
         cta: "Entrar na Comunidade",
         learnMore: "Saiba Mais",
         professionals: "Profissionais Conectados",
@@ -48,7 +48,7 @@ const resources = {
         tag: "Sobre a GHC",
         title: "Não vendemos destinos...",
         titleAccent: "... construímos caminhos.",
-        description1: "A GHC - Global Hiring & Careers, nasceu da necessidade de trazer clareza e organização para brasileiros que buscam o mercado internacional. Atuamos como ponte entre candidatos e empregadores, com foco em vagas operacionais e técnicas.",
+        description1: "A GHC - Global Hiring & Careers, nasceu da necessidade de trazer clareza e organização para profissionais latino-americanos que buscam o mercado internacional. Atuamos como ponte entre candidatos e empregadores, com foco em vagas operacionais e técnicas.",
         description2: "Nossa base é o propósito de conectar pessoas a oportunidades reais de trabalho fora do Brasil, oferecendo clareza sobre etapas, responsabilidades e limites legais, evitando promessas irreais ou atalhos inseguros.",
         mission: {
           title: "Nossa Missão",
@@ -56,7 +56,7 @@ const resources = {
         },
         vision: {
           title: "Nossa Visão",
-          text: "Ser referência em recrutamento internacional para brasileiros e latino-americanos, reconhecida pela transparência, credibilidade e estrutura profissional.",
+          text: "Ser referência em recrutamento internacional para a comunidade latino-americana, reconhecida pela transparência, credibilidade e estrutura profissional.",
         },
         values: {
           transparency: {
@@ -73,7 +73,7 @@ const resources = {
           },
           realism: {
             title: "Realismo",
-            description: "Criamos uma rede de apoio entre brasileiros que já vivem no exterior.",
+            description: "Criamos uma rede de apoio entre latino-americanos que já vivem no exterior.",
           }
         }
       },
@@ -108,7 +108,7 @@ const resources = {
         tag: "Cases de Sucesso",
         title: "Histórias de quem",
         titleAccent: "já realizou o sonho",
-        description: "Conheça alguns dos profissionais brasileiros que conquistaram suas vagas no exterior através da nossa comunidade.",
+        description: "Conheça alguns dos profissionais latino-americanos que conquistaram suas vagas no exterior através da nossa comunidade.",
         list: {
           case1: { role: "Desenvolvedor Full Stack", location: "Polônia", quote: "Sempre sonhei em trabalhar na Europa, mas não sabia por onde começar. Através da comunidade, encontrei uma vaga perfeita e todo o suporte que precisava. Hoje vivo meu sonho!" },
           case2: { role: "Engenheiro de Software", location: "Áustria", quote: "O processo foi muito mais simples do que imaginei. As vagas são reais, verificadas, e a equipe me ajudou em cada etapa. Em 6 meses eu já estava realocado." },
@@ -117,6 +117,18 @@ const resources = {
           case5: { role: "Product Manager", location: "Holanda", quote: "A transparência foi o que me conquistou. Nada de promessas vazias, apenas informações reais e suporte genuíno. Recomendo para qualquer um." },
           case6: { role: "DevOps Engineer", location: "Reino Unido", quote: "Recebi várias propostas que se encaixavam no meu perfil. A curadoria é excelente — não perdi tempo com oportunidades sem sentido." }
         }
+      },
+
+      socialProof: {
+        span: "GHC NAS REDES SOCIAIS",
+        title1: "Veja o que estão",
+        titleSpan: "falando de nós",
+        title2: "na internet!",
+        description: "Diariamente, milhares de profissionais acompanham o trabalho da GHC. Dê o play e confira a experiência real de quem já iniciou sua jornada na Europa.",
+        like: "Curta",
+        share: "Compartilhe",
+        watch: "Assista ao depoimento",
+        video: "Case em vídeo"
       },
 
       contact: {
@@ -143,7 +155,7 @@ const resources = {
         privacy: "Política de Privacidade",
         terms: "Termos de Uso",
         rights: "Todos os direitos reservados.",
-        description: "Conectando talentos brasileiros às melhores oportunidades de trabalho no exterior.",
+        description: "Conectando talentos latino-americanos às melhores oportunidades de trabalho no exterior.",
         developed: "Desenvolvido por André Mantovani",
         labels: {
           home: "Início",
@@ -171,7 +183,7 @@ const resources = {
         tag: "International Recruitment",
         title: "Your international career",
         titleAccent: "starts here",
-        description: "We connect Brazilians to real job opportunities abroad. No unrealistic promises, just viable paths.",
+        description: "We connect Latin American professionals to real job opportunities abroad. No unrealistic promises, just viable paths.",
         cta: "Join Community",
         learnMore: "Learn More",
         professionals: "Conected Professionals",
@@ -201,7 +213,7 @@ const resources = {
         tag: "About GHC",
         title: "We don't sell destinations...",
         titleAccent: "... we build paths.",
-        description1: "GHC - Global Hiring & Careers, was born from the need to bring clarity and organization to Brazilians seeking the international market. We act as a bridge between candidates and employers, focusing on operational and technical positions.",
+        description1: "GHC - Global Hiring & Careers, was born from the need to bring clarity and organization to Latin American professionals seeking the international market. We act as a bridge between candidates and employers, focusing on operational and technical positions.",
         description2: "Our foundation is the purpose of connecting people to real work opportunities outside Brazil, offering clarity on stages, responsibilities, and legal limits, avoiding unrealistic promises or unsafe shortcuts.",
         mission: {
           title: "Our Mission",
@@ -209,7 +221,7 @@ const resources = {
         },
         vision: {
           title: "Our Vision",
-          text: "To be the benchmark in international recruitment for Brazilians and Latin Americans, recognized for transparency, credibility, and professional structure.",
+          text: "To be the benchmark in international recruitment for the Latin American community, recognized for transparency, credibility, and professional structure.",
         },
         values: {
           transparency: {
@@ -226,7 +238,7 @@ const resources = {
           },
           realism: {
             title: "Realism",
-            description: "We create a support network among Brazilians already living abroad.",
+            description: "We create a support network among Latin Americans already living abroad.",
           }
         }
       },
@@ -260,6 +272,18 @@ const resources = {
         }
       },
 
+      socialProof: {
+        span: "GHC IN SOCIAL MEDIA",
+        title1: "See what they're",
+        titleSpan: "saying about us",
+        title2: "on the internet!",
+        description: "Every day, thousands of professionals follow GHC's work. Press play and see the real-life experience of those who have already started their journey in Europe.",
+        like: "Like",
+        share: "Share",
+        watch: "Watch the testimony",
+        video: "Video case"
+      },
+
       contact: {
         tag: "Contact",
         title: "Ready to take the",
@@ -284,7 +308,7 @@ const resources = {
         privacy: "Privacy Policy",
         terms: "Terms of Use",
         rights: "All rights reserved.",
-        description: "Connecting Brazilian talent with the best job opportunities abroad.",
+        description: "Connecting Latin American talent with the best job opportunities abroad.",
         developed: "Developed by André Mantovani",
         labels: {
           home: "Home",
@@ -312,7 +336,7 @@ const resources = {
         tag: "Reclutamiento Internacional",
         title: "Tu carrera internacional",
         titleAccent: "comienza aquí",
-        description: "Conectamos a brasileños con oportunidades reales de trabajo en el Exterior. Sin promesas irreais, solo caminos viables.",
+        description: "Conectamos a profesionales latinoamericanos con oportunidades reales de trabajo en el Exterior. Sin promesas irreales, solo caminos viables.",
         cta: "Unirse a la Comunidad",
         learnMore: "Saber más",
         professionals: "Profesionales Conectados",
@@ -342,7 +366,7 @@ const resources = {
         tag: "Sobre GHC",
         title: "No vendemos destinos...",
         titleAccent: "... construimos caminos.",
-        description1: "GHC - Global Hiring & Careers, nació de la necesidad de traer claridad e organización a los brasileños que buscan el mercado internacional. Actuamos como puente entre candidatos y empleadores, con un enfoque en vacantes operativas y técnicas.",
+        description1: "GHC - Global Hiring & Careers, nació de la necesidad de traer claridad y organización a los profesionales latinoamericanos que buscan el mercado internacional. Actuamos como puente entre candidatos y empleadores, con un enfoque en vacantes operativas y técnicas.",
         description2: "Nuestra base es el propósito de conectar personas con oportunidades reales de trabajo fuera de Brasil, ofreciendo claridad sobre las etapas, responsabilidades y límites legales, evitando promesas irreais o atajos inseguros.",
         mission: {
           title: "Nuestra Misión",
@@ -350,7 +374,7 @@ const resources = {
         },
         vision: {
           title: "Nuestra Visión",
-          text: "Ser la referencia en reclutamiento internacional para brasileños y latinoamericanos, reconocida por su transparencia, credibilidad y estructura profesional.",
+          text: "Ser la referencia en reclutamiento internacional para la comunidad latinoamericana, reconocida por su transparencia, credibilidad y estructura profesional.",
         },
         values: {
           transparency: {
@@ -367,7 +391,7 @@ const resources = {
           },
           realism: {
             title: "Realismo",
-            description: "Creamos una red de apoyo entre los brasileños que ya viven en el extranjero.",
+            description: "Creamos una red de apoyo entre latinoamericanos que ya viven en el extranjero.",
           }
         }
       },
@@ -401,6 +425,18 @@ const resources = {
         }
       },
 
+      socialProof: {
+        span: "GHC EN REDES SOCIALES",
+        title1: "¡Mira lo que",
+        titleSpan: "dicen de nosotros",
+        title2: "en la internet!",
+        description: "Cada día, miles de profesionales siguen el trabajo de GHC. Dale al play y descubre la experiencia real de quienes ya han comenzado su andadura en Europa.",
+        like: "Me Gusta",
+        share: "Compartir",
+        watch: "Mira el testimonio",
+        video: "Testimonio en vídeo."
+      },
+
       contact: {
         tag: "Contacto",
         title: "¿Listo para dar el",
@@ -425,7 +461,7 @@ const resources = {
         privacy: "Política de Privacidad",
         terms: "Términos de Uso",
         rights: "Todos los derechos reservados.",
-        description: "Conectando el talento brasileño con las mejores oportunidades de trabajo en el exterior.",
+        description: "Conectando el talento latinoamericano con las mejores oportunidades de trabajo en el exterior.",
         developed: "Desarrollado por André Mantovani",
         labels: {
           home: "Inicio",
@@ -444,7 +480,13 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
+    supportedLngs: ["pt", "en", "es"],
     fallbackLng: "pt",
+    load: "languageOnly",
+    detection: {
+      order: ["localStorage", "navigator", "htmlTag"],
+      caches: ["localStorage"],
+    },
     interpolation: {
       escapeValue: false,
     },
