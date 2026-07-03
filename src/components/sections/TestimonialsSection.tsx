@@ -123,7 +123,7 @@ const TestimonialsSection = ({ id }: TestimonialsSectionProps) => {
               {/* iframe do Instagram */}
               <div className="w-full bg-background relative min-h-[600px] sm:min-h-[660px] md:min-h-[700px]">
                 <iframe
-                  src="https://www.instagram.com/reel/DU1NtmCkSVp/embed"
+                  src="https://www.instagram.com/reel/DaS5BLxxB7G/embed"
                   className="absolute inset-0 w-full h-full"
                   frameBorder="0"
                   scrolling="no"
