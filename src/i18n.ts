@@ -131,6 +131,13 @@ const resources = {
         video: "Case em vídeo"
       },
 
+      gallery: {
+        tag: "GALERIA DE EMBARQUES",
+        title: "Sonhos que",
+        titleAccent: "já decolaram",
+        description: "Conheça algumas pessoas que já embarcaram e estão vivendo sua nova jornada no exterior com o apoio da GHC.",
+      },
+
       contact: {
         tag: "Contato",
         title: "Pronto para dar o",
@@ -284,6 +291,13 @@ const resources = {
         video: "Video case"
       },
 
+      gallery: {
+        tag: "DEPARTURE GALLERY",
+        title: "Dreams that",
+        titleAccent: "already took off",
+        description: "Meet some people who have already boarded and are living their new journey abroad with GHC's support.",
+      },
+
       contact: {
         tag: "Contact",
         title: "Ready to take the",
@@ -435,6 +449,13 @@ const resources = {
         share: "Compartir",
         watch: "Mira el testimonio",
         video: "Testimonio en vídeo."
+      },
+
+      gallery: {
+        tag: "GALERÍA DE EMBARQUES",
+        title: "Sueños que",
+        titleAccent: "ya despegaron",
+        description: "Conoce a algunas personas que ya embarcaron y están viviendo su nueva jornada en el exterior con el apoyo de GHC.",
       },
 
       contact: {

@@ -1,6 +1,7 @@
 import { Quote, MapPin, Briefcase, Instagram, Heart, Share2, Star, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { AnimateIn } from "@/components/ui/animate-in";
+import DepartureGallery from "./DepartureGallery";
 
 interface TestimonialsSectionProps {
   id?: string;
@@ -136,6 +137,9 @@ const TestimonialsSection = ({ id }: TestimonialsSectionProps) => {
           </AnimateIn>
 
         </div>
+
+        {/* Galeria de Embarques */}
+        <DepartureGallery />
 
         {/* ================================================================
         TODO: DESCOMENTAR QUANDO CHEGAREM NOVOS CASES
