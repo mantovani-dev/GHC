@@ -301,6 +301,118 @@
     color: var(--accent-hex);
   }
 
+  /* ---------- hero ---------- */
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 470px);
+    gap: clamp(28px, 4vw, 64px);
+    align-items: center;
+    padding: clamp(48px, 6vw, 80px) 0 clamp(64px, 7vw, 104px);
+  }
+
+  .stack {
+    position: relative;
+    height: clamp(430px, 44vw, 540px);
+  }
+
+  /* As duas peças de vidro empilhadas dentro do .stack */
+  .p-img {
+    position: absolute;
+    inset: 0 34px 108px 0;
+    overflow: hidden;
+  }
+
+  .p-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.94;
+    transform: scale(1.02);
+    transition: transform 1.2s var(--ease-orbita);
+  }
+
+  .stack:hover .p-img img {
+    transform: scale(1.07);
+  }
+
+  .p-img:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 38%, rgba(11, 14, 20, 0.8));
+  }
+
+  .card-fx {
+    position: absolute;
+    left: clamp(28px, 5vw, 62px);
+    right: 0;
+    bottom: 0;
+    padding: 22px 24px;
+    display: grid;
+    gap: 16px;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  .stat-n {
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    background: linear-gradient(96deg, #fff, var(--accent-hex));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .faces {
+    display: flex;
+  }
+
+  .faces img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--bg-elevated);
+    margin-left: -11px;
+  }
+
+  .faces img:first-child {
+    margin-left: 0;
+  }
+
+  /* ---------- pilares ---------- */
+  .tri {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .tri .glass {
+    padding: 26px;
+  }
+
+  .tri h3 {
+    margin: 18px 0 8px;
+    font-size: 16.5px;
+    font-weight: 600;
+    letter-spacing: -0.012em;
+  }
+
+  .tri p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.62;
+    color: rgba(232, 236, 244, 0.5);
+  }
+
   /* ---------- eyebrow / mono ---------- */
   .mono {
     font-family: "Space Mono", monospace;
@@ -503,14 +615,59 @@
   .animate-play-pulse { animation: play-pulse 2.6s ease-in-out infinite; }
 }
 
-/* Ajustes do protótipo em ≤900px (drawer) e ≤600px */
+/* Ajustes do protótipo em ≤1080px, ≤900px (drawer) e ≤600px */
+@media (max-width: 1080px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 400px);
+    gap: 32px;
+  }
+}
+
 @media (max-width: 900px) {
   .navbar {
     padding: 9px 9px 9px 18px;
   }
+
+  /* O hero empilha: o card sai do absoluto e entra no fluxo */
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 36px 0 56px;
+    gap: 34px;
+  }
+  .stack {
+    height: auto;
+    display: grid;
+    gap: 14px;
+  }
+  .p-img,
+  .card-fx {
+    position: relative;
+    inset: auto;
+    border-radius: 20px;
+  }
+  .p-img {
+    aspect-ratio: 4 / 3;
+  }
+  .p-img img {
+    transform: none;
+  }
+  .card-fx {
+    padding: 20px;
+  }
+  .stat-n {
+    font-size: 38px;
+  }
+
+  .tri {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 600px) {
+  .wrap {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
   .drawer-link {
     font-size: 21px;
     padding: 15px 2px;
@@ -519,6 +676,22 @@
     font-size: 9.5px;
     letter-spacing: 0.13em;
     padding: 6px 13px 6px 9px;
+  }
+  .h1-orbita {
+    font-size: clamp(36px, 10vw, 52px);
+  }
+  .lead-orbita {
+    font-size: 15.5px;
+  }
+  .stat-n {
+    font-size: 34px;
+  }
+  .faces img {
+    width: 30px;
+    height: 30px;
+  }
+  .tri {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

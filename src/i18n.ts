@@ -138,6 +138,31 @@ const resources = {
         description: "Conheça algumas pessoas que já embarcaram e estão vivendo sua nova jornada no exterior com o apoio da GHC.",
       },
 
+      heroStat: {
+        label: "Já embarcaram com a GHC",
+        text: "pessoas em rotas reais na Europa — com contrato, documentação e suporte do início ao pouso.",
+      },
+
+      milestone: {
+        tag: "Marco",
+        count: 300,
+        headline: "pessoas já embarcaram com a GHC — e hoje vivem, trabalham e constroem carreira no exterior.",
+        items: {
+          contracts: {
+            title: "Contratos diretos",
+            text: "Vagas operacionais e técnicas com empregadores europeus verificados.",
+          },
+          documents: {
+            title: "Documentação organizada",
+            text: "Fluxo documental acompanhado etapa por etapa, sem atalhos inseguros.",
+          },
+          network: {
+            title: "Rede de apoio",
+            text: "Uma comunidade de latino-americanos que já fizeram a mesma travessia.",
+          },
+        },
+      },
+
       contact: {
         tag: "Contato",
         title: "Pronto para dar o",
@@ -298,6 +323,31 @@ const resources = {
         description: "Meet some people who have already boarded and are living their new journey abroad with GHC's support.",
       },
 
+      heroStat: {
+        label: "Already boarded with GHC",
+        text: "people on real routes across Europe — with a contract, paperwork and support from start to landing.",
+      },
+
+      milestone: {
+        tag: "Milestone",
+        count: 300,
+        headline: "people have already boarded with GHC — and today they live, work and build careers abroad.",
+        items: {
+          contracts: {
+            title: "Direct contracts",
+            text: "Operational and technical roles with verified European employers.",
+          },
+          documents: {
+            title: "Organised paperwork",
+            text: "Document flow followed step by step, with no unsafe shortcuts.",
+          },
+          network: {
+            title: "Support network",
+            text: "A community of Latin Americans who have made the same crossing.",
+          },
+        },
+      },
+
       contact: {
         tag: "Contact",
         title: "Ready to take the",
@@ -456,6 +506,31 @@ const resources = {
         title: "Sueños que",
         titleAccent: "ya despegaron",
         description: "Conoce a algunas personas que ya embarcaron y están viviendo su nueva jornada en el exterior con el apoyo de GHC.",
+      },
+
+      heroStat: {
+        label: "Ya embarcaron con GHC",
+        text: "personas en rutas reales en Europa — con contrato, documentación y soporte desde el inicio hasta el aterrizaje.",
+      },
+
+      milestone: {
+        tag: "Hito",
+        count: 300,
+        headline: "personas ya embarcaron con GHC — y hoy viven, trabajan y construyen su carrera en el exterior.",
+        items: {
+          contracts: {
+            title: "Contratos directos",
+            text: "Vacantes operativas y técnicas con empleadores europeos verificados.",
+          },
+          documents: {
+            title: "Documentación organizada",
+            text: "Flujo documental acompañado etapa por etapa, sin atajos inseguros.",
+          },
+          network: {
+            title: "Red de apoyo",
+            text: "Una comunidad de latinoamericanos que ya hicieron la misma travesía.",
+          },
+        },
       },
 
       contact: {
