@@ -1,7 +1,9 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-interface GlassCardProps extends React.HTMLAttributes<HTMLElement> {
+/* AnchorHTMLAttributes em vez de HTMLAttributes para o `as="a"` aceitar
+   href/target/rel sem cast — é o único elemento não-div em uso. */
+interface GlassCardProps extends React.AnchorHTMLAttributes<HTMLElement> {
   /** Eleva 5px, acende a borda ciano e ganha glow no hover. */
   hover?: boolean;
   /** Permite renderizar como <a>, <li>, etc. sem perder o visual. */

@@ -84,6 +84,7 @@ const resources = {
         titleAccent: "carreira internacional",
         description: "Nosso processo é simples e transparente. Acompanhe os passos abaixo e entenda como podemos ajudar você a conquistar sua vaga no exterior.",
         cta: "Comece Agora — Entre na Comunidade",
+        stepLabel: "Etapa",
         steps: {
           step1: {
             title: "Captação do Candidato",
@@ -281,6 +282,7 @@ const resources = {
         titleAccent: "international career",
         description: "Our process is simple and transparent. Follow the steps below to understand how we can help you conquer your job abroad.",
         cta: "Start Now — Join the Community",
+        stepLabel: "Step",
         steps: {
           step1: { title: "Candidate Sourcing", description: "Access to our community where real vacancies are posted and explained." },
           step2: { title: "Profile Screening", description: "Technical analysis of your profile to understand skills and compatibility." },
@@ -466,6 +468,7 @@ const resources = {
         titleAccent: "carrera internacional",
         description: "Nuestro proceso es simple y transparente. Sigue los pasos a continuación para entender cómo podemos ayudarte a conquistar tu vacante en el extranjero.",
         cta: "Comienza Ahora — Únete a la Comunidad",
+        stepLabel: "Etapa",
         steps: {
           step1: { title: "Captación de Candidatos", description: "Acceso a nuestra comunidad donde las vacantes reales son publicadas y explicadas." },
           step2: { title: "Triaje de Perfil", description: "Análisis técnico de tu perfil para entender habilidades y compatibilidad con las vacantes." },

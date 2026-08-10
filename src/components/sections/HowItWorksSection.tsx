@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, UserPlus, Search, FileCheck, Plane } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -41,75 +40,48 @@ const HowItWorksSection = ({ id }: HowItWorksSectionProps) => {
   ];
 
   return (
-    <section id={id} className="py-16 md:py-28">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id={id} className="wrap sec pt-0">
+      {/* Cabeçalho */}
+      <AnimateIn>
+        <span className="eyebrow">
+          <span className="eyebrow-dot" />
+          {t("howItWorks.tag")}
+        </span>
 
-        {/* Cabeçalho */}
-        <AnimateIn animation="fade-up" className="max-w-3xl mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 border border-border px-3 py-1.5 mb-5 bg-secondary shadow-xs rounded-sm font-bold uppercase text-xs tracking-widest">
-            <span>{t("howItWorks.tag")}</span>
+        <h2 className="h2-orbita mt-[22px]">
+          {t("howItWorks.title")} <b className="grad">{t("howItWorks.titleAccent")}</b>
+        </h2>
+
+        <p className="lead-orbita mt-[26px] max-w-[560px]">{t("howItWorks.description")}</p>
+      </AnimateIn>
+
+      {/* Timeline: nós sobre a linha ciano no desktop, trilha vertical em ≤900px */}
+      <AnimateIn className="steps">
+        {steps.map((step, index) => (
+          <div key={index} className="step">
+            <div className="node">
+              <step.icon className="h-5 w-5" />
+            </div>
+            <div className="step-n">
+              {t("howItWorks.stepLabel")} {step.number}
+            </div>
+            <h4>{step.title}</h4>
+            <p>{step.description}</p>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-5 tracking-tight leading-tight">
-            {t("howItWorks.title")}
-            <br />
-            <span className="border-b-[3px] border-foreground">{t("howItWorks.titleAccent")}</span>
-          </h2>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-            {t("howItWorks.description")}
-          </p>
-        </AnimateIn>
+        ))}
+      </AnimateIn>
 
-        {/* Steps */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-12">
-          {steps.map((step, index) => (
-            <AnimateIn
-              key={index}
-              animation="fade-up"
-              delay={index * 100}
-            >
-              <div className="relative border border-border bg-background p-5 md:p-6 shadow-xs rounded-sm hover:shadow-md hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 group flex flex-col h-full">
-                {/* Linha conectora (só no desktop, exceto último) */}
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-[3.25rem] left-full w-full h-px bg-border z-10 -translate-y-px pointer-events-none" style={{ width: "calc(100% - 100%)", left: "100%", transform: "translateX(0)" }} />
-                )}
-
-                {/* Número de fundo */}
-                <div className="text-5xl md:text-6xl font-black text-muted-foreground/15 group-hover:text-accent/25 transition-colors duration-300 mb-3 select-none leading-none">
-                  {step.number}
-                </div>
-
-                {/* Ícone */}
-                <div className="w-9 h-9 rounded-sm bg-primary/8 flex items-center justify-center mb-3 group-hover:bg-primary/15 transition-colors duration-200">
-                  <step.icon className="w-4.5 h-4.5 text-primary" style={{ width: "18px", height: "18px" }} />
-                </div>
-
-                <h3 className="text-base md:text-lg font-bold mb-2 leading-tight">{step.title}</h3>
-                <p className="text-muted-foreground text-xs md:text-sm leading-relaxed flex-1">
-                  {step.description}
-                </p>
-
-                {/* Indicador de step no rodapé */}
-                <div className="mt-4 pt-3 border-t border-border/50 flex items-center gap-1.5">
-                  <div className="h-1 w-6 rounded-full bg-primary/70" />
-                  <div className="h-1 flex-1 rounded-full bg-border" />
-                </div>
-              </div>
-            </AnimateIn>
-          ))}
-        </div>
-
-        <AnimateIn animation="fade-up" delay={200} className="text-center">
-          <Button
-            size="lg"
-            onClick={() => window.open(communityLink, "_blank")}
-            className="font-bold border border-border rounded-sm shadow-[3px_3px_0px_0px_rgba(0,0,0,0.85)] dark:shadow-[3px_3px_0px_0px_rgba(51,186,233,0.35)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,0.9)] dark:hover:shadow-[5px_5px_0px_0px_rgba(51,186,233,0.5)] transition-all duration-200 h-auto py-3.5 px-8"
-          >
-            <MessageCircle className="w-4 h-4 mr-2" />
-            {t("howItWorks.cta")}
-          </Button>
-        </AnimateIn>
-
-      </div>
+      <AnimateIn className="mt-14 text-center">
+        <Button
+          variant="orbita"
+          size="orbitaLg"
+          className="max-[600px]:w-full max-[600px]:justify-center"
+          onClick={() => window.open(communityLink, "_blank", "noopener,noreferrer")}
+        >
+          <MessageCircle />
+          {t("howItWorks.cta")}
+        </Button>
+      </AnimateIn>
     </section>
   );
 };

@@ -413,6 +413,172 @@
     color: rgba(232, 236, 244, 0.5);
   }
 
+  /* ---------- sobre ---------- */
+  .duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 52px;
+  }
+
+  .duo .glass {
+    padding: 32px;
+  }
+
+  .duo h3 {
+    margin: 20px 0 10px;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .duo p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: rgba(232, 236, 244, 0.52);
+  }
+
+  .quad {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .quad .glass {
+    padding: 24px;
+  }
+
+  .quad h4 {
+    margin: 16px 0 7px;
+    font-size: 15.5px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .quad p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(232, 236, 244, 0.48);
+  }
+
+  /* ---------- como funciona: timeline ---------- */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 72px;
+    position: relative;
+  }
+
+  .steps:before {
+    content: "";
+    position: absolute;
+    top: 26px;
+    left: 7%;
+    right: 7%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(51, 186, 233, 0.5) 12%,
+      rgba(51, 186, 233, 0.5) 88%,
+      transparent
+    );
+  }
+
+  .step {
+    position: relative;
+    padding: 0 clamp(12px, 1.7vw, 24px);
+  }
+
+  .node {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--bg);
+    border: 1px solid rgba(51, 186, 233, 0.4);
+    color: var(--accent-hex);
+    position: relative;
+    z-index: 2;
+    /* O anel opaco de 9px é o que "corta" a linha atrás do nó */
+    box-shadow: 0 0 0 9px var(--bg), var(--glow-node);
+    transition: 0.3s;
+  }
+
+  .step:hover .node {
+    border-color: var(--accent-hex);
+    box-shadow: 0 0 0 9px var(--bg), 0 0 40px -2px rgba(51, 186, 233, 0.95);
+    transform: translateY(-3px);
+  }
+
+  .step-n {
+    font-family: "Space Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(51, 186, 233, 0.72);
+    margin: 24px 0 9px;
+  }
+
+  .step h4 {
+    margin: 0 0 9px;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+
+  .step p {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.66;
+    color: rgba(232, 236, 244, 0.48);
+  }
+
+  /* ---------- contato ---------- */
+  .contact {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(32px, 5vw, 64px);
+  }
+
+  .cgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-content: start;
+  }
+
+  .cgrid .glass {
+    padding: 22px;
+  }
+
+  .c-k {
+    font-family: "Space Mono", monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(232, 236, 244, 0.42);
+    margin: 16px 0 6px;
+  }
+
+  .c-v {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    word-break: break-word;
+  }
+
+  .c-s {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: rgba(232, 236, 244, 0.45);
+    margin-top: 6px;
+  }
+
   /* ---------- eyebrow / mono ---------- */
   .mono {
     font-family: "Space Mono", monospace;
@@ -487,6 +653,7 @@
     line-height: 1.07;
     letter-spacing: -0.032em;
     font-weight: 500;
+    max-width: 740px;
   }
 
   .lead-orbita {
@@ -658,8 +825,69 @@
     font-size: 38px;
   }
 
-  .tri {
+  .tri,
+  .quad {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .sec {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .h2-orbita,
+  .lead-orbita {
+    max-width: 100%;
+  }
+
+  .duo,
+  .contact {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* As etapas viram uma trilha vertical com a linha à esquerda */
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 44px;
+  }
+  .steps:before {
+    display: none;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr);
+    column-gap: 18px;
+    padding: 0 0 30px;
+    position: relative;
+  }
+  .step .node {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    box-shadow: 0 0 0 6px var(--bg), 0 0 26px -4px rgba(51, 186, 233, 0.5);
+  }
+  .step:not(:last-child):after {
+    content: "";
+    position: absolute;
+    left: 26px;
+    top: 60px;
+    bottom: 4px;
+    width: 1px;
+    background: linear-gradient(rgba(51, 186, 233, 0.5), rgba(51, 186, 233, 0.08));
+  }
+  .step-n {
+    grid-column: 2;
+    margin: 4px 0 7px;
+  }
+  .step h4,
+  .step p {
+    grid-column: 2;
+  }
+
+  .cgrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cgrid > * {
+    grid-column: auto !important;
   }
 }
 
@@ -690,8 +918,19 @@
     width: 30px;
     height: 30px;
   }
-  .tri {
+  .tri,
+  .quad,
+  .cgrid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sec {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .h2-orbita {
+    font-size: clamp(28px, 7.6vw, 38px);
   }
 }
 
