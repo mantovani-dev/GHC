@@ -538,6 +538,209 @@
     color: rgba(232, 236, 244, 0.48);
   }
 
+  /* ---------- marco +300 ---------- */
+  .mile {
+    position: relative;
+    overflow: hidden;
+    border-radius: 26px;
+    border: 1px solid rgba(51, 186, 233, 0.22);
+    background: linear-gradient(
+      135deg,
+      rgba(51, 186, 233, 0.11),
+      rgba(51, 186, 233, 0.02) 55%,
+      transparent
+    );
+    padding: clamp(40px, 5vw, 64px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: center;
+  }
+
+  .mile:before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    right: -160px;
+    top: -220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(51, 186, 233, 0.24), transparent 68%);
+    filter: blur(70px);
+    pointer-events: none;
+  }
+
+  .huge {
+    font-size: clamp(72px, 10vw, 140px);
+    font-weight: 600;
+    letter-spacing: -0.055em;
+    line-height: 0.9;
+    background: linear-gradient(100deg, #fff 10%, var(--accent-hex) 88%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .mile-r {
+    display: grid;
+    gap: 18px;
+    position: relative;
+  }
+
+  .mtile {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .mtile-k {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .mtile-s {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: rgba(232, 236, 244, 0.5);
+    margin-top: 3px;
+  }
+
+  /* ---------- cases / redes sociais ---------- */
+  .social {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 400px);
+    gap: clamp(32px, 5vw, 72px);
+    align-items: center;
+  }
+
+  /* Moldura do reel. Sem o aspect-ratio 9/13 do protótipo: o embed do
+     Instagram não o respeita e precisa de altura própria. */
+  .reel {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.95);
+  }
+
+  /* ---------- galeria de embarques ---------- */
+  .gal {
+    margin-top: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(14px, 2.5vw, 34px);
+  }
+
+  .arrow {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    color: var(--fg);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: 0.24s;
+  }
+
+  .arrow:hover {
+    border-color: rgba(51, 186, 233, 0.6);
+    color: var(--accent-hex);
+    background: rgba(51, 186, 233, 0.09);
+    transform: scale(1.06);
+  }
+
+  .frames {
+    position: relative;
+    width: min(440px, 52vw);
+    aspect-ratio: 3 / 4;
+  }
+
+  .frame {
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.95);
+    transition: 0.6s var(--ease-orbita);
+    opacity: 0;
+    transform: scale(0.86);
+    pointer-events: none;
+  }
+
+  .frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .frame-prev {
+    opacity: 0.34;
+    transform: translateX(-16%) scale(0.86);
+    filter: blur(2px);
+  }
+
+  .frame-next {
+    opacity: 0.34;
+    transform: translateX(16%) scale(0.86);
+    filter: blur(2px);
+  }
+
+  .frame-cur {
+    opacity: 1;
+    transform: none;
+    z-index: 3;
+    border-color: rgba(51, 186, 233, 0.4);
+    box-shadow: 0 40px 100px -34px rgba(51, 186, 233, 0.4);
+  }
+
+  .tagline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 44px 20px 18px;
+    background: linear-gradient(transparent, rgba(8, 11, 16, 0.92));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(232, 236, 244, 0.72);
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 32px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0;
+    border: 0;
+  }
+
+  .dot-on {
+    width: 26px;
+    border-radius: 100px;
+    background: var(--accent-hex);
+    box-shadow: 0 0 14px rgba(51, 186, 233, 0.8);
+  }
+
   /* ---------- contato ---------- */
   .contact {
     display: grid;
@@ -761,17 +964,6 @@
     }
   }
 
-  /* Pulse do botão de play do reel */
-  @keyframes play-pulse {
-    0%,
-    100% {
-      box-shadow: 0 0 0 0 rgba(51, 186, 233, 0.45);
-    }
-    50% {
-      box-shadow: 0 0 0 22px rgba(51, 186, 233, 0);
-    }
-  }
-
   .animate-float { animation: float 6s ease-in-out infinite; }
   .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
   .animate-fade-up { animation: fade-up 0.6s ease-out forwards; }
@@ -779,7 +971,6 @@
   .animate-slide-left { animation: slide-in-left 0.6s ease-out forwards; }
   .animate-slide-right { animation: slide-in-right 0.6s ease-out forwards; }
   .animate-ping-soft { animation: ping-soft 2.4s cubic-bezier(0, 0, 0.2, 1) infinite; }
-  .animate-play-pulse { animation: play-pulse 2.6s ease-in-out infinite; }
 }
 
 /* Ajustes do protótipo em ≤1080px, ≤900px (drawer) e ≤600px */
@@ -787,6 +978,13 @@
   .hero {
     grid-template-columns: minmax(0, 1fr) minmax(280px, 400px);
     gap: 32px;
+  }
+  .mile {
+    gap: 34px;
+    padding: 44px;
+  }
+  .social {
+    gap: 38px;
   }
 }
 
@@ -841,8 +1039,30 @@
   }
 
   .duo,
-  .contact {
+  .contact,
+  .social,
+  .mile {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mile {
+    padding: 36px 26px;
+  }
+  .mile:before {
+    right: -200px;
+    top: -260px;
+  }
+
+  .gal {
+    gap: 10px;
+    margin-top: 44px;
+  }
+  .arrow {
+    width: 40px;
+    height: 40px;
+  }
+  .frames {
+    width: min(340px, 64vw);
   }
 
   /* As etapas viram uma trilha vertical com a linha à esquerda */
@@ -931,6 +1151,37 @@
 
   .h2-orbita {
     font-size: clamp(28px, 7.6vw, 38px);
+  }
+
+  .mile {
+    padding: 30px 22px;
+    border-radius: 22px;
+  }
+  .huge {
+    font-size: clamp(64px, 20vw, 96px);
+  }
+
+  .frames {
+    width: min(300px, 74vw);
+  }
+  .arrow {
+    width: 38px;
+    height: 38px;
+  }
+  .reel {
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .frames {
+    width: 82vw;
+  }
+  .gal {
+    gap: 6px;
+  }
+  .huge {
+    font-size: 62px;
   }
 }
 
