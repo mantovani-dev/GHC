@@ -32,17 +32,21 @@ const Index = () => {
         <meta property="og:url" content="https://ghc.com.br" />
       </Helmet>
 
-      <AmbientBackground />
+      {/* `relative` ancora as auréolas do fundo na altura do documento */}
+      <div className="relative">
+        <AmbientBackground />
 
-      <Header />
-      <main className="relative z-[1]">
-        <HeroSection id="inicio" />
-        <AboutSection id="sobre" />
-        <HowItWorksSection id="como-funciona" />
-        <TestimonialsSection id="cases" />
-        <ContactSection id="contato" />
-      </main>
-      <Footer />
+        <Header />
+        <main className="relative z-[1]">
+          <HeroSection id="inicio" />
+          <AboutSection id="sobre" />
+          <HowItWorksSection id="como-funciona" />
+          <TestimonialsSection id="cases" />
+          <ContactSection id="contato" />
+        </main>
+        <Footer />
+      </div>
+
       <WhatsAppFloat />
     </>
   );
