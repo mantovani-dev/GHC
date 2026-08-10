@@ -32,8 +32,9 @@ const Index = () => {
         <meta property="og:url" content="https://ghc.com.br" />
       </Helmet>
 
-      {/* `relative` ancora as auréolas do fundo na altura do documento */}
-      <div className="relative">
+      {/* `relative` ancora as auréolas do fundo na altura do documento;
+          `orbita` liga o strokeWidth 1.5 dos ícones Lucide */}
+      <div className="orbita relative">
         <AmbientBackground />
 
         <Header />

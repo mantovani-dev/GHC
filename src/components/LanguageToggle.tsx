@@ -1,7 +1,5 @@
-import React from "react";
 import { Languages } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,6 +8,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 
+const languages = [
+  { code: "pt", label: "Português", flag: "🇧🇷" },
+  { code: "en", label: "English", flag: "🇺🇸" },
+  { code: "es", label: "Español", flag: "🇪🇸" },
+];
+
 export function LanguageToggle() {
   const { i18n } = useTranslation();
 
@@ -17,44 +21,39 @@ export function LanguageToggle() {
     i18n.changeLanguage(lng);
   };
 
-  const languages = [
-    { code: "pt", label: "Português", flag: "🇧🇷" },
-    { code: "en", label: "English", flag: "🇺🇸" },
-    { code: "es", label: "Español", flag: "🇪🇸" },
-  ];
+  const current = i18n.language?.split("-")[0];
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button 
-          variant="outline" 
-          size="icon" 
-          className={cn(
-            "h-9 w-9 rounded-full border-2 border-border bg-background shrink-0 focus-visible:ring-0 transition-all duration-300",
-            "shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]",
-            "hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[3px_3px_0px_0px_rgba(255,255,255,1)]",
-            "active:translate-x-[0px] active:translate-y-[0px] active:shadow-none"
-          )}
+        {/* Mesmo desenho do .menu-btn do protótipo, num diâmetro menor */}
+        <button
+          className="grid h-[38px] w-[38px] shrink-0 place-items-center rounded-full border border-white/[0.13] bg-white/[0.04] text-foreground transition-all duration-200 hover:border-accent/60 hover:text-accent active:scale-[0.94] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          aria-label="Trocar idioma"
         >
-          <Languages className="h-[1.2rem] w-[1.2rem]" />
-          <span className="sr-only">Trocar idioma</span>
-        </Button>
+          <Languages className="h-[17px] w-[17px]" />
+        </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent 
-        align="end" 
-        className="border-2 border-border shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] bg-background p-1"
+
+      {/* Valores do `.pane` do protótipo — `.glass` não serve aqui porque
+          `bg-popover` da base do shadcn vence a camada de components */}
+      <DropdownMenuContent
+        align="end"
+        sideOffset={10}
+        className="min-w-[172px] rounded-pane border-white/[0.085] bg-[var(--pane-bg)] p-1.5 shadow-pane backdrop-blur-[22px]"
       >
         {languages.map((lang) => (
-          <DropdownMenuItem 
+          <DropdownMenuItem
             key={lang.code}
-            onClick={() => changeLanguage(lang.code)} 
-            className={React.useMemo(() => {
-              return i18n.language === lang.code 
-                ? "bg-secondary font-black flex gap-2 cursor-pointer rounded-sm" 
-                : "font-bold hover:bg-secondary/50 cursor-pointer flex gap-2 rounded-sm";
-            }, [i18n.language, lang.code])}
+            onClick={() => changeLanguage(lang.code)}
+            className={cn(
+              "flex cursor-pointer gap-2.5 rounded-xl px-3 py-2 text-[13.5px] transition-colors focus:bg-accent/10 focus:text-foreground",
+              current === lang.code
+                ? "bg-accent/10 font-semibold text-accent"
+                : "font-medium text-foreground/70"
+            )}
           >
-            <span className="text-lg">{lang.flag}</span>
+            <span className="text-base leading-none">{lang.flag}</span>
             <span>{lang.label}</span>
           </DropdownMenuItem>
         ))}
