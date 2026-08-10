@@ -37,7 +37,7 @@ const ContactSection = ({ id }: ContactSectionProps) => {
   ];
 
   return (
-    <section id={id} className="py-16 md:py-28 bg-background transition-colors duration-300">
+    <section id={id} className="py-16 md:py-28">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
 

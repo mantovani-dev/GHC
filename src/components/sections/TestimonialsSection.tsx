@@ -48,7 +48,7 @@ const TestimonialsSection = ({ id }: TestimonialsSectionProps) => {
   ];
 
   return (
-    <section id={id} className="py-12 md:py-20 bg-secondary dot-pattern relative overflow-hidden transition-colors duration-300">
+    <section id={id} className="py-12 md:py-20 relative overflow-hidden">
 
       {/* Decorativos — mais suaves, sem bounce */}
       <div className="absolute top-8 left-8 md:left-16 text-accent opacity-10 animate-float pointer-events-none">

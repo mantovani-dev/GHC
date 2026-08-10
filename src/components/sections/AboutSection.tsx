@@ -34,7 +34,7 @@ const AboutSection = ({ id }: AboutSectionProps) => {
   ];
 
   return (
-    <section id={id} className="py-16 md:py-28 bg-secondary dot-pattern">
+    <section id={id} className="py-16 md:py-28">
       <div className="container mx-auto px-4 sm:px-6">
 
         {/* Cabeçalho */}

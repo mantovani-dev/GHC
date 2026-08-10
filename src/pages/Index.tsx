@@ -7,6 +7,7 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
+import AmbientBackground from "@/components/layout/AmbientBackground";
 
 const Index = () => {
   return (
@@ -31,8 +32,10 @@ const Index = () => {
         <meta property="og:url" content="https://ghc.com.br" />
       </Helmet>
 
+      <AmbientBackground />
+
       <Header />
-      <main>
+      <main className="relative z-[1]">
         <HeroSection id="inicio" />
         <AboutSection id="sobre" />
         <HowItWorksSection id="como-funciona" />
