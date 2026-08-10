@@ -8,94 +8,83 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 6%;
+    color-scheme: dark;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 6%;
+    /* ============================================================
+       ÓRBITA — valores crus do protótipo (fonte de verdade)
+       Usados pelas classes de vidro/glow abaixo, onde a fidelidade
+       de alpha e blur importa mais que a ponte HSL do shadcn.
+       ============================================================ */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 6%;
+    /* Canvas */
+    --bg:           #0b0e14;
+    --bg-elevated:  #141924;
+    --fg:           #e8ecf4;
+    --fg-muted:     rgba(232, 236, 244, 0.56);
+    --fg-subtle:    rgba(232, 236, 244, 0.48);
+    --fg-faint:     rgba(232, 236, 244, 0.4);
 
-    /* Cor primária no modo claro (Quase preto) */
-    --primary: 0 0% 6%;
-    --primary-foreground: 0 0% 100%;
+    /* Marca — inalterada */
+    --accent-hex:    #33bae9;
+    --accent-ink:    #04141c;
+    --accent-soft:   rgba(51, 186, 233, 0.07);
+    --accent-border: rgba(51, 186, 233, 0.28);
+    --whatsapp:      #25d366;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 10%;
+    /* Vidro */
+    --glass-bg:        rgba(255, 255, 255, 0.024);
+    --glass-bg-hover:  rgba(51, 186, 233, 0.05);
+    --glass-border:    rgba(255, 255, 255, 0.085);
+    --glass-border-hv: rgba(51, 186, 233, 0.42);
+    --pane-bg:         rgba(20, 25, 36, 0.66);
+    --nav-bg:          rgba(16, 20, 29, 0.66);
+    --nav-bg-small:    rgba(13, 16, 23, 0.88);
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 46%;
+    /* Profundidade e glow */
+    --shadow-pane: 0 40px 90px -34px rgba(0, 0, 0, 0.95);
+    --shadow-nav:  0 18px 44px -22px rgba(0, 0, 0, 0.9);
+    --glow-card:   0 26px 60px -34px rgba(51, 186, 233, 0.55);
+    --glow-btn:    0 14px 38px -8px rgba(51, 186, 233, 0.7);
+    --glow-node:   0 0 28px -4px rgba(51, 186, 233, 0.55);
 
-    /* Accent usa o Azul do Logo #33bae9 */
-    --accent: 196 78% 54%;
-    --accent-foreground: 0 0% 100%;
+    /* Movimento */
+    --ease-orbita: cubic-bezier(0.2, 0.7, 0.3, 1);
 
-    --destructive: 0 84% 60%;
+    /* ============================================================
+       Ponte shadcn — triplets HSL equivalentes aos valores acima
+       ============================================================ */
+    --background: 220 29% 6%;      /* #0b0e14 */
+    --foreground: 220 35% 93.3%;   /* #e8ecf4 */
+
+    --card: 221 29% 11%;           /* #141924 */
+    --card-foreground: 220 35% 93.3%;
+
+    --popover: 221 29% 11%;
+    --popover-foreground: 220 35% 93.3%;
+
+    /* Primary e accent são o azul da logo #33bae9 */
+    --primary: 195.5 80.8% 55.7%;
+    --primary-foreground: 200 75% 6.3%;  /* #04141c */
+
+    --secondary: 221 29% 14%;
+    --secondary-foreground: 220 35% 93.3%;
+
+    --muted: 221 29% 14%;
+    --muted-foreground: 222 4% 50%;
+
+    --accent: 195.5 80.8% 55.7%;
+    --accent-foreground: 200 75% 6.3%;
+
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 12%;
-    --input: 0 0% 12%;
-    --ring: 196 78% 54%;
+    /* Bordas: equivalente opaco de rgba(255,255,255,.085) sobre o canvas */
+    --border: 225 11% 14%;
+    --input:  225 11% 17%;
+    --ring:   195.5 80.8% 55.7%;
 
-    /* Raio sutil — mantém caráter neo-brutalista mas menos pesado */
-    --radius: 0.25rem;
-
-    /* Sombras Neo-brutalistas ligeiramente mais suaves no modo claro */
-    --shadow-color: 0 0% 0%;
-    --shadow-2xs: 1px 1px 0px 0px hsla(var(--shadow-color) / 0.75);
-    --shadow-xs:  2px 2px 0px 0px hsla(var(--shadow-color) / 0.8);
-    --shadow-sm:  3px 3px 0px 0px hsla(var(--shadow-color) / 0.85);
-    --shadow:     4px 4px 0px 0px hsla(var(--shadow-color) / 0.9);
-    --shadow-md:  5px 5px 0px 0px hsla(var(--shadow-color) / 1);
-    --shadow-lg:  7px 7px 0px 0px hsla(var(--shadow-color) / 1);
-    --shadow-xl: 10px 10px 0px 0px hsla(var(--shadow-color) / 1);
-    --shadow-2xl:14px 14px 0px 0px hsla(var(--shadow-color) / 1);
-  }
-
-  .dark {
-    /* Fundo Predominante #1c202b */
-    --background: 224 21% 13%;
-    --foreground: 0 0% 95%;
-
-    /* Cards ligeiramente mais claros que o fundo para dar profundidade */
-    --card: 224 21% 17%;
-    --card-foreground: 0 0% 95%;
-
-    --popover: 224 21% 17%;
-    --popover-foreground: 0 0% 95%;
-
-    /* No modo escuro, o Primary vira o azul do logo #33bae9 */
-    --primary: 196 78% 54%;
-    --primary-foreground: 224 21% 13%;
-
-    --secondary: 224 21% 20%;
-    --secondary-foreground: 0 0% 90%;
-
-    --muted: 224 21% 20%;
-    --muted-foreground: 224 10% 62%;
-
-    --accent: 196 78% 54%;
-    --accent-foreground: 224 21% 13%;
-
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 100%;
-
-    /* Borda sutil branca — evita o efeito "sujo" mas dá estrutura */
-    --border: 0 0% 100% / 0.1;
-    --input: 0 0% 100% / 0.14;
-    --ring: 196 78% 54%;
-
-    /* Sombras no modo escuro: cyan suave em vez de branco puro */
-    --shadow-color: 196 78% 54%;
-    --shadow-2xs: 1px 1px 0px 0px hsla(196, 78%, 54%, 0.2);
-    --shadow-xs:  2px 2px 0px 0px hsla(196, 78%, 54%, 0.25);
-    --shadow-sm:  2px 2px 0px 0px hsla(196, 78%, 54%, 0.3);
-    --shadow:     3px 3px 0px 0px hsla(196, 78%, 54%, 0.35);
-    --shadow-md:  4px 4px 0px 0px hsla(196, 78%, 54%, 0.4);
-    --shadow-lg:  5px 5px 0px 0px hsla(196, 78%, 54%, 0.45);
-    --shadow-xl:  7px 7px 0px 0px hsla(196, 78%, 54%, 0.5);
-    --shadow-2xl: 9px 9px 0px 0px hsla(196, 78%, 54%, 0.55);
+    /* Card de vidro */
+    --radius: 1.125rem;
   }
 }
 
@@ -105,108 +94,277 @@
   }
 
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
-    font-family: 'Space Grotesk', sans-serif;
+    @apply bg-background text-foreground;
+    font-family: "Space Grotesk", sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 110px;
+  }
+
+  ::selection {
+    background: rgba(51, 186, 233, 0.32);
   }
 
   /* Scrollbar personalizada */
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-secondary;
+    background: var(--bg);
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary/30 rounded-sm;
+    background: rgba(51, 186, 233, 0.25);
+    border-radius: 8px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary/60;
+    background: rgba(51, 186, 233, 0.5);
+  }
+}
+
+@layer components {
+  /* ---------- vidro ---------- */
+  .glass {
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: 0.32s var(--ease-orbita);
   }
 
-  /* Estilização Global do Footer */
-  footer {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-    border-top: none !important;
+  .glass-hov:hover {
+    border-color: var(--glass-border-hv);
+    background: var(--glass-bg-hover);
+    transform: translateY(-5px);
+    box-shadow: var(--glow-card);
   }
 
-  footer p, footer span, footer div {
-    color: #ffffff !important;
+  /* ---------- pane (moldura grande / stack do hero) ---------- */
+  .pane {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 22px;
+    background: var(--pane-bg);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    box-shadow: var(--shadow-pane);
   }
 
-  footer a {
-    @apply text-gray-300 hover:text-white transition-colors !important;
+  /* ---------- eyebrow / mono ---------- */
+  .mono {
+    font-family: "Space Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 9px;
+    padding: 7px 15px 7px 10px;
+    border: 1px solid var(--accent-border);
+    border-radius: 100px;
+    background: var(--accent-soft);
+    font-family: "Space Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #8fd9f4;
+  }
+
+  .eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-hex);
+    box-shadow: 0 0 10px var(--accent-hex);
+    flex-shrink: 0;
+  }
+
+  /* ---------- ícone-tile ---------- */
+  .ico {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    display: grid;
+    place-items: center;
+    background: rgba(51, 186, 233, 0.1);
+    border: 1px solid rgba(51, 186, 233, 0.2);
+    color: var(--accent-hex);
+    flex-shrink: 0;
+  }
+
+  .ico-sm {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  /* ---------- ênfase com gradiente nos headlines ---------- */
+  .grad {
+    font-weight: 600;
+    background: linear-gradient(96deg, #fff 6%, var(--accent-hex) 92%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* ---------- tipografia de headline ---------- */
+  .h1-orbita {
+    font-size: clamp(40px, 5.4vw, 78px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    font-weight: 500;
+  }
+
+  .h2-orbita {
+    font-size: clamp(32px, 3.9vw, 54px);
+    line-height: 1.07;
+    letter-spacing: -0.032em;
+    font-weight: 500;
+  }
+
+  .lead-orbita {
+    font-size: clamp(15.5px, 1.25vw, 17.5px);
+    line-height: 1.7;
+    color: var(--fg-muted);
   }
 }
 
 @layer utilities {
-  /* Padrão de pontos sutil para seções secundárias */
-  .dot-pattern {
-    background-image: radial-gradient(hsla(var(--foreground) / 0.045) 1px, transparent 1px);
-    background-size: 22px 22px;
+  /* Container do protótipo: 1240px com padding fluido */
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-left: clamp(20px, 2.6vw, 32px);
+    padding-right: clamp(20px, 2.6vw, 32px);
+  }
+
+  /* Ritmo vertical de seção */
+  .sec {
+    padding-top: clamp(72px, 8vw, 120px);
+    padding-bottom: clamp(72px, 8vw, 120px);
   }
 
   /* Animação float — mais suave e lenta */
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50%       { transform: translateY(-8px); }
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
   }
 
   /* Glow pulse — mais gentil */
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 12px rgba(51, 186, 233, 0.3); }
-    50%       { box-shadow: 0 0 24px rgba(51, 186, 233, 0.6); }
+    0%,
+    100% {
+      box-shadow: 0 0 12px rgba(51, 186, 233, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 24px rgba(51, 186, 233, 0.6);
+    }
   }
 
   /* Entrada de baixo para cima */
   @keyframes fade-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0);    }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* Fade simples */
   @keyframes fade-in {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   /* Slide da esquerda */
   @keyframes slide-in-left {
-    from { opacity: 0; transform: translateX(-20px); }
-    to   { opacity: 1; transform: translateX(0);     }
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   /* Slide da direita */
   @keyframes slide-in-right {
-    from { opacity: 0; transform: translateX(20px); }
-    to   { opacity: 1; transform: translateX(0);    }
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
-  /* Pulse ring — para o botão flutuante */
+  /* Ping do FAB — scale 1 → 1.7 em 2.4s */
   @keyframes ping-soft {
-    0%   { transform: scale(1);    opacity: 0.6; }
-    70%  { transform: scale(1.45); opacity: 0;   }
-    100% { transform: scale(1.45); opacity: 0;   }
+    0% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    70%,
+    100% {
+      transform: scale(1.7);
+      opacity: 0;
+    }
   }
 
-  @keyframes polaroid-in {
-    0%   { opacity: 0; transform: scale(0.85) rotate(-4deg); }
-    60%  { opacity: 1; transform: scale(1.02) rotate(1deg);  }
-    100% { opacity: 1; transform: scale(1) rotate(0deg);     }
+  /* Pulse do botão de play do reel */
+  @keyframes play-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(51, 186, 233, 0.45);
+    }
+    50% {
+      box-shadow: 0 0 0 22px rgba(51, 186, 233, 0);
+    }
   }
 
-  .animate-polaroid-in  { animation: polaroid-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
-  .animate-float        { animation: float 6s ease-in-out infinite; }
-  .animate-pulse-glow   { animation: pulse-glow 3s ease-in-out infinite; }
-  .animate-fade-up      { animation: fade-up 0.6s ease-out forwards; }
-  .animate-fade-in      { animation: fade-in 0.5s ease-out forwards; }
-  .animate-slide-left   { animation: slide-in-left 0.6s ease-out forwards; }
-  .animate-slide-right  { animation: slide-in-right 0.6s ease-out forwards; }
-  .animate-ping-soft    { animation: ping-soft 2.2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+  .animate-fade-up { animation: fade-up 0.6s ease-out forwards; }
+  .animate-fade-in { animation: fade-in 0.5s ease-out forwards; }
+  .animate-slide-left { animation: slide-in-left 0.6s ease-out forwards; }
+  .animate-slide-right { animation: slide-in-right 0.6s ease-out forwards; }
+  .animate-ping-soft { animation: ping-soft 2.4s cubic-bezier(0, 0, 0.2, 1) infinite; }
+  .animate-play-pulse { animation: play-pulse 2.6s ease-in-out infinite; }
+}
+
+/* No toque, hover de elevação vira :active — nada de card "grudado" no celular */
+@media (hover: none) {
+  .glass-hov:hover {
+    transform: none;
+    box-shadow: none;
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+  }
+  .glass-hov:active {
+    border-color: rgba(51, 186, 233, 0.45);
+    background: rgba(51, 186, 233, 0.06);
+  }
 }

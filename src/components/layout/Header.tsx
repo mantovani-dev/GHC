@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ModeToggle } from "@/components/ModeToggle";
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { useTranslation } from "react-i18next";
 import { useCommunityLink } from "@/hooks/useCommunityLink";
@@ -124,7 +123,6 @@ const Header = () => {
           {/* Ações Desktop */}
           <div className="hidden md:flex items-center gap-2.5">
             <LanguageToggle />
-            <ModeToggle />
             <Button
               onClick={() => window.open(communityLink, "_blank")}
               size="sm"
@@ -138,7 +136,6 @@ const Header = () => {
           {/* Ações Mobile */}
           <div className="flex md:hidden items-center gap-1.5">
             <LanguageToggle />
-            <ModeToggle />
             <button
               className="p-2 border border-border rounded-sm bg-background shadow-xs active:shadow-none active:translate-x-[1px] active:translate-y-[1px] transition-all duration-150"
               onClick={() => setIsMenuOpen(!isMenuOpen)}

@@ -1,10 +1,15 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect } from "react";
 
-type Theme = "dark" | "light" | "system";
+/**
+ * A identidade "Órbita" é só escura — não existe versão clara desenhada.
+ * O provider mantém a mesma API para não quebrar quem o consome, mas
+ * aplica sempre `dark` no <html>.
+ */
+type Theme = "dark";
 
 type ThemeProviderProps = {
   children: React.ReactNode;
-  defaultTheme?: Theme;
+  defaultTheme?: string;
   storageKey?: string;
 };
 
@@ -14,7 +19,7 @@ type ThemeProviderState = {
 };
 
 const initialState: ThemeProviderState = {
-  theme: "system",
+  theme: "dark",
   setTheme: () => null,
 };
 
@@ -22,45 +27,20 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
 export function ThemeProvider({
   children,
-  defaultTheme = "system",
-  storageKey = "ghc-ui-theme",
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  defaultTheme,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  storageKey,
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  );
-
   useEffect(() => {
     const root = window.document.documentElement;
-    const mql = window.matchMedia("(prefers-color-scheme: dark)");
-
-    const applyTheme = () => {
-      root.classList.remove("light", "dark");
-      if (theme === "system") {
-        root.classList.add(mql.matches ? "dark" : "light");
-      } else {
-        root.classList.add(theme);
-      }
-    };
-
-    applyTheme();
-
-    if (theme === "system") {
-      mql.addEventListener("change", applyTheme);
-      return () => mql.removeEventListener("change", applyTheme);
-    }
-  }, [theme]);
-
-  const value = {
-    theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
-      setTheme(theme);
-    },
-  };
+    root.classList.remove("light");
+    root.classList.add("dark");
+  }, []);
 
   return (
-    <ThemeProviderContext.Provider {...props} value={value}>
+    <ThemeProviderContext.Provider {...props} value={initialState}>
       {children}
     </ThemeProviderContext.Provider>
   );
