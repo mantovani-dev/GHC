@@ -2,16 +2,10 @@ import { createContext, useContext, useEffect } from "react";
 
 /**
  * A identidade "Órbita" é só escura — não existe versão clara desenhada.
- * O provider mantém a mesma API para não quebrar quem o consome, mas
- * aplica sempre `dark` no <html>.
+ * O provider mantém a API de `useTheme` para não quebrar quem o consome,
+ * mas aplica sempre `dark` no <html>.
  */
 type Theme = "dark";
-
-type ThemeProviderProps = {
-  children: React.ReactNode;
-  defaultTheme?: string;
-  storageKey?: string;
-};
 
 type ThemeProviderState = {
   theme: Theme;
@@ -25,14 +19,7 @@ const initialState: ThemeProviderState = {
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
-export function ThemeProvider({
-  children,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  defaultTheme,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  storageKey,
-  ...props
-}: ThemeProviderProps) {
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const root = window.document.documentElement;
     root.classList.remove("light");
@@ -40,17 +27,11 @@ export function ThemeProvider({
   }, []);
 
   return (
-    <ThemeProviderContext.Provider {...props} value={initialState}>
+    <ThemeProviderContext.Provider value={initialState}>
       {children}
     </ThemeProviderContext.Provider>
   );
 }
 
-export const useTheme = () => {
-  const context = useContext(ThemeProviderContext);
-
-  if (context === undefined)
-    throw new Error("useTheme must be used within a ThemeProvider");
-
-  return context;
-};
+// eslint-disable-next-line react-refresh/only-export-components
+export const useTheme = () => useContext(ThemeProviderContext);
