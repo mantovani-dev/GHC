@@ -14,20 +14,20 @@ import departure5 from "@/assets/gallery/departure5.jpeg";
 import departure6 from "@/assets/gallery/departure6.jpeg";
 import departure7 from "@/assets/gallery/departure7.jpeg";
 import departure8 from "@/assets/gallery/departure8.jpeg";
-import departure10 from "@/assets/gallery/departure10.jpeg";
 import departure11 from "@/assets/gallery/departure11.jpeg";
 import departure12 from "@/assets/gallery/departure12.jpeg";
 import departure13 from "@/assets/gallery/departure13.jpeg";
 import departure15 from "@/assets/gallery/departure15.jpeg";
 import departure16 from "@/assets/gallery/departure16.jpeg";
 import departure17 from "@/assets/gallery/departure17.jpeg";
+import departure18 from "@/assets/gallery/departure18.jpeg";
 
 const photos = [
   departure, departure9, departure14,
   departure2, departure3, departure4, departure5,
-  departure6, departure7, departure8, departure10,
-  departure11, departure12, departure13, departure15,
-  departure16, departure17,
+  departure6, departure7, departure8, departure11,
+  departure12, departure13, departure15,
+  departure16, departure17, departure18
 ];
 
 const AUTO_PLAY_MS = 4800;
@@ -93,36 +93,36 @@ const DepartureGallery = () => {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-        <button className="arrow" onClick={prev} aria-label="Foto anterior">
-          <ChevronLeft className="h-[22px] w-[22px]" />
-        </button>
+          <button className="arrow" onClick={prev} aria-label="Foto anterior">
+            <ChevronLeft className="h-[22px] w-[22px]" />
+          </button>
 
-        <div className="frames">
-          {photos.map((src, i) => (
-            <div
-              key={i}
-              className={cn(
-                "frame",
-                i === current && "frame-cur",
-                i === prevIndex && "frame-prev",
-                i === nextIndex && "frame-next"
-              )}
-              aria-hidden={i !== current}
-            >
-              {loaded.includes(i) && <img src={src} alt="Embarque GHC" loading="lazy" />}
-              <div className="tagline">
-                <span className="mono">GHC Departure</span>
-                <span className="mono text-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+          <div className="frames">
+            {photos.map((src, i) => (
+              <div
+                key={i}
+                className={cn(
+                  "frame",
+                  i === current && "frame-cur",
+                  i === prevIndex && "frame-prev",
+                  i === nextIndex && "frame-next"
+                )}
+                aria-hidden={i !== current}
+              >
+                {loaded.includes(i) && <img src={src} alt="Embarque GHC" loading="lazy" />}
+                <div className="tagline">
+                  <span className="mono">GHC Departure</span>
+                  <span className="mono text-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <button className="arrow" onClick={next} aria-label="Próxima foto">
-          <ChevronRight className="h-[22px] w-[22px]" />
-        </button>
+          <button className="arrow" onClick={next} aria-label="Próxima foto">
+            <ChevronRight className="h-[22px] w-[22px]" />
+          </button>
         </div>
       </AnimateIn>
 
