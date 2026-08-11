@@ -782,6 +782,120 @@
     margin-top: 6px;
   }
 
+  /* ---------- footer ---------- */
+  .orbita-footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(8, 10, 15, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 56px 0 30px;
+    margin-top: 40px;
+  }
+
+  .fgrid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .fgrid p {
+    margin: 14px 0 20px;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: rgba(232, 236, 244, 0.45);
+    max-width: 320px;
+  }
+
+  .soc {
+    display: flex;
+    gap: 10px;
+  }
+
+  .soc a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(232, 236, 244, 0.62);
+    transition: 0.24s;
+  }
+
+  .soc a:hover {
+    border-color: var(--accent-hex);
+    color: var(--accent-hex);
+    background: rgba(51, 186, 233, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .fh {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .fl {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13.5px;
+    color: rgba(232, 236, 244, 0.45);
+    align-items: flex-start;
+  }
+
+  .fl a:hover,
+  .fl button:hover {
+    color: var(--accent-hex);
+  }
+
+  .fbot {
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 12.5px;
+    color: rgba(232, 236, 244, 0.32);
+    flex-wrap: wrap;
+  }
+
+  /* ---------- FAB do WhatsApp ---------- */
+  .fab {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 70;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--whatsapp);
+    color: #fff;
+    box-shadow: 0 16px 40px -12px rgba(37, 211, 102, 0.7);
+    transition: 0.26s var(--ease-orbita);
+  }
+
+  .fab:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 22px 50px -12px rgba(37, 211, 102, 0.9);
+  }
+
+  .fab:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--whatsapp);
+    opacity: 0.5;
+    animation: ping-soft 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+    z-index: -1;
+  }
+
   /* ---------- eyebrow / mono ---------- */
   .mono {
     font-family: "Space Mono", monospace;
@@ -951,26 +1065,27 @@
     }
   }
 
-  /* Ping do FAB — scale 1 → 1.7 em 2.4s */
-  @keyframes ping-soft {
-    0% {
-      transform: scale(1);
-      opacity: 0.5;
-    }
-    70%,
-    100% {
-      transform: scale(1.7);
-      opacity: 0;
-    }
-  }
-
   .animate-float { animation: float 6s ease-in-out infinite; }
   .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
   .animate-fade-up { animation: fade-up 0.6s ease-out forwards; }
   .animate-fade-in { animation: fade-in 0.5s ease-out forwards; }
   .animate-slide-left { animation: slide-in-left 0.6s ease-out forwards; }
   .animate-slide-right { animation: slide-in-right 0.6s ease-out forwards; }
-  .animate-ping-soft { animation: ping-soft 2.4s cubic-bezier(0, 0, 0.2, 1) infinite; }
+}
+
+/* Ping do FAB — scale 1 → 1.7 em 2.4s.
+   Fora de @layer de propósito: é consumido por `.fab:before`, não por uma
+   classe utilitária, e dentro de @layer utilities o purge poderia removê-lo. */
+@keyframes ping-soft {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  70%,
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
 }
 
 /* Ajustes do protótipo em ≤1080px, ≤900px (drawer) e ≤600px */
@@ -1109,6 +1224,18 @@
   .cgrid > * {
     grid-column: auto !important;
   }
+
+  .fgrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .orbita-footer {
+    padding: 44px 0 26px;
+  }
+  .fbot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1170,6 +1297,16 @@
   }
   .reel {
     border-radius: 20px;
+  }
+
+  .soc {
+    justify-content: flex-start;
+  }
+  .fab {
+    right: 16px;
+    bottom: 16px;
+    width: 52px;
+    height: 52px;
   }
 }
 
