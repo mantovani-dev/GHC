@@ -84,6 +84,7 @@ const resources = {
         titleAccent: "carreira internacional",
         description: "Nosso processo é simples e transparente. Acompanhe os passos abaixo e entenda como podemos ajudar você a conquistar sua vaga no exterior.",
         cta: "Comece Agora — Entre na Comunidade",
+        stepLabel: "Etapa",
         steps: {
           step1: {
             title: "Captação do Candidato",
@@ -136,6 +137,31 @@ const resources = {
         title: "Sonhos que",
         titleAccent: "já decolaram",
         description: "Conheça algumas pessoas que já embarcaram e estão vivendo sua nova jornada no exterior com o apoio da GHC.",
+      },
+
+      heroStat: {
+        label: "Já embarcaram com a GHC",
+        text: "pessoas em rotas reais na Europa — com contrato, documentação e suporte do início ao pouso.",
+      },
+
+      milestone: {
+        tag: "Marco",
+        count: 300,
+        headline: "pessoas já embarcaram com a GHC — e hoje vivem, trabalham e constroem carreira no exterior.",
+        items: {
+          contracts: {
+            title: "Contratos diretos",
+            text: "Vagas operacionais e técnicas com empregadores europeus verificados.",
+          },
+          documents: {
+            title: "Documentação organizada",
+            text: "Fluxo documental acompanhado etapa por etapa, sem atalhos inseguros.",
+          },
+          network: {
+            title: "Rede de apoio",
+            text: "Uma comunidade de latino-americanos que já fizeram a mesma travessia.",
+          },
+        },
       },
 
       contact: {
@@ -256,6 +282,7 @@ const resources = {
         titleAccent: "international career",
         description: "Our process is simple and transparent. Follow the steps below to understand how we can help you conquer your job abroad.",
         cta: "Start Now — Join the Community",
+        stepLabel: "Step",
         steps: {
           step1: { title: "Candidate Sourcing", description: "Access to our community where real vacancies are posted and explained." },
           step2: { title: "Profile Screening", description: "Technical analysis of your profile to understand skills and compatibility." },
@@ -296,6 +323,31 @@ const resources = {
         title: "Dreams that",
         titleAccent: "already took off",
         description: "Meet some people who have already boarded and are living their new journey abroad with GHC's support.",
+      },
+
+      heroStat: {
+        label: "Already boarded with GHC",
+        text: "people on real routes across Europe — with a contract, paperwork and support from start to landing.",
+      },
+
+      milestone: {
+        tag: "Milestone",
+        count: 300,
+        headline: "people have already boarded with GHC — and today they live, work and build careers abroad.",
+        items: {
+          contracts: {
+            title: "Direct contracts",
+            text: "Operational and technical roles with verified European employers.",
+          },
+          documents: {
+            title: "Organised paperwork",
+            text: "Document flow followed step by step, with no unsafe shortcuts.",
+          },
+          network: {
+            title: "Support network",
+            text: "A community of Latin Americans who have made the same crossing.",
+          },
+        },
       },
 
       contact: {
@@ -416,6 +468,7 @@ const resources = {
         titleAccent: "carrera internacional",
         description: "Nuestro proceso es simple y transparente. Sigue los pasos a continuación para entender cómo podemos ayudarte a conquistar tu vacante en el extranjero.",
         cta: "Comienza Ahora — Únete a la Comunidad",
+        stepLabel: "Etapa",
         steps: {
           step1: { title: "Captación de Candidatos", description: "Acceso a nuestra comunidad donde las vacantes reales son publicadas y explicadas." },
           step2: { title: "Triaje de Perfil", description: "Análisis técnico de tu perfil para entender habilidades y compatibilidad con las vacantes." },
@@ -456,6 +509,31 @@ const resources = {
         title: "Sueños que",
         titleAccent: "ya despegaron",
         description: "Conoce a algunas personas que ya embarcaron y están viviendo su nueva jornada en el exterior con el apoyo de GHC.",
+      },
+
+      heroStat: {
+        label: "Ya embarcaron con GHC",
+        text: "personas en rutas reales en Europa — con contrato, documentación y soporte desde el inicio hasta el aterrizaje.",
+      },
+
+      milestone: {
+        tag: "Hito",
+        count: 300,
+        headline: "personas ya embarcaron con GHC — y hoy viven, trabajan y construyen su carrera en el exterior.",
+        items: {
+          contracts: {
+            title: "Contratos directos",
+            text: "Vacantes operativas y técnicas con empleadores europeos verificados.",
+          },
+          documents: {
+            title: "Documentación organizada",
+            text: "Flujo documental acompañado etapa por etapa, sin atajos inseguros.",
+          },
+          network: {
+            title: "Red de apoyo",
+            text: "Una comunidad de latinoamericanos que ya hicieron la misma travesía.",
+          },
+        },
       },
 
       contact: {

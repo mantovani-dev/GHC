@@ -1,12 +1,11 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect } from "react";
 
-type Theme = "dark" | "light" | "system";
-
-type ThemeProviderProps = {
-  children: React.ReactNode;
-  defaultTheme?: Theme;
-  storageKey?: string;
-};
+/**
+ * A identidade "Órbita" é só escura — não existe versão clara desenhada.
+ * O provider mantém a API de `useTheme` para não quebrar quem o consome,
+ * mas aplica sempre `dark` no <html>.
+ */
+type Theme = "dark";
 
 type ThemeProviderState = {
   theme: Theme;
@@ -14,63 +13,25 @@ type ThemeProviderState = {
 };
 
 const initialState: ThemeProviderState = {
-  theme: "system",
+  theme: "dark",
   setTheme: () => null,
 };
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
-export function ThemeProvider({
-  children,
-  defaultTheme = "system",
-  storageKey = "ghc-ui-theme",
-  ...props
-}: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  );
-
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const root = window.document.documentElement;
-    const mql = window.matchMedia("(prefers-color-scheme: dark)");
-
-    const applyTheme = () => {
-      root.classList.remove("light", "dark");
-      if (theme === "system") {
-        root.classList.add(mql.matches ? "dark" : "light");
-      } else {
-        root.classList.add(theme);
-      }
-    };
-
-    applyTheme();
-
-    if (theme === "system") {
-      mql.addEventListener("change", applyTheme);
-      return () => mql.removeEventListener("change", applyTheme);
-    }
-  }, [theme]);
-
-  const value = {
-    theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
-      setTheme(theme);
-    },
-  };
+    root.classList.remove("light");
+    root.classList.add("dark");
+  }, []);
 
   return (
-    <ThemeProviderContext.Provider {...props} value={value}>
+    <ThemeProviderContext.Provider value={initialState}>
       {children}
     </ThemeProviderContext.Provider>
   );
 }
 
-export const useTheme = () => {
-  const context = useContext(ThemeProviderContext);
-
-  if (context === undefined)
-    throw new Error("useTheme must be used within a ThemeProvider");
-
-  return context;
-};
+// eslint-disable-next-line react-refresh/only-export-components
+export const useTheme = () => useContext(ThemeProviderContext);

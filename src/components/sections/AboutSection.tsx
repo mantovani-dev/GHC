@@ -1,7 +1,7 @@
-import React from "react";
 import { Target, Eye, Heart, Users, ShieldCheck } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { AnimateIn } from "@/components/ui/animate-in";
+import { GlassCard } from "@/components/ui/glass-card";
 
 interface AboutSectionProps {
   id?: string;
@@ -34,77 +34,55 @@ const AboutSection = ({ id }: AboutSectionProps) => {
   ];
 
   return (
-    <section id={id} className="py-16 md:py-28 bg-secondary dot-pattern">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id={id} className="wrap sec">
+      {/* Cabeçalho */}
+      <AnimateIn>
+        <span className="eyebrow">
+          <span className="eyebrow-dot" />
+          {t("about.tag")}
+        </span>
 
-        {/* Cabeçalho */}
-        <AnimateIn animation="fade-up" className="max-w-3xl mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 border border-border px-3 py-1.5 mb-5 bg-background shadow-xs rounded-sm">
-            <span className="text-xs font-semibold text-muted-foreground">{t("about.tag")}</span>
+        <h2 className="h2-orbita mt-[22px]">
+          {t("about.title")}
+          <br />
+          <b className="grad">{t("about.titleAccent")}</b>
+        </h2>
+
+        <p className="lead-orbita mt-[26px] max-w-[720px]">{t("about.description1")}</p>
+        <p className="lead-orbita mt-[18px] max-w-[720px]">{t("about.description2")}</p>
+      </AnimateIn>
+
+      {/* Missão e Visão */}
+      <AnimateIn className="duo">
+        <GlassCard hover>
+          <div className="ico">
+            <Target className="h-[19px] w-[19px]" />
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-5 tracking-tight leading-tight">
-            {t("about.title")}
-            <br />
-            <span className="border-b-[3px] border-foreground">{t("about.titleAccent")}</span>
-          </h2>
-          <div className="space-y-3">
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              {t("about.description1")}
-            </p>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              {t("about.description2")}
-            </p>
+          <h3>{t("about.mission.title")}</h3>
+          <p>{t("about.mission.text")}</p>
+        </GlassCard>
+
+        <GlassCard hover>
+          <div className="ico">
+            <Eye className="h-[19px] w-[19px]" />
           </div>
-        </AnimateIn>
+          <h3>{t("about.vision.title")}</h3>
+          <p>{t("about.vision.text")}</p>
+        </GlassCard>
+      </AnimateIn>
 
-        {/* Missão e Visão */}
-        <div className="grid md:grid-cols-2 gap-4 md:gap-5 mb-10 md:mb-12">
-          <AnimateIn animation="slide-left" delay={100}>
-            <div className="border border-border bg-background p-6 md:p-8 shadow-sm rounded-sm hover:shadow-md hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 h-full">
-              <div className="w-10 h-10 rounded-sm bg-primary/8 flex items-center justify-center mb-4">
-                <Target className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">{t("about.mission.title")}</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                {t("about.mission.text")}
-              </p>
+      {/* Valores */}
+      <AnimateIn className="quad">
+        {values.map((value, index) => (
+          <GlassCard key={index} hover>
+            <div className="ico">
+              <value.icon className="h-[17px] w-[17px]" />
             </div>
-          </AnimateIn>
-          <AnimateIn animation="slide-right" delay={100}>
-            <div className="border border-border bg-background p-6 md:p-8 shadow-sm rounded-sm hover:shadow-md hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 h-full">
-              <div className="w-10 h-10 rounded-sm bg-primary/8 flex items-center justify-center mb-4">
-                <Eye className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">{t("about.vision.title")}</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                {t("about.vision.text")}
-              </p>
-            </div>
-          </AnimateIn>
-        </div>
-
-        {/* Valores */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-          {values.map((value, index) => (
-            <AnimateIn
-              key={index}
-              animation="fade-up"
-              delay={index * 80}
-            >
-              <div className="border border-border bg-background p-4 md:p-6 shadow-xs rounded-sm hover:shadow-sm hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all duration-200 flex flex-col h-full group">
-                <div className="w-8 h-8 rounded-sm bg-primary/8 flex items-center justify-center mb-3 group-hover:bg-primary/15 transition-colors duration-200">
-                  <value.icon className="w-4 h-4 text-primary" />
-                </div>
-                <h4 className="text-sm md:text-base font-bold mb-2">{value.title}</h4>
-                <p className="text-xs md:text-sm text-muted-foreground leading-snug">
-                  {value.description}
-                </p>
-              </div>
-            </AnimateIn>
-          ))}
-        </div>
-
-      </div>
+            <h4>{value.title}</h4>
+            <p>{value.description}</p>
+          </GlassCard>
+        ))}
+      </AnimateIn>
     </section>
   );
 };

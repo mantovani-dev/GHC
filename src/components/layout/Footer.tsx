@@ -1,8 +1,10 @@
-import { MessageCircle, Instagram, Linkedin, Youtube, Code2 } from "lucide-react";
+import { MessageCircle, Instagram, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useCommunityLink } from "@/hooks/useCommunityLink";
 
 import logoGhc from "@/assets/logo-ghc-invisible-white.png";
+
+const EMAIL = "atendimento@globalhiringcareers.com";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -16,49 +18,42 @@ const Footer = () => {
   ];
 
   const footerLinks = [
-    { label: t("footer.labels.home"), href: "#inicio" },
-    { label: t("footer.labels.about"), href: "#sobre" },
-    { label: t("footer.labels.works"), href: "#como-funciona" },
-    { label: t("footer.labels.cases"), href: "#cases" },
-    { label: t("footer.labels.contact"), href: "#contato" },
+    { label: t("footer.labels.home"), href: "inicio" },
+    { label: t("footer.labels.about"), href: "sobre" },
+    { label: t("footer.labels.works"), href: "como-funciona" },
+    { label: t("footer.labels.cases"), href: "cases" },
+    { label: t("footer.labels.contact"), href: "contato" },
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <footer className="bg-black text-white py-8 md:py-10 border-t-2 border-white/10">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Marca / Logo */}
+    <footer className="orbita-footer">
+      <div className="wrap">
+        <div className="fgrid">
+          {/* Marca */}
           <div>
             <img
               src={logoGhc}
               alt="Global Hiring & Careers"
-              className="h-10 mb-3"
+              className="block h-[38px]"
               onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none';
+                (e.target as HTMLImageElement).style.display = "none";
               }}
             />
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              {t("footer.description")}
-            </p>
-            {/* Links Sociais */}
-            <div className="flex gap-3">
-              {socialLinks.map((social, index) => (
+            <p>{t("footer.description")}</p>
+            <div className="soc">
+              {socialLinks.map((social) => (
                 <a
-                  key={index}
+                  key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 border-2 border-white/30 flex items-center justify-center hover:bg-white hover:text-black transition-colors"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-4 h-4" />
+                  <social.icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
@@ -66,13 +61,13 @@ const Footer = () => {
 
           {/* Navegação */}
           <div>
-            <div className="font-bold mb-3 text-white">{t("footer.nav")}</div>
-            <nav className="flex flex-col gap-1.5">
-              {footerLinks.map((link, index) => (
+            <div className="fh">{t("footer.nav")}</div>
+            <nav className="fl">
+              {footerLinks.map((link) => (
                 <button
-                  key={index}
+                  key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-gray-300 text-sm hover:text-white transition-colors text-left"
+                  className="transition-colors"
                 >
                   {link.label}
                 </button>
@@ -82,43 +77,41 @@ const Footer = () => {
 
           {/* Contato */}
           <div>
-            <div className="font-bold mb-3 text-white">{t("footer.labels.contact")}</div>
-            <div className="flex flex-col gap-1.5 text-sm text-gray-400">
-              <a
-                href="mailto:atendimento@globalhiringcareers.com"
-                className="text-gray-400 hover:text-white transition-colors"
-              >
-                atendimento@globalhiringcareers.com
+            <div className="fh">{t("footer.labels.contact")}</div>
+            <div className="fl">
+              <a href={`mailto:${EMAIL}`} className="break-all transition-colors">
+                {EMAIL}
               </a>
-              <span className="text-gray-400">Av. Salgado Filho, 2120</span>
-              <span className="text-gray-400">Guarulhos, São Paulo - Brasil</span>
+              <span>Av. Salgado Filho, 2120</span>
+              <span>Guarulhos, São Paulo - Brasil</span>
             </div>
           </div>
         </div>
 
-        {/* Barra Inferior */}
-        <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
-          <div className="text-sm text-gray-500">
-            © {currentYear} Global Hiring & Careers (GHC). {t("footer.rights")}
-          </div>
-          <div className="flex gap-6 text-sm text-gray-500">
-            <a href="#" className="hover:text-white transition-colors">
+        {/* Barra inferior */}
+        <div className="fbot">
+          <span>
+            © {currentYear} Global Hiring &amp; Careers (GHC). {t("footer.rights")}
+          </span>
+          <span className="flex gap-[22px]">
+            <a href="#" className="transition-colors hover:text-accent">
               {t("footer.privacy")}
             </a>
-            <a href="#" className="hover:text-white transition-colors">
+            <a href="#" className="transition-colors hover:text-accent">
               {t("footer.terms")}
             </a>
-          </div>
+          </span>
         </div>
 
-        {/* Créditos do Desenvolvedor */}
-        <div className="flex flex-col items-center justify-center pt-6 border-t border-white/5">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-gray-600 mb-1 font-medium">
+        {/* Créditos do desenvolvedor */}
+        <div className="mt-6 flex flex-col items-center justify-center border-t border-white/[0.06] pt-6">
+          <p className="mb-1 text-[9px] font-medium uppercase tracking-[0.2em] text-foreground/25">
             {t("footer.developed")}
           </p>
           <div className="group cursor-default select-none">
-            <span className="font-mono text-xs tracking-tighter text-gray-500 group-hover:text-primary transition-colors duration-500">
-              {"</"}saint<span className="text-gray-600 group-hover:text-primary">♱</span>code{">"}
+            <span className="font-mono text-xs tracking-tighter text-foreground/30 transition-colors duration-500 group-hover:text-accent">
+              {"</"}saint<span className="text-foreground/25 group-hover:text-accent">♱</span>
+              code{">"}
             </span>
           </div>
         </div>
