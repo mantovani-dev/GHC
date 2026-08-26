@@ -7,6 +7,7 @@ import {
   ArrowRight,
   ChevronDown,
   MessageCircle,
+  Wrench,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
@@ -31,6 +32,8 @@ const VacancyCard = ({ vacancy, communityLink }: VacancyCardProps) => {
     { icon: MapPin, value: vacancy.location },
     { icon: Clock, value: vacancy.schedule },
     { icon: ClipboardList, value: vacancy.requirements },
+    /* Nem toda vaga do material descreve o dia a dia */
+    ...(vacancy.duties ? [{ icon: Wrench, value: vacancy.duties }] : []),
     { icon: CheckCircle2, value: vacancy.benefits },
   ];
 

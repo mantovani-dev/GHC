@@ -3,7 +3,7 @@ import {
   countries,
   countryOf,
   currencyOf,
-  VACANCIES_UPDATED_AT,
+  VACANCIES_POSTED_AT,
   type Vacancy,
 } from "../data/vacancies";
 
@@ -45,16 +45,26 @@ const ORG = {
 };
 
 /**
- * Locais genéricos do quadro ("Polônia", "Croácia", "Projetos em todo o país")
- * não são cidades — nesses casos o JSON-LD leva só o país, sem addressLocality.
+ * Extrai a cidade do campo `location` para o `addressLocality`.
+ *
+ * Boa parte dos locais do quadro não é cidade: "Polônia", "Projetos em todo o
+ * país", "Região de Varsóvia", "Polônia — cidade definida conforme o projeto"
+ * ou uma lista com "·". Nesses casos o JSON-LD leva só o país — um
+ * addressLocality que não geocodifica atrapalha mais do que ajuda no Google
+ * Jobs. Quando é cidade, o parêntese de contexto sai: "Siedlce (90 km de
+ * Varsóvia)" vira "Siedlce".
  */
 const localityOf = (vacancy: Vacancy): string | null => {
+  const loc = vacancy.location;
   const countryNames = countries.map((c) => c.name);
-  if (countryNames.includes(vacancy.location)) return null;
-  if (/^Projetos/i.test(vacancy.location)) return null;
-  // "Varsóvia · Wrocław · Poznań" — várias cidades, fica só o país
-  if (vacancy.location.includes("·")) return null;
-  return vacancy.location;
+
+  if (countryNames.some((n) => loc === n || loc.startsWith(n))) return null;
+  if (/^(Projetos|Região)/i.test(loc)) return null;
+  if (loc.includes("·")) return null;
+  // Travessão indica um qualificador, não um município
+  if (loc.includes("—")) return null;
+
+  return loc.split(" (")[0].trim();
 };
 
 /** Descrição em HTML, como o Google pede para JobPosting. */
@@ -70,6 +80,7 @@ const descriptionOf = (vacancy: Vacancy): string => {
     `<p><strong>Remuneração:</strong> ${pay}</p>`,
     `<p><strong>Jornada:</strong> ${vacancy.schedule}</p>`,
     `<p><strong>Requisitos:</strong> ${vacancy.requirements}</p>`,
+    vacancy.duties ? `<p><strong>O trabalho:</strong> ${vacancy.duties}</p>` : "",
     `<p><strong>Benefícios:</strong> ${vacancy.benefits}</p>`,
     vacancy.warning ? `<p><strong>Atenção:</strong> ${vacancy.warning}</p>` : "",
   ].join("");
@@ -89,8 +100,9 @@ const jobPosting = (vacancy: Vacancy) => {
       name: "GHC",
       value: vacancy.code,
     },
-    datePosted: VACANCIES_UPDATED_AT,
+    datePosted: vacancy.postedAt ?? VACANCIES_POSTED_AT,
     employmentType: "FULL_TIME",
+    ...(vacancy.duties ? { responsibilities: vacancy.duties } : {}),
     hiringOrganization: ORG,
     jobLocation: {
       "@type": "Place",
@@ -112,7 +124,7 @@ const jobPosting = (vacancy: Vacancy) => {
     },
     /* A candidatura é feita no formulário do país, fora do site */
     directApply: false,
-    url: `${SITE_URL}/#vaga-${vacancy.code}`,
+    url: `${SITE_URL}${seoMeta.vacancies.path}#vaga-${vacancy.code}`,
   };
 };
 

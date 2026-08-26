@@ -32,11 +32,15 @@ export interface Vacancy {
   schedule: string;
   requirements: string;
   benefits: string;
+  /** O que a pessoa faz no dia a dia. Nem toda vaga do material traz isso. */
+  duties?: string;
   entry: EntryType;
   /** Destaque de "VAGA NOVA" no material. */
   isNew?: boolean;
   /** Ressalva que aparece com ⚠ no material. */
   warning?: string;
+  /** Data de publicação, quando difere da do quadro original. */
+  postedAt?: string;
 }
 
 export interface Country {
@@ -48,7 +52,14 @@ export interface Country {
   isoCode: string;
 }
 
-export const VACANCIES_UPDATED_AT = "2026-08-24";
+/** Última revisão do quadro — alimenta o texto da seção e o sitemap. */
+export const VACANCIES_UPDATED_AT = "2026-08-26";
+
+/**
+ * Publicação padrão das vagas, usada no `datePosted` do JSON-LD. É a data do
+ * material original; vagas incluídas depois trazem o próprio `postedAt`.
+ */
+export const VACANCIES_POSTED_AT = "2026-08-24";
 
 export const countries: Country[] = [
   { code: "pl", name: "Polônia", isoCode: "PL", formUrl: "https://forms.gle/UFGi51QKLQFfRNA48" },
@@ -73,6 +84,28 @@ export const vacancies: Vacancy[] = [
     benefits:
       "Contrato com registro (ZUS) · acomodação 500 PLN · transporte grátis · cartão de residência de até 3 anos",
     entry: "futuro",
+  },
+  {
+    code: "076",
+    country: "pl",
+    title: "Soldador MIG / MAG / TIG",
+    salaryBRL: "R$ 10.800 a R$ 11.800",
+    salaryLocal:
+      "PLN 7.700 a 8.400 por mês — 35 PLN líquidos por hora (36 a 37 PLN/h com nível técnico superior, até PLN 8.880)",
+    salaryValue: { min: 7700, max: 8400, unit: "MONTH" },
+    location: "Polônia — cidade definida conforme o projeto",
+    schedule: "220 a 240h/mês — segunda a sexta, 10 a 12h por dia",
+    requirements:
+      "Experiência comprovável em MIG, MAG ou TIG · leitura e interpretação de planos técnicos · manuseio de ferramentas e equipamentos de medição · disponibilidade para atuar em diferentes cidades da Polônia",
+    duties:
+      "Preparo de superfícies e materiais, montagem e posicionamento de peças, execução de solda em estruturas e componentes metálicos e verificação visual das uniões.",
+    benefits:
+      "Alojamento cerca de 850 PLN · aumento por avaliação técnica e desempenho · acompanhamento documental e migratório · projetos industriais em várias cidades da Polônia",
+    entry: "confirmar",
+    isNew: true,
+    warning:
+      "Pode ser exigido teste prático de soldagem durante a seleção. A experiência informada no currículo precisa ser demonstrada.",
+    postedAt: "2026-08-26",
   },
   {
     code: "061",
@@ -150,6 +183,28 @@ export const vacancies: Vacancy[] = [
     benefits:
       "Alojamento 500 PLN · 1 refeição grátis · roupa de trabalho grátis · homens, mulheres e casais",
     entry: "futuro",
+  },
+  {
+    code: "075",
+    country: "pl",
+    title: "Operador de Empilhadeira",
+    salaryBRL: "R$ 8.600 a R$ 9.400",
+    salaryLocal:
+      "PLN 6.160 a 6.720 por mês — 28 PLN líquidos por hora (29 PLN/h com bom desempenho, até PLN 6.960)",
+    salaryValue: { min: 6160, max: 6720, unit: "MONTH" },
+    location: "Gdańsk",
+    schedule: "220 a 240h/mês — segunda a sexta, 10 a 12h por dia",
+    requirements:
+      "Inglês básico obrigatório · habilitação de operador conforme a exigência polonesa · agilidade e boa coordenação · experiência com empilhadeira conta pontos, mas não é eliminatória",
+    duties:
+      "Operação de empilhadeira em armazém, carga e descarga de mercadorias, movimentação e organização de pallets e abastecimento das áreas de produção.",
+    benefits:
+      "Alojamento cerca de 850 PLN · aumento por desempenho após avaliação · acompanhamento documental e migratório · operação logística em Gdańsk, cidade portuária no norte do país",
+    entry: "confirmar",
+    isNew: true,
+    warning:
+      "Inglês básico é obrigatório — é preciso entender instruções de trabalho e de segurança em inglês. Pode ser exigida avaliação prática de operação, e a documentação é conferida antes da alocação.",
+    postedAt: "2026-08-26",
   },
   {
     code: "073",
