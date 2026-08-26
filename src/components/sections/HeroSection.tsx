@@ -7,6 +7,7 @@ import {
   MapPin,
   Plane,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useCommunityLink } from "@/hooks/useCommunityLink";
 import { AnimateIn } from "@/components/ui/animate-in";
@@ -70,18 +71,18 @@ const HeroSection = ({ id }: HeroSectionProps) => {
 
             <div className="mt-9 flex flex-wrap gap-3">
               <Button
+                asChild
                 variant="orbita"
                 size="orbitaLg"
                 className="max-[600px]:w-full max-[600px]:justify-center"
-                onClick={() =>
-                  document.getElementById("vagas")?.scrollIntoView({ behavior: "smooth" })
-                }
               >
-                {t("vacancies.heroCta")}
-                <span className="rounded-pill bg-accent-foreground/20 px-2 py-0.5 text-[12px] font-semibold">
-                  {vacancies.length}
-                </span>
-                <ArrowRight />
+                <Link to="/vagas">
+                  {t("vacancies.heroCta")}
+                  <span className="rounded-pill bg-accent-foreground/20 px-2 py-0.5 text-[12px] font-semibold">
+                    {vacancies.length}
+                  </span>
+                  <ArrowRight />
+                </Link>
               </Button>
               <Button
                 variant="orbitaGhost"

@@ -1,1 +1,7 @@
-/* /index.html 200
+# /vagas tem HTML próprio (título, description e os JSON-LD de JobPosting).
+# Precisa vir antes do fallback de SPA, senão cairia no index.html.
+/vagas   /vagas.html   200
+/vagas/  /vagas.html   200
+
+# Fallback de SPA para as demais rotas do react-router
+/*       /index.html   200

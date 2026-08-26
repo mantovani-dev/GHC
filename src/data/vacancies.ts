@@ -42,7 +42,6 @@ export interface Vacancy {
 export interface Country {
   code: CountryCode;
   name: string;
-  flag: string;
   /** Formulário de inscrição do país. `null` = inscrição pelo WhatsApp. */
   formUrl: string | null;
   /** ISO 3166-1 alfa-2, usado no JSON-LD. */
@@ -52,10 +51,10 @@ export interface Country {
 export const VACANCIES_UPDATED_AT = "2026-08-24";
 
 export const countries: Country[] = [
-  { code: "pl", name: "Polônia", flag: "🇵🇱", isoCode: "PL", formUrl: "https://forms.gle/UFGi51QKLQFfRNA48" },
-  { code: "hr", name: "Croácia", flag: "🇭🇷", isoCode: "HR", formUrl: "https://forms.gle/xeRvXUuJAjmgp2Rq9" },
-  { code: "me", name: "Montenegro", flag: "🇲🇪", isoCode: "ME", formUrl: "https://forms.gle/EVKFuMc4gEqeX9jx9" },
-  { code: "dk", name: "Dinamarca", flag: "🇩🇰", isoCode: "DK", formUrl: null },
+  { code: "pl", name: "Polônia", isoCode: "PL", formUrl: "https://forms.gle/UFGi51QKLQFfRNA48" },
+  { code: "hr", name: "Croácia", isoCode: "HR", formUrl: "https://forms.gle/xeRvXUuJAjmgp2Rq9" },
+  { code: "me", name: "Montenegro", isoCode: "ME", formUrl: "https://forms.gle/EVKFuMc4gEqeX9jx9" },
+  { code: "dk", name: "Dinamarca", isoCode: "DK", formUrl: null },
 ];
 
 export const vacancies: Vacancy[] = [

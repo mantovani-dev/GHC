@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import UpdatePrompt from "@/components/UpdatePrompt";
 import Index from "./pages/Index";
+import Vacancies from "./pages/Vacancies";
 import NotFound from "./pages/NotFound";
 import GhcBio from "./pages/GhcBio";
 
@@ -22,6 +23,9 @@ const App = () => (
           <Routes>
             {/* Rota principal (Landing Page) */}
             <Route path="/" element={<Index />} />
+
+            {/* Quadro de vagas — tem HTML próprio (vagas.html) para o SEO */}
+            <Route path="/vagas" element={<Vacancies />} />
 
             {/* Nova rota Cyber Link */}
             <Route path="/bio" element={<GhcBio />} />

@@ -9,19 +9,28 @@ import {
 
 export const SITE_URL = "https://ghc.com.br";
 
-/** Título e descrição da home, derivados do próprio quadro de vagas. */
+const COUNTRY_LIST = countries.map((c) => c.name).join(", ");
+
+/** Título, descrição e canonical de cada página, injetados no HTML em build. */
 export const seoMeta = {
-  title:
-    'Vagas de Trabalho no Exterior | ' +
-    vacancies.length +
-    ' Empregos com Contrato na Europa | GHC',
-  description:
-    vacancies.length +
-    ' vagas abertas em ' +
-    countries.map((c) => c.name).join(', ') +
-    ' para brasileiros e latino-americanos. Salário em euro ou zloty, alojamento, transporte e apoio na documentação. Veja as vagas e inscreva-se.',
-  keywords:
-    'vagas de trabalho no exterior, emprego no exterior, trabalhar na Europa, vagas na Polônia, trabalhar na Polônia, vagas na Croácia, vagas em Montenegro, vagas na Dinamarca, recrutamento internacional, vaga com contrato de trabalho no exterior, emprego para brasileiros na Europa, operador de armazém Polônia, trabalho em frigorífico na Europa, GHC',
+  home: {
+    path: "/",
+    title: "GHC | Recrutamento Internacional para Brasileiros e Latino-Americanos",
+    description:
+      `Conectamos profissionais latino-americanos a vagas de trabalho no exterior com contrato, ` +
+      `documentação e suporte até o embarque. ${vacancies.length} vagas abertas em ${COUNTRY_LIST}.`,
+    keywords:
+      "recrutamento internacional, trabalho no exterior, emprego no exterior, agência de recrutamento internacional, trabalhar na Europa, latino-americanos no exterior, GHC, Global Hiring Careers",
+  },
+  vacancies: {
+    path: "/vagas",
+    title: `Vagas de Trabalho no Exterior | ${vacancies.length} Empregos com Contrato na Europa | GHC`,
+    description:
+      `${vacancies.length} vagas abertas em ${COUNTRY_LIST} para brasileiros e latino-americanos. ` +
+      `Salário em euro ou zloty, alojamento, transporte e apoio na documentação. Veja as vagas e inscreva-se.`,
+    keywords:
+      "vagas de trabalho no exterior, emprego no exterior, trabalhar na Europa, vagas na Polônia, trabalhar na Polônia, vagas na Croácia, vagas em Montenegro, vagas na Dinamarca, recrutamento internacional, vaga com contrato de trabalho no exterior, emprego para brasileiros na Europa, operador de armazém Polônia, trabalho em frigorífico na Europa, GHC",
+  },
 };
 
 const ORG = {

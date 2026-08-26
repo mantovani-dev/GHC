@@ -180,6 +180,11 @@ const resources = {
         apply: "Inscrever-se",
         applyWhatsapp: "Pedir formulário no WhatsApp",
         heroCta: "Confira as vagas abertas",
+        teaser:
+          "Vagas com contrato, alojamento e apoio na documentação em quatro países da Europa. Veja o quadro completo, com salário, jornada e requisitos de cada uma.",
+        countLabel_one: "{{count}} vaga",
+        countLabel_other: "{{count}} vagas",
+        backHome: "Voltar para a home",
         entry: {
           imediato: {
             label: "Ingresso imediato",
@@ -411,6 +416,11 @@ const resources = {
         apply: "Apply now",
         applyWhatsapp: "Request the form on WhatsApp",
         heroCta: "See the open roles",
+        teaser:
+          "Roles with a contract, accommodation and paperwork support in four European countries. See the full board, with pay, hours and requirements for each one.",
+        countLabel_one: "{{count}} role",
+        countLabel_other: "{{count}} roles",
+        backHome: "Back to home",
         entry: {
           imediato: {
             label: "Immediate start",
@@ -642,6 +652,11 @@ const resources = {
         apply: "Postularme",
         applyWhatsapp: "Pedir el formulario por WhatsApp",
         heroCta: "Mira las vacantes abiertas",
+        teaser:
+          "Vacantes con contrato, alojamiento y apoyo documental en cuatro países de Europa. Mira el cuadro completo, con salario, jornada y requisitos de cada una.",
+        countLabel_one: "{{count}} vacante",
+        countLabel_other: "{{count}} vacantes",
+        backHome: "Volver al inicio",
         entry: {
           imediato: {
             label: "Ingreso inmediato",

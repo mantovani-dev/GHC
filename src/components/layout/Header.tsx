@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -6,17 +7,9 @@ import { LanguageToggle } from "@/components/LanguageToggle";
 import { useTranslation } from "react-i18next";
 import { useCommunityLink } from "@/hooks/useCommunityLink";
 import MobileDrawer from "@/components/layout/MobileDrawer";
+import { navLinks, sectionLinks, type NavLink } from "@/lib/nav";
 
 import logoGhcWhite from "@/assets/logo-ghc-invisible-white.png";
-
-const navLinks = [
-  { href: "inicio", label: "header.inicio" },
-  { href: "vagas", label: "header.vagas" },
-  { href: "sobre", label: "header.sobre" },
-  { href: "como-funciona", label: "header.comoFunciona" },
-  { href: "cases", label: "header.cases" },
-  { href: "contato", label: "header.contato" },
-];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,17 +17,22 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const { t } = useTranslation();
   const communityLink = useCommunityLink();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  const isHome = pathname === "/";
 
   /* Encolhe a pill e faz o scroll-spy no mesmo listener.
      Seção ativa = a última cujo topo já passou de 160px. */
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 24);
+      if (!isHome) return;
 
-      let active = navLinks[0].href;
-      for (const { href } of navLinks) {
-        const el = document.getElementById(href);
-        if (el && el.getBoundingClientRect().top <= 160) active = href;
+      let active = sectionLinks[0].key;
+      for (const { key, section } of sectionLinks) {
+        const el = document.getElementById(section as string);
+        if (el && el.getBoundingClientRect().top <= 160) active = key;
       }
       setActiveSection(active);
     };
@@ -42,14 +40,29 @@ const Header = () => {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHome]);
 
   /* scroll-padding-top: 110px em index.css já compensa a pill */
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setActiveSection(id);
-    setIsMenuOpen(false);
-  };
+  const go = useCallback(
+    (link: NavLink) => {
+      setIsMenuOpen(false);
+
+      if (link.path) {
+        navigate(link.path);
+        window.scrollTo({ top: 0 });
+        return;
+      }
+      if (isHome) {
+        document.getElementById(link.section as string)?.scrollIntoView({ behavior: "smooth" });
+        setActiveSection(link.key);
+      } else {
+        navigate(`/#${link.section}`);
+      }
+    },
+    [isHome, navigate]
+  );
+
+  const activeKey = isHome ? activeSection : pathname === "/vagas" ? "vagas" : "";
 
   return (
     <>
@@ -62,8 +75,9 @@ const Header = () => {
         <div className="wrap">
           <div className={cn("navbar", scrolled && "navbar-small")}>
             {/* Logo */}
-            <button
-              onClick={() => scrollToSection("inicio")}
+            <Link
+              to="/"
+              onClick={() => window.scrollTo({ top: 0 })}
               className="flex shrink-0 items-center"
               aria-label="Ir para o início"
             >
@@ -72,18 +86,15 @@ const Header = () => {
                 alt="Global Hiring & Careers"
                 className="block h-[26px]"
               />
-            </button>
+            </Link>
 
             {/* Nav desktop */}
             <nav className="hidden gap-0.5 min-[901px]:flex">
               {navLinks.map((link) => (
                 <button
-                  key={link.href}
-                  onClick={() => scrollToSection(link.href)}
-                  className={cn(
-                    "nav-link",
-                    activeSection === link.href && "nav-link-on"
-                  )}
+                  key={link.key}
+                  onClick={() => go(link)}
+                  className={cn("nav-link", activeKey === link.key && "nav-link-on")}
                 >
                   {t(link.label)}
                 </button>
@@ -122,9 +133,8 @@ const Header = () => {
       <MobileDrawer
         open={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
-        navLinks={navLinks}
-        activeSection={activeSection}
-        onNavigate={scrollToSection}
+        activeKey={activeKey}
+        onNavigate={go}
         communityLink={communityLink}
       />
     </>
