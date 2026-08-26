@@ -1,6 +1,8 @@
 import { MessageCircle, Instagram, Linkedin } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useCommunityLink } from "@/hooks/useCommunityLink";
+import { navLinks, type NavLink } from "@/lib/nav";
 
 import logoGhc from "@/assets/logo-ghc-invisible-white.png";
 
@@ -17,16 +19,18 @@ const Footer = () => {
     { icon: Linkedin, href: "https://linkedin.com/company/global-hiring-careers/", label: "LinkedIn" },
   ];
 
-  const footerLinks = [
-    { label: t("footer.labels.home"), href: "inicio" },
-    { label: t("footer.labels.about"), href: "sobre" },
-    { label: t("footer.labels.works"), href: "como-funciona" },
-    { label: t("footer.labels.cases"), href: "cases" },
-    { label: t("footer.labels.contact"), href: "contato" },
-  ];
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const go = (link: NavLink) => {
+    if (link.path) {
+      navigate(link.path);
+      window.scrollTo({ top: 0 });
+    } else if (pathname === "/") {
+      document.getElementById(link.section as string)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(`/#${link.section}`);
+    }
   };
 
   return (
@@ -63,13 +67,9 @@ const Footer = () => {
           <div>
             <div className="fh">{t("footer.nav")}</div>
             <nav className="fl">
-              {footerLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => scrollToSection(link.href)}
-                  className="transition-colors"
-                >
-                  {link.label}
+              {navLinks.map((link) => (
+                <button key={link.key} onClick={() => go(link)} className="transition-colors">
+                  {t(link.label)}
                 </button>
               ))}
             </nav>

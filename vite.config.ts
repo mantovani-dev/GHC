@@ -3,6 +3,104 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 import { VitePWA } from "vite-plugin-pwa";
+import type { Plugin, HtmlTagDescriptor } from "vite";
+import { jobPostingSchemas, organizationSchema, seoMeta, SITE_URL } from "./src/lib/job-schema";
+import { VACANCIES_UPDATED_AT } from "./src/data/vacancies";
+
+/**
+ * Injeta as tags de SEO direto no HTML servido, por página.
+ *
+ * Precisa ser em build, e não em runtime: o react-helmet-async 2.0.5 não
+ * aplica nada neste projeto, e mesmo funcionando os crawlers de WhatsApp,
+ * Facebook e LinkedIn não executam JS — tags de og: injetadas pelo React
+ * seriam invisíveis para eles.
+ *
+ * O JSON-LD de JobPosting entra só em vagas.html: as vagas moram em /vagas,
+ * e repetir os 25 anúncios na home e na /bio confundiria o Google Jobs.
+ */
+const seoTags = (): Plugin => ({
+  name: "ghc-seo-tags",
+
+  /* Em dev não existe roteamento de arquivos: /vagas cairia no index.html
+     pelo fallback de SPA, e a página não receberia o SEO dela. */
+  configureServer(server) {
+    server.middlewares.use((req, _res, next) => {
+      if (req.url === "/vagas" || req.url === "/vagas/") req.url = "/vagas.html";
+      next();
+    });
+  },
+
+  transformIndexHtml: {
+    order: "pre",
+    handler(_html, ctx) {
+      const isVacancies = ctx.path.includes("vagas");
+      const page = isVacancies ? seoMeta.vacancies : seoMeta.home;
+      const url = SITE_URL + page.path;
+
+      const meta = (attrs: Record<string, string>): HtmlTagDescriptor => ({
+        tag: "meta",
+        attrs,
+        injectTo: "head",
+      });
+
+      const ld: HtmlTagDescriptor[] = (
+        isVacancies ? [organizationSchema(), ...jobPostingSchemas()] : [organizationSchema()]
+      ).map((schema) => ({
+        tag: "script",
+        attrs: { type: "application/ld+json" },
+        children: JSON.stringify(schema),
+        injectTo: "head",
+      }));
+
+      return [
+        { tag: "title", children: page.title, injectTo: "head" },
+        meta({ name: "description", content: page.description }),
+        meta({ name: "keywords", content: page.keywords }),
+        meta({ name: "author", content: "Global Hiring & Careers" }),
+        meta({ name: "robots", content: "index, follow, max-image-preview:large" }),
+        { tag: "link", attrs: { rel: "canonical", href: url }, injectTo: "head" },
+        meta({ property: "og:site_name", content: "Global Hiring & Careers (GHC)" }),
+        meta({ property: "og:title", content: page.title }),
+        meta({ property: "og:description", content: page.description }),
+        meta({ property: "og:type", content: "website" }),
+        meta({ property: "og:url", content: url }),
+        meta({ property: "og:locale", content: "pt_BR" }),
+        meta({ name: "twitter:card", content: "summary_large_image" }),
+        meta({ name: "twitter:title", content: page.title }),
+        meta({ name: "twitter:description", content: page.description }),
+        ...ld,
+      ];
+    },
+  },
+
+  /* Sitemap com o lastmod vindo da data do quadro de vagas */
+  generateBundle() {
+    const urls = [
+      { loc: SITE_URL + "/", priority: "1.0", changefreq: "weekly" },
+      { loc: SITE_URL + "/vagas", priority: "0.9", changefreq: "weekly" },
+      { loc: SITE_URL + "/bio", priority: "0.5", changefreq: "monthly" },
+    ];
+    const body = urls
+      .map(
+        (u) =>
+          `  <url><loc>${u.loc}</loc><lastmod>${VACANCIES_UPDATED_AT}</lastmod>` +
+          `<changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`
+      )
+      .join("\n");
+
+    this.emitFile({
+      type: "asset",
+      fileName: "sitemap.xml",
+      source: [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        body,
+        "</urlset>",
+        "",
+      ].join("\n"),
+    });
+  },
+});
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -12,6 +110,8 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+
+    seoTags(),
 
     mode === "development" && componentTagger(),
 
@@ -45,8 +145,9 @@ export default defineConfig(({ mode }) => ({
         // SPA fallback: qualquer rota serve o index.html
         navigateFallback: "/index.html",
 
-        // Não cacheia rotas de API ou o próprio SW
-        navigateFallbackDenylist: [/^\/api\//, /sw\.js$/],
+        // /vagas tem HTML próprio: se caísse no fallback receberia o <head>
+        // da home. Fora isso, não cacheia rotas de API nem o próprio SW.
+        navigateFallbackDenylist: [/^\/vagas/, /^\/api\//, /sw\.js$/],
 
         // Runtime caching: Google Fonts (CacheFirst — raramente mudam)
         runtimeCaching: [
@@ -78,6 +179,17 @@ export default defineConfig(({ mode }) => ({
       },
     }),
   ].filter(Boolean),
+
+  /* Duas entradas de HTML: a home e o quadro de vagas, cada uma com o
+     seu próprio <head>. O app React é o mesmo nas duas. */
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, "index.html"),
+        vagas: path.resolve(__dirname, "vagas.html"),
+      },
+    },
+  },
 
   resolve: {
     alias: {

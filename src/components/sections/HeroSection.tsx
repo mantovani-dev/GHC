@@ -7,11 +7,13 @@ import {
   MapPin,
   Plane,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useCommunityLink } from "@/hooks/useCommunityLink";
 import { AnimateIn } from "@/components/ui/animate-in";
 import { GlassCard } from "@/components/ui/glass-card";
 import { CountUp } from "@/components/ui/count-up";
+import { vacancies } from "@/data/vacancies";
 
 import imgStack from "@/assets/gallery/departure9.jpeg";
 import face1 from "@/assets/gallery/departure.jpeg";
@@ -69,24 +71,27 @@ const HeroSection = ({ id }: HeroSectionProps) => {
 
             <div className="mt-9 flex flex-wrap gap-3">
               <Button
+                asChild
                 variant="orbita"
+                size="orbitaLg"
+                className="max-[600px]:w-full max-[600px]:justify-center"
+              >
+                <Link to="/vagas">
+                  {t("vacancies.heroCta")}
+                  <span className="rounded-pill bg-accent-foreground/20 px-2 py-0.5 text-[12px] font-semibold">
+                    {vacancies.length}
+                  </span>
+                  <ArrowRight />
+                </Link>
+              </Button>
+              <Button
+                variant="orbitaGhost"
                 size="orbitaLg"
                 className="max-[600px]:w-full max-[600px]:justify-center"
                 onClick={() => window.open(communityLink, "_blank", "noopener,noreferrer")}
               >
                 <MessageCircle />
                 {t("hero.cta")}
-              </Button>
-              <Button
-                variant="orbitaGhost"
-                size="orbitaLg"
-                className="max-[600px]:w-full max-[600px]:justify-center"
-                onClick={() =>
-                  document.getElementById("como-funciona")?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                {t("hero.learnMore")}
-                <ArrowRight />
               </Button>
             </div>
           </div>

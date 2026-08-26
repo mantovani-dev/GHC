@@ -8,6 +8,7 @@ const resources = {
       header: {
         inicio: "Início",
         sobre: "Sobre",
+        vagas: "Vagas",
         comoFunciona: "Como Funciona",
         cases: "Cases",
         contato: "Contato",
@@ -164,6 +165,54 @@ const resources = {
         },
       },
 
+      vacancies: {
+        tag: "Vagas Abertas",
+        title: "{{count}} vagas de trabalho no exterior",
+        titleAccent: "com contrato na Europa",
+        description:
+          "Oportunidades para brasileiros e latino-americanos na Polônia, Croácia, Montenegro e Dinamarca — com salário em zloty ou euro, alojamento, transporte e apoio na documentação do início ao embarque.",
+        updatedAt: "Quadro atualizado em {{date}}",
+        filterAll: "Todas",
+        month: "mês",
+        onRequest: "Sob consulta",
+        newBadge: "Vaga nova",
+        detailsLabel: "Jornada, requisitos e benefícios",
+        apply: "Inscrever-se",
+        applyWhatsapp: "Pedir formulário no WhatsApp",
+        heroCta: "Confira as vagas abertas",
+        teaser:
+          "Vagas com contrato, alojamento e apoio na documentação em quatro países da Europa. Veja o quadro completo, com salário, jornada e requisitos de cada uma.",
+        countLabel_one: "{{count}} vaga",
+        countLabel_other: "{{count}} vagas",
+        backHome: "Voltar para a home",
+        entry: {
+          imediato: {
+            label: "Ingresso imediato",
+            hint: "você embarca assim que for aprovado, sem esperar permissão de trabalho.",
+          },
+          futuro: {
+            label: "Ingresso futuro",
+            hint: "a permissão de trabalho sai antes do embarque. A espera costuma ser de 6 a 12 semanas.",
+          },
+          confirmar: {
+            label: "A confirmar",
+            hint: "prazo de ingresso ainda sendo confirmado com a empresa.",
+          },
+        },
+        notice: {
+          title: "Antes de se inscrever, saiba que",
+          items: [
+            "As vagas são limitadas e a prioridade é por ordem de inscrição.",
+            "Há custos com documentação e emissão de vistos — o formulário pergunta se você está ciente.",
+            "O salário garantido é o da moeda local. O valor em real muda conforme o câmbio.",
+            "A aprovação final é sempre do empregador.",
+            "Ninguém embarca sem a documentação completa e verificada.",
+          ],
+        },
+        exchangeNote:
+          "Valores convertidos pelo câmbio de 24/08/2026: 1 PLN = R$ 1,40 · 1 EUR = R$ 6,00. O salário garantido é o da moeda local — o valor em real varia com o câmbio do dia.",
+      },
+
       contact: {
         tag: "Contato",
         title: "Pronto para dar o",
@@ -193,6 +242,7 @@ const resources = {
         labels: {
           home: "Início",
           about: "Sobre",
+          vacancies: "Vagas",
           works: "Como Funciona",
           cases: "Cases",
           contact: "Contato",
@@ -206,6 +256,7 @@ const resources = {
       header: {
         inicio: "Home",
         sobre: "About",
+        vagas: "Jobs",
         comoFunciona: "How it Works",
         cases: "Cases",
         contato: "Contact",
@@ -350,6 +401,54 @@ const resources = {
         },
       },
 
+      vacancies: {
+        tag: "Open Roles",
+        title: "{{count}} jobs abroad",
+        titleAccent: "with a contract in Europe",
+        description:
+          "Openings for Brazilians and Latin Americans in Poland, Croatia, Montenegro and Denmark — paid in zloty or euro, with accommodation, transport and paperwork support from the first step to departure.",
+        updatedAt: "Board updated on {{date}}",
+        filterAll: "All",
+        month: "month",
+        onRequest: "On request",
+        newBadge: "New role",
+        detailsLabel: "Hours, requirements and benefits",
+        apply: "Apply now",
+        applyWhatsapp: "Request the form on WhatsApp",
+        heroCta: "See the open roles",
+        teaser:
+          "Roles with a contract, accommodation and paperwork support in four European countries. See the full board, with pay, hours and requirements for each one.",
+        countLabel_one: "{{count}} role",
+        countLabel_other: "{{count}} roles",
+        backHome: "Back to home",
+        entry: {
+          imediato: {
+            label: "Immediate start",
+            hint: "you travel as soon as you are approved, with no wait for a work permit.",
+          },
+          futuro: {
+            label: "Future start",
+            hint: "the work permit is issued before departure. The wait is usually 6 to 12 weeks.",
+          },
+          confirmar: {
+            label: "To be confirmed",
+            hint: "start date still being confirmed with the employer.",
+          },
+        },
+        notice: {
+          title: "Before you apply, please note",
+          items: [
+            "Places are limited and priority follows the order of application.",
+            "There are costs for paperwork and visa issuance — the form asks whether you are aware of them.",
+            "The guaranteed salary is the one in local currency. The amount in reais changes with the exchange rate.",
+            "Final approval always rests with the employer.",
+            "Nobody travels without complete, verified paperwork.",
+          ],
+        },
+        exchangeNote:
+          "Converted at the exchange rate of 24/08/2026: 1 PLN = R$ 1.40 · 1 EUR = R$ 6.00. The guaranteed salary is the one in local currency — the amount in reais varies with the daily rate.",
+      },
+
       contact: {
         tag: "Contact",
         title: "Ready to take the",
@@ -379,6 +478,7 @@ const resources = {
         labels: {
           home: "Home",
           about: "About",
+          vacancies: "Jobs",
           works: "How It Works",
           cases: "Cases",
           contact: "Contact",
@@ -392,6 +492,7 @@ const resources = {
       header: {
         inicio: "Inicio",
         sobre: "Sobre nosotros",
+        vagas: "Vacantes",
         comoFunciona: "Cómo funciona",
         cases: "Casos de éxito",
         contato: "Contacto",
@@ -536,6 +637,54 @@ const resources = {
         },
       },
 
+      vacancies: {
+        tag: "Vacantes Abiertas",
+        title: "{{count}} empleos en el exterior",
+        titleAccent: "con contrato en Europa",
+        description:
+          "Oportunidades para brasileños y latinoamericanos en Polonia, Croacia, Montenegro y Dinamarca — con salario en esloti o euro, alojamiento, transporte y apoyo con la documentación hasta el embarque.",
+        updatedAt: "Cuadro actualizado el {{date}}",
+        filterAll: "Todas",
+        month: "mes",
+        onRequest: "A consultar",
+        newBadge: "Vacante nueva",
+        detailsLabel: "Jornada, requisitos y beneficios",
+        apply: "Postularme",
+        applyWhatsapp: "Pedir el formulario por WhatsApp",
+        heroCta: "Mira las vacantes abiertas",
+        teaser:
+          "Vacantes con contrato, alojamiento y apoyo documental en cuatro países de Europa. Mira el cuadro completo, con salario, jornada y requisitos de cada una.",
+        countLabel_one: "{{count}} vacante",
+        countLabel_other: "{{count}} vacantes",
+        backHome: "Volver al inicio",
+        entry: {
+          imediato: {
+            label: "Ingreso inmediato",
+            hint: "embarcas apenas seas aprobado, sin esperar el permiso de trabajo.",
+          },
+          futuro: {
+            label: "Ingreso futuro",
+            hint: "el permiso de trabajo sale antes del embarque. La espera suele ser de 6 a 12 semanas.",
+          },
+          confirmar: {
+            label: "A confirmar",
+            hint: "plazo de ingreso aún en confirmación con la empresa.",
+          },
+        },
+        notice: {
+          title: "Antes de postularte, ten en cuenta",
+          items: [
+            "Las vacantes son limitadas y la prioridad es por orden de inscripción.",
+            "Hay costos de documentación y emisión de visados — el formulario pregunta si estás al tanto.",
+            "El salario garantizado es el de la moneda local. El valor en reales cambia según el tipo de cambio.",
+            "La aprobación final siempre es del empleador.",
+            "Nadie embarca sin la documentación completa y verificada.",
+          ],
+        },
+        exchangeNote:
+          "Valores convertidos al cambio del 24/08/2026: 1 PLN = R$ 1,40 · 1 EUR = R$ 6,00. El salario garantizado es el de la moneda local — el valor en reales varía con el cambio del día.",
+      },
+
       contact: {
         tag: "Contacto",
         title: "¿Listo para dar el",
@@ -565,6 +714,7 @@ const resources = {
         labels: {
           home: "Inicio",
           about: "Sobre nosotros",
+          vacancies: "Vacantes",
           works: "Cómo Funciona",
           cases: "Casos de Éxito",
           contact: "Contacto",

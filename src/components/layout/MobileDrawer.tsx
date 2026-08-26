@@ -4,20 +4,16 @@ import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { LanguageToggle } from "@/components/LanguageToggle";
+import { navLinks, type NavLink } from "@/lib/nav";
 
 import logoGhcWhite from "@/assets/logo-ghc-invisible-white.png";
-
-interface NavLink {
-  href: string;
-  label: string;
-}
 
 interface MobileDrawerProps {
   open: boolean;
   onClose: () => void;
-  navLinks: NavLink[];
-  activeSection: string;
-  onNavigate: (id: string) => void;
+  /** Chave do item ativo — seção da home ou rota atual. */
+  activeKey: string;
+  onNavigate: (link: NavLink) => void;
   communityLink: string;
 }
 
@@ -30,8 +26,7 @@ const socials = [
 const MobileDrawer = ({
   open,
   onClose,
-  navLinks,
-  activeSection,
+  activeKey,
   onNavigate,
   communityLink,
 }: MobileDrawerProps) => {
@@ -70,12 +65,9 @@ const MobileDrawer = ({
       <nav className="flex flex-col gap-0.5">
         {navLinks.map((link) => (
           <button
-            key={link.href}
-            onClick={() => onNavigate(link.href)}
-            className={cn(
-              "drawer-link",
-              activeSection === link.href && "drawer-link-on"
-            )}
+            key={link.key}
+            onClick={() => onNavigate(link)}
+            className={cn("drawer-link", activeKey === link.key && "drawer-link-on")}
           >
             {t(link.label)}
             <ArrowRight className="h-[18px] w-[18px] text-accent/65" />

@@ -11,10 +11,15 @@
     <meta http-equiv="Expires" content="0" />
 
     <!--
-      title, description, og:*, canonical e o JSON-LD de JobPosting são
-      injetados pelo plugin `ghc-seo-tags` em vite.config.ts, a partir de
-      src/data/vacancies.ts. Não adicione essas tags aqui à mão — elas
-      apareceriam duplicadas.
+      Entrada de HTML da rota /vagas. Existe para que o quadro de vagas tenha
+      o seu próprio <head>: título, description, canonical e os 25 JSON-LD de
+      JobPosting, que ficam só aqui e não na home.
+
+      Essas tags são injetadas pelo plugin `ghc-seo-tags` em vite.config.ts, a
+      partir de src/data/vacancies.ts. Não as adicione aqui à mão.
+
+      O app React é o mesmo do index.html — o react-router é quem decide o que
+      renderizar a partir da URL.
     -->
   </head>
 
