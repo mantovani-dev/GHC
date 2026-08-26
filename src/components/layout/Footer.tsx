@@ -19,6 +19,7 @@ const Footer = () => {
 
   const footerLinks = [
     { label: t("footer.labels.home"), href: "inicio" },
+    { label: t("footer.labels.vacancies"), href: "vagas" },
     { label: t("footer.labels.about"), href: "sobre" },
     { label: t("footer.labels.works"), href: "como-funciona" },
     { label: t("footer.labels.cases"), href: "cases" },

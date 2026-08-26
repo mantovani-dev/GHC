@@ -11,6 +11,7 @@ import logoGhcWhite from "@/assets/logo-ghc-invisible-white.png";
 
 const navLinks = [
   { href: "inicio", label: "header.inicio" },
+  { href: "vagas", label: "header.vagas" },
   { href: "sobre", label: "header.sobre" },
   { href: "como-funciona", label: "header.comoFunciona" },
   { href: "cases", label: "header.cases" },

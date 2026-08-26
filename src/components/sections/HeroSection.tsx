@@ -12,6 +12,7 @@ import { useCommunityLink } from "@/hooks/useCommunityLink";
 import { AnimateIn } from "@/components/ui/animate-in";
 import { GlassCard } from "@/components/ui/glass-card";
 import { CountUp } from "@/components/ui/count-up";
+import { vacancies } from "@/data/vacancies";
 
 import imgStack from "@/assets/gallery/departure9.jpeg";
 import face1 from "@/assets/gallery/departure.jpeg";
@@ -72,21 +73,24 @@ const HeroSection = ({ id }: HeroSectionProps) => {
                 variant="orbita"
                 size="orbitaLg"
                 className="max-[600px]:w-full max-[600px]:justify-center"
-                onClick={() => window.open(communityLink, "_blank", "noopener,noreferrer")}
+                onClick={() =>
+                  document.getElementById("vagas")?.scrollIntoView({ behavior: "smooth" })
+                }
               >
-                <MessageCircle />
-                {t("hero.cta")}
+                {t("vacancies.heroCta")}
+                <span className="rounded-pill bg-accent-foreground/20 px-2 py-0.5 text-[12px] font-semibold">
+                  {vacancies.length}
+                </span>
+                <ArrowRight />
               </Button>
               <Button
                 variant="orbitaGhost"
                 size="orbitaLg"
                 className="max-[600px]:w-full max-[600px]:justify-center"
-                onClick={() =>
-                  document.getElementById("como-funciona")?.scrollIntoView({ behavior: "smooth" })
-                }
+                onClick={() => window.open(communityLink, "_blank", "noopener,noreferrer")}
               >
-                {t("hero.learnMore")}
-                <ArrowRight />
+                <MessageCircle />
+                {t("hero.cta")}
               </Button>
             </div>
           </div>

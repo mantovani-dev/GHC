@@ -741,6 +741,94 @@
     box-shadow: 0 0 14px rgba(51, 186, 233, 0.8);
   }
 
+  /* ---------- vagas abertas ---------- */
+  .vac-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  /* O AnimateIn embrulha cada card; sem isso o card nao estica ate o fim */
+  .vac-grid > * {
+    display: flex;
+  }
+  .vac-grid > * > * {
+    width: 100%;
+  }
+
+  .vac-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: rgba(232, 236, 244, 0.6);
+    transition: 0.24s var(--ease-orbita);
+    cursor: pointer;
+  }
+
+  .vac-pill:hover {
+    border-color: var(--glass-border-hv);
+    color: var(--fg);
+  }
+
+  /* Precisa vencer o :hover acima, dai o seletor duplo */
+  .vac-pill-on,
+  .vac-pill-on:hover {
+    background: #fff;
+    border-color: #fff;
+    color: var(--bg);
+  }
+
+  .vac-pill-count {
+    font-family: "Space Mono", monospace;
+    font-size: 10.5px;
+    opacity: 0.55;
+  }
+
+  .vac-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    font-family: "Space Mono", monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .vac-details > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(232, 236, 244, 0.55);
+    transition: color 0.2s;
+  }
+
+  .vac-details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .vac-details > summary:hover {
+    color: var(--accent-hex);
+  }
+
+  .vac-details[open] > summary svg {
+    transform: rotate(180deg);
+  }
+
   /* ---------- contato ---------- */
   .contact {
     display: grid;
@@ -1092,7 +1180,8 @@
   }
 
   .tri,
-  .quad {
+  .quad,
+  .vac-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -1220,7 +1309,8 @@
   }
   .tri,
   .quad,
-  .cgrid {
+  .cgrid,
+  .vac-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 

@@ -1,6 +1,7 @@
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 import Header from "@/components/layout/Header";
 import HeroSection from "@/components/sections/HeroSection";
+import VacanciesSection from "@/components/sections/VacanciesSection";
 import AboutSection from "@/components/sections/AboutSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import MilestoneSection from "@/components/sections/MilestoneSection";
@@ -13,25 +14,7 @@ import AmbientBackground from "@/components/layout/AmbientBackground";
 const Index = () => {
   return (
     <>
-      <Helmet>
-        <title>Global Hiring & Careers (GHC) | Recrutamento Internacional para Latino-Americanos</title>
-        <meta
-          name="description"
-          content="Conectamos profissionais latino-americanos às melhores oportunidades de trabalho no exterior. Junte-se à nossa comunidade e dê o próximo passo na sua carreira global."
-        />
-        <meta
-          name="keywords"
-          content="trabalho no exterior, vagas internacionais, recrutamento internacional, emprego exterior, carreira internacional, latino-americanos no exterior, GHC"
-        />
-        <link rel="canonical" href="https://ghc.com.br" />
-        <meta property="og:title" content="GHC | Recrutamento Internacional" />
-        <meta
-          property="og:description"
-          content="Conectamos profissionais latino-americanos às melhores oportunidades de trabalho no exterior."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ghc.com.br" />
-      </Helmet>
+      <Seo />
 
       {/* `relative` ancora as auréolas do fundo na altura do documento;
           `orbita` liga o strokeWidth 1.5 dos ícones Lucide */}
@@ -41,6 +24,7 @@ const Index = () => {
         <Header />
         <main className="relative z-[1]">
           <HeroSection id="inicio" />
+          <VacanciesSection id="vagas" />
           <AboutSection id="sobre" />
           <HowItWorksSection id="como-funciona" />
           <MilestoneSection />
