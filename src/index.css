@@ -757,23 +757,50 @@
     width: 100%;
   }
 
+  /* ---- filtro por pais: trilha rolavel, nunca quebra em varias linhas ---- */
+  .vac-filters {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x proximity;
+    /* Espaco para o card nao encostar na borda ao rolar */
+    padding: 2px 2px 6px;
+    margin: -2px -2px -6px;
+    /* Esmaece a direita enquanto ha mais para rolar */
+    -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 36px), transparent 100%);
+    mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 36px), transparent 100%);
+  }
+
+  .vac-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .vac-filters > * {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
   .vac-pill {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 9px 16px;
+    gap: 9px;
+    padding: 10px 16px;
     border-radius: 100px;
     border: 1px solid var(--glass-border);
     background: var(--glass-bg);
     font-size: 13.5px;
     font-weight: 500;
-    color: rgba(232, 236, 244, 0.6);
+    color: rgba(232, 236, 244, 0.72);
     transition: 0.24s var(--ease-orbita);
     cursor: pointer;
+    white-space: nowrap;
   }
 
   .vac-pill:hover {
     border-color: var(--glass-border-hv);
+    background: rgba(51, 186, 233, 0.06);
     color: var(--fg);
   }
 
@@ -788,7 +815,31 @@
   .vac-pill-count {
     font-family: "Space Mono", monospace;
     font-size: 10.5px;
-    opacity: 0.55;
+    padding: 2px 7px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .vac-pill-on .vac-pill-count {
+    background: rgba(11, 14, 20, 0.12);
+  }
+
+  /* ---- legenda dos prazos ---- */
+  .vac-legend {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .vac-legend dt {
+    margin-bottom: 6px;
+  }
+
+  .vac-legend dd {
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: rgba(232, 236, 244, 0.5);
   }
 
   .vac-badge {
@@ -804,29 +855,139 @@
     white-space: nowrap;
   }
 
-  .vac-details > summary {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    cursor: pointer;
-    list-style: none;
+  /* ---- card ---- */
+  /* Remuneracao: real em destaque, moeda local logo abaixo */
+  .vac-pay {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px 0;
+  }
+
+  .vac-pay-brl {
+    font-size: 23px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .vac-pay-local {
+    margin-top: 6px;
     font-size: 12.5px;
-    font-weight: 500;
-    color: rgba(232, 236, 244, 0.55);
-    transition: color 0.2s;
+    line-height: 1.5;
+    color: rgba(232, 236, 244, 0.58);
   }
 
-  .vac-details > summary::-webkit-details-marker {
-    display: none;
+  /* Local e jornada ficam sempre visiveis — sao o que mais se procura */
+  .vac-meta {
+    display: grid;
+    gap: 9px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-  .vac-details > summary:hover {
+  .vac-meta li {
+    display: flex;
+    gap: 9px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(232, 236, 244, 0.68);
+  }
+
+  .vac-meta svg {
+    margin-top: 1px;
+    flex-shrink: 0;
     color: var(--accent-hex);
   }
 
-  .vac-details[open] > summary svg {
+  /* Botao de abrir as especificacoes — precisa parecer clicavel */
+  .vac-toggle {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.045);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(232, 236, 244, 0.78);
+    cursor: pointer;
+    list-style: none;
+    transition: 0.22s var(--ease-orbita);
+  }
+
+  .vac-toggle::-webkit-details-marker {
+    display: none;
+  }
+
+  .vac-toggle:hover {
+    border-color: var(--glass-border-hv);
+    background: rgba(51, 186, 233, 0.09);
+    color: var(--accent-hex);
+  }
+
+  .vac-toggle .vac-chevron {
+    margin-left: auto;
+    transition: transform 0.22s var(--ease-orbita);
+  }
+
+  .vac-details[open] .vac-chevron {
     transform: rotate(180deg);
+  }
+
+  /* Troca o rotulo entre aberto e fechado sem JS */
+  .vac-details .vac-when-open {
+    display: none;
+  }
+  .vac-details[open] .vac-when-open {
+    display: inline;
+  }
+  .vac-details[open] .vac-when-closed {
+    display: none;
+  }
+
+  /* Especificacoes: cada bloco nomeado, para nada ficar solto */
+  .vac-specs {
+    display: grid;
+    gap: 14px;
+    margin: 16px 0 0;
+  }
+
+  .vac-specs dt {
+    font-family: "Space Mono", monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(51, 186, 233, 0.75);
+    margin-bottom: 5px;
+  }
+
+  .vac-specs dd {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(232, 236, 244, 0.68);
+  }
+
+  .vac-warning {
+    display: flex;
+    gap: 9px;
+    margin: 16px 0 0;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid var(--accent-border);
+    background: var(--accent-soft);
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: rgba(232, 236, 244, 0.82);
+  }
+
+  .vac-warning svg {
+    margin-top: 1px;
+    flex-shrink: 0;
+    color: var(--accent-hex);
   }
 
   /* ---------- contato ---------- */
@@ -1129,6 +1290,15 @@
   }
 }
 
+/* Os cinco filtros cabem numa linha acima de 900px — sem rolagem nem máscara */
+@media (min-width: 901px) {
+  .vac-filters {
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
 /* Ajustes do protótipo em ≤1080px, ≤900px (drawer) e ≤600px */
 @media (max-width: 1080px) {
   .hero {
@@ -1183,6 +1353,11 @@
   .quad,
   .vac-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .vac-legend {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
   }
 
   .sec {
