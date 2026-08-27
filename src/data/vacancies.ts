@@ -34,6 +34,9 @@ export interface Vacancy {
   benefits: string;
   /** O que a pessoa faz no dia a dia. Nem toda vaga do material traz isso. */
   duties?: string;
+  /** Documentos que o candidato precisa apresentar. Separado dos requisitos
+      de perfil, e do apoio documental que a GHC oferece em `benefits`. */
+  documents?: string;
   entry: EntryType;
   /** Destaque de "VAGA NOVA" no material. */
   isNew?: boolean;
@@ -53,7 +56,7 @@ export interface Country {
 }
 
 /** Última revisão do quadro — alimenta o texto da seção e o sitemap. */
-export const VACANCIES_UPDATED_AT = "2026-08-26";
+export const VACANCIES_UPDATED_AT = "2026-08-27";
 
 /**
  * Publicação padrão das vagas, usada no `datePosted` do JSON-LD. É a data do
@@ -263,6 +266,25 @@ export const vacancies: Vacancy[] = [
     requirements: "Preparo físico moderado",
     benefits: "Turno fixo — não roda entre manhã e noite",
     entry: "confirmar",
+  },
+  {
+    code: "077",
+    country: "pl",
+    title: "Operador(a) de Costura Industrial",
+    salaryBRL: "R$ 7.700",
+    salaryLocal: "PLN 5.500 líquidos por mês — 25 PLN líquidos por hora, média de 220h/mês",
+    salaryValue: { min: 5500, unit: "MONTH" },
+    location: "Polônia",
+    schedule:
+      "Turnos de 8h — 1º das 6h às 14h, 2º das 14h às 22h. Média projetada de 220h mensais, conforme a escala de produção. Quem tem mais experiência pode trabalhar das 6h às 16h.",
+    requirements: "Experiência mínima · até 50 anos · disponibilidade para início imediato",
+    duties:
+      "Confecção de mochilas militares em máquinas planas, de coluna, de braço cilíndrico, de uma e de várias agulhas — costura reta e corrente, seleção de agulha e linha, ajuste de tensão e ponto, controle de qualidade e limpeza do posto.",
+    documents: "Passaporte válido · foto e vídeo curto de apresentação, em português",
+    benefits: "Alojamento de PLN 500 por mês, descontados do salário",
+    entry: "confirmar",
+    isNew: true,
+    postedAt: "2026-08-27",
   },
   {
     code: "070",

@@ -31,6 +31,10 @@ const VacancyCard = ({ vacancy, communityLink }: VacancyCardProps) => {
     { label: t("vacancies.specs.requirements"), items: splitList(vacancy.requirements) },
     /* Nem toda vaga do material descreve o dia a dia */
     ...(vacancy.duties ? [{ label: t("vacancies.specs.duties"), text: vacancy.duties }] : []),
+    /* Documentos exigidos do candidato — só algumas vagas do material listam */
+    ...(vacancy.documents
+      ? [{ label: t("vacancies.specs.documents"), items: splitList(vacancy.documents) }]
+      : []),
     { label: t("vacancies.specs.conditions"), items: splitList(vacancy.benefits) },
   ];
 

@@ -81,6 +81,9 @@ const descriptionOf = (vacancy: Vacancy): string => {
     `<p><strong>Jornada:</strong> ${vacancy.schedule}</p>`,
     `<p><strong>Requisitos:</strong> ${vacancy.requirements}</p>`,
     vacancy.duties ? `<p><strong>O trabalho:</strong> ${vacancy.duties}</p>` : "",
+    vacancy.documents
+      ? `<p><strong>Documentação necessária:</strong> ${vacancy.documents}</p>`
+      : "",
     `<p><strong>Benefícios:</strong> ${vacancy.benefits}</p>`,
     vacancy.warning ? `<p><strong>Atenção:</strong> ${vacancy.warning}</p>` : "",
   ].join("");
