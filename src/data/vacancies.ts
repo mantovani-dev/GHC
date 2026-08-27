@@ -89,7 +89,7 @@ export const vacancies: Vacancy[] = [
     entry: "futuro",
   },
   {
-    code: "076",
+    code: "075",
     country: "pl",
     title: "Soldador MIG / MAG / TIG",
     salaryBRL: "R$ 10.800 a R$ 11.800",
@@ -104,7 +104,7 @@ export const vacancies: Vacancy[] = [
       "Preparo de superfícies e materiais, montagem e posicionamento de peças, execução de solda em estruturas e componentes metálicos e verificação visual das uniões.",
     benefits:
       "Alojamento cerca de 850 PLN · aumento por avaliação técnica e desempenho · acompanhamento documental e migratório · projetos industriais em várias cidades da Polônia",
-    entry: "confirmar",
+    entry: "imediato",
     isNew: true,
     warning:
       "Pode ser exigido teste prático de soldagem durante a seleção. A experiência informada no currículo precisa ser demonstrada.",
@@ -188,7 +188,7 @@ export const vacancies: Vacancy[] = [
     entry: "futuro",
   },
   {
-    code: "075",
+    code: "076",
     country: "pl",
     title: "Operador de Empilhadeira",
     salaryBRL: "R$ 8.600 a R$ 9.400",
@@ -203,7 +203,7 @@ export const vacancies: Vacancy[] = [
       "Operação de empilhadeira em armazém, carga e descarga de mercadorias, movimentação e organização de pallets e abastecimento das áreas de produção.",
     benefits:
       "Alojamento cerca de 850 PLN · aumento por desempenho após avaliação · acompanhamento documental e migratório · operação logística em Gdańsk, cidade portuária no norte do país",
-    entry: "confirmar",
+    entry: "imediato",
     isNew: true,
     warning:
       "Inglês básico é obrigatório — é preciso entender instruções de trabalho e de segurança em inglês. Pode ser exigida avaliação prática de operação, e a documentação é conferida antes da alocação.",
@@ -282,7 +282,7 @@ export const vacancies: Vacancy[] = [
       "Confecção de mochilas militares em máquinas planas, de coluna, de braço cilíndrico, de uma e de várias agulhas — costura reta e corrente, seleção de agulha e linha, ajuste de tensão e ponto, controle de qualidade e limpeza do posto.",
     documents: "Passaporte válido · foto e vídeo curto de apresentação, em português",
     benefits: "Alojamento de PLN 500 por mês, descontados do salário",
-    entry: "confirmar",
+    entry: "imediato",
     isNew: true,
     postedAt: "2026-08-27",
   },
