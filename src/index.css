@@ -856,11 +856,47 @@
   }
 
   /* ---- card ---- */
+  /* Rotulo mono que nomeia cada informacao do card */
+  .vac-label {
+    display: block;
+    font-family: "Space Mono", monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(232, 236, 244, 0.42);
+  }
+
+  /* Codigo da vaga: chip, nao texto solto */
+  .vac-code {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    font-family: "Space Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(232, 236, 244, 0.72);
+    white-space: nowrap;
+  }
+
+  .vac-code-new {
+    border-color: var(--accent-border);
+    background: var(--accent-soft);
+    color: var(--accent-hex);
+  }
+
   /* Remuneracao: real em destaque, moeda local logo abaixo */
   .vac-pay {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding: 14px 0;
+  }
+
+  .vac-pay .vac-label {
+    margin-bottom: 7px;
   }
 
   .vac-pay-brl {
@@ -877,37 +913,29 @@
     color: rgba(232, 236, 244, 0.58);
   }
 
-  /* Local e jornada ficam sempre visiveis — sao o que mais se procura */
-  .vac-meta {
+  /* Local e jornada ficam sempre visiveis, com nome — sao o que mais se
+     procura antes de abrir as especificacoes */
+  .vac-facts {
     display: grid;
-    gap: 9px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    gap: 12px;
+    margin: 14px 0 0;
   }
 
-  .vac-meta li {
-    display: flex;
-    gap: 9px;
+  .vac-facts dd {
+    margin: 3px 0 0;
     font-size: 13px;
     line-height: 1.5;
-    color: rgba(232, 236, 244, 0.68);
-  }
-
-  .vac-meta svg {
-    margin-top: 1px;
-    flex-shrink: 0;
-    color: var(--accent-hex);
+    color: rgba(232, 236, 244, 0.72);
   }
 
   /* Botao de abrir as especificacoes — precisa parecer clicavel */
   .vac-toggle {
     display: flex;
-    align-items: center;
-    gap: 9px;
+    align-items: flex-start;
+    gap: 10px;
     width: 100%;
-    padding: 10px 14px;
-    border-radius: 100px;
+    padding: 11px 15px;
+    border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     background: rgba(255, 255, 255, 0.045);
     font-size: 12.5px;
@@ -928,7 +956,33 @@
     color: var(--accent-hex);
   }
 
+  .vac-toggle-text {
+    display: block;
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+  }
+
+  /* Lista as secoes que vao abrir, para nao depender de clicar */
+  .vac-toggle-sub {
+    display: block;
+    margin-top: 3px;
+    font-family: "Space Mono", monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(232, 236, 244, 0.42);
+    /* Quebra em vez de cortar: o pedaco cortado era justo
+       "alojamento e documentacao", que e o que a pessoa procura */
+    line-height: 1.45;
+  }
+
+  .vac-toggle:hover .vac-toggle-sub {
+    color: rgba(51, 186, 233, 0.7);
+  }
+
   .vac-toggle .vac-chevron {
+    margin-top: 1px;
     margin-left: auto;
     transition: transform 0.22s var(--ease-orbita);
   }
@@ -968,7 +1022,39 @@
     margin: 0;
     font-size: 13px;
     line-height: 1.6;
-    color: rgba(232, 236, 244, 0.68);
+    color: rgba(232, 236, 244, 0.72);
+  }
+
+  /* Cada condicao do material vira um item — alojamento, documentacao e
+     transporte deixam de ficar diluidos numa frase so */
+  .vac-list {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .vac-list li {
+    position: relative;
+    padding-left: 15px;
+  }
+
+  /* O material escreve os itens em minuscula depois do primeiro */
+  .vac-list li::first-letter {
+    text-transform: uppercase;
+  }
+
+  .vac-list li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 8px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent-hex);
+    opacity: 0.7;
   }
 
   .vac-warning {

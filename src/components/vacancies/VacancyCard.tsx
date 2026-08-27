@@ -1,6 +1,4 @@
 import {
-  MapPin,
-  Clock,
   AlertTriangle,
   ArrowRight,
   ChevronDown,
@@ -13,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { GlassCard } from "@/components/ui/glass-card";
 import { Flag } from "@/components/ui/flag";
 import { entryStyles } from "@/components/vacancies/entry-styles";
-import { countryOf, type Vacancy } from "@/data/vacancies";
+import { countryOf, splitList, type Vacancy } from "@/data/vacancies";
 
 interface VacancyCardProps {
   vacancy: Vacancy;
@@ -26,13 +24,14 @@ const VacancyCard = ({ vacancy, communityLink }: VacancyCardProps) => {
   const country = countryOf(vacancy.country);
   const applyUrl = country.formUrl ?? communityLink;
 
-  /* Cada informação do material vira um bloco nomeado. Local e jornada não
-     entram aqui: ficam sempre visíveis, acima do botão de especificações. */
-  const specs = [
-    { label: t("vacancies.specs.requirements"), value: vacancy.requirements },
+  /* Cada bloco do material vira uma seção nomeada. Requisitos e condições
+     vêm como linha corrida separada por "·" — viram itens, senão alojamento
+     e documentação ficam escondidos no meio da frase. */
+  const specs: { label: string; items?: string[]; text?: string }[] = [
+    { label: t("vacancies.specs.requirements"), items: splitList(vacancy.requirements) },
     /* Nem toda vaga do material descreve o dia a dia */
-    ...(vacancy.duties ? [{ label: t("vacancies.specs.duties"), value: vacancy.duties }] : []),
-    { label: t("vacancies.specs.benefits"), value: vacancy.benefits },
+    ...(vacancy.duties ? [{ label: t("vacancies.specs.duties"), text: vacancy.duties }] : []),
+    { label: t("vacancies.specs.conditions"), items: splitList(vacancy.benefits) },
   ];
 
   return (
@@ -48,13 +47,17 @@ const VacancyCard = ({ vacancy, communityLink }: VacancyCardProps) => {
         </span>
       </div>
 
-      {/* Código e selo de vaga nova */}
-      <div className="mono mt-4 flex items-center gap-2 text-foreground/40">
-        <span>#{vacancy.code}</span>
-        {vacancy.isNew && <span className="text-accent">{t("vacancies.newBadge")}</span>}
+      {/* Código da vaga */}
+      <div className="mt-4 flex flex-wrap items-center gap-2">
+        <span className="vac-code">
+          {t("vacancies.codeLabel")} #{vacancy.code}
+        </span>
+        {vacancy.isNew && (
+          <span className="vac-code vac-code-new">{t("vacancies.newBadge")}</span>
+        )}
       </div>
 
-      <h3 className="mb-4 mt-1.5 text-[17px] font-semibold leading-[1.3] tracking-[-0.015em]">
+      <h3 className="mb-4 mt-3 text-[17px] font-semibold leading-[1.3] tracking-[-0.015em]">
         {vacancy.title}
         {vacancy.context && (
           <span className="block text-[14px] font-normal text-foreground/60">
@@ -65,6 +68,7 @@ const VacancyCard = ({ vacancy, communityLink }: VacancyCardProps) => {
 
       {/* Remuneração: real em destaque, moeda local logo abaixo */}
       <div className="vac-pay">
+        <span className="vac-label">{t("vacancies.specs.salary")}</span>
         {vacancy.salaryBRL ? (
           <div className="vac-pay-brl">
             <span className="grad">{vacancy.salaryBRL}</span>
@@ -79,24 +83,28 @@ const VacancyCard = ({ vacancy, communityLink }: VacancyCardProps) => {
         <div className="vac-pay-local">{vacancy.salaryLocal}</div>
       </div>
 
-      {/* Local e jornada — o que mais se procura, sempre visível */}
-      <ul className="vac-meta mt-4">
-        <li>
-          <MapPin className="h-[15px] w-[15px]" />
-          <span>{vacancy.location}</span>
-        </li>
-        <li>
-          <Clock className="h-[15px] w-[15px]" />
-          <span>{vacancy.schedule}</span>
-        </li>
-      </ul>
+      {/* Local e jornada — rotulados e sempre visíveis */}
+      <dl className="vac-facts">
+        <div>
+          <dt className="vac-label">{t("vacancies.specs.location")}</dt>
+          <dd>{vacancy.location}</dd>
+        </div>
+        <div>
+          <dt className="vac-label">{t("vacancies.specs.schedule")}</dt>
+          <dd>{vacancy.schedule}</dd>
+        </div>
+      </dl>
 
       {/* Especificações — ficam no DOM mesmo fechadas, para busca e leitores de tela */}
       <details className="vac-details mt-4">
         <summary className="vac-toggle">
           <ListChecks className="h-4 w-4 shrink-0" />
-          <span className="vac-when-closed">{t("vacancies.detailsShow")}</span>
-          <span className="vac-when-open">{t("vacancies.detailsHide")}</span>
+          <span className="vac-toggle-text">
+            <span className="vac-when-closed">{t("vacancies.detailsShow")}</span>
+            <span className="vac-when-open">{t("vacancies.detailsHide")}</span>
+            {/* Diz o que há dentro, para não depender de abrir para descobrir */}
+            <span className="vac-toggle-sub">{specs.map((s) => s.label).join(" · ")}</span>
+          </span>
           <ChevronDown className="vac-chevron h-4 w-4 shrink-0" />
         </summary>
 
@@ -104,7 +112,17 @@ const VacancyCard = ({ vacancy, communityLink }: VacancyCardProps) => {
           {specs.map((spec) => (
             <div key={spec.label}>
               <dt>{spec.label}</dt>
-              <dd>{spec.value}</dd>
+              <dd>
+                {spec.items ? (
+                  <ul className="vac-list">
+                    {spec.items.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  spec.text
+                )}
+              </dd>
             </div>
           ))}
         </dl>

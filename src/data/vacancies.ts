@@ -480,6 +480,17 @@ export const vacancies: Vacancy[] = [
   },
 ];
 
+/**
+ * Quebra os campos que o material escreve como linha corrida separada por
+ * "·" em itens independentes. Sem isso, alojamento, documentação e
+ * transporte ficam escondidos no meio de uma frase só.
+ */
+export const splitList = (value: string): string[] =>
+  value
+    .split("·")
+    .map((item) => item.trim())
+    .filter(Boolean);
+
 export const countryOf = (code: CountryCode): Country =>
   countries.find((c) => c.code === code) as Country;
 
