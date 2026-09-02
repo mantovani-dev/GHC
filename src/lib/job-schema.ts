@@ -104,6 +104,8 @@ const jobPosting = (vacancy: Vacancy) => {
       value: vacancy.code,
     },
     datePosted: vacancy.postedAt ?? VACANCIES_POSTED_AT,
+    /* Sem validThrough o Google expira o anúncio ~30 dias após o datePosted */
+    ...(vacancy.validThrough ? { validThrough: vacancy.validThrough } : {}),
     employmentType: "FULL_TIME",
     ...(vacancy.duties ? { responsibilities: vacancy.duties } : {}),
     hiringOrganization: ORG,
