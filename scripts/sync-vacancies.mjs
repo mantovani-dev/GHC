@@ -41,13 +41,30 @@ const morrer = (msg, detalhes = []) => {
 /* ---------------------------------------------------------------- */
 
 /**
- * Converte o link de compartilhamento do OneDrive em URL de download direto.
- * O link normal abre o visualizador e devolve HTML, não o arquivo.
+ * Converte um link de compartilhamento em URL de download direto.
+ *
+ * O link que a pessoa copia abre o visualizador e devolve HTML, não o
+ * arquivo. Aceita Google Drive e OneDrive; se já vier uma URL de download,
+ * passa direto.
  */
 const urlDeDownload = (compartilhado) => {
-  if (/api\.onedrive\.com|\/download|sharepoint\.com.*download/i.test(compartilhado)) {
+  if (/\/uc\?|api\.onedrive\.com|[?&]download|sharepoint\.com.*download/i.test(compartilhado)) {
     return compartilhado;
   }
+
+  /* Google Drive: .../file/d/<id>/view  ou  ...?id=<id> */
+  const drive =
+    compartilhado.match(/drive\.google\.com\/file\/d\/([\w-]+)/) ??
+    compartilhado.match(/drive\.google\.com\/.*[?&]id=([\w-]+)/);
+  if (drive) return `https://drive.google.com/uc?export=download&id=${drive[1]}`;
+
+  /* Planilha nativa do Google: exporta como xlsx */
+  const sheets = compartilhado.match(/docs\.google\.com\/spreadsheets\/d\/([\w-]+)/);
+  if (sheets) {
+    return `https://docs.google.com/spreadsheets/d/${sheets[1]}/export?format=xlsx`;
+  }
+
+  /* OneDrive: o link vira base64url e entra na API de compartilhamento */
   const b64 = Buffer.from(compartilhado)
     .toString("base64")
     .replace(/=+$/, "")
@@ -187,7 +204,7 @@ const main = async () => {
 
   const conteudo = emitGeneratedTs(vagas, {
     updatedAt: new Date().toISOString().slice(0, 10),
-    source: arquivo ? path.basename(origem) : "planilha de controle de vagas (OneDrive)",
+    source: arquivo ? path.basename(origem) : "planilha de controle de vagas",
   });
 
   const anterior = await fs.readFile(DESTINO, "utf8").catch(() => "");
