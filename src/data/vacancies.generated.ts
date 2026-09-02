@@ -4,7 +4,7 @@
  * Fonte: CONTROLE-VAGAS-SITE.xlsx
  * Gerado por: scripts/sync-vacancies.mjs
  *
- * 28 vagas publicadas (pl: 20 · me: 3 · hr: 4 · dk: 1).
+ * 29 vagas publicadas (pl: 21 · me: 3 · hr: 4 · dk: 1).
  *
  * Para mudar uma vaga, edite a planilha. A GitHub Action lê, valida e
  * reescreve este arquivo; qualquer edição manual aqui é perdida no
@@ -68,6 +68,23 @@ export const vacancies: Vacancy[] = [
       "Treinamento no local · transporte grátis · alojamento 900-930 PLN · até 34 PLN/h para estudante menor de 26",
     entry: "futuro",
     warning: "Embarque previsto em 6 a 10 semanas",
+  },
+  {
+    code: "078",
+    country: "pl",
+    title: "Desossadora de Frango",
+    salaryBRL: "R$ 9.600 a R$ 11.400",
+    salaryLocal: "PLN 6.864 a 8.112 líquidos por mês — 26 PLN líquidos por hora",
+    salaryValue: { min: 6864, max: 8112, unit: "MONTH" },
+    location: "Wolbórz",
+    schedule: "264 a 312h/mês — turnos de 12h, segunda a sexta, com sábado conforme a produção",
+    requirements: "Exclusiva para mulheres · até 60 anos · não exige experiência · não exige idioma",
+    benefits: "Alojamento 700 PLN · caderneta sanitária (Sanepid) 200 PLN no primeiro mês",
+    entry: "imediatoOuFuturo",
+    isNew: true,
+    warning:
+      "O trabalho é em sala refrigerada a +8 °C. A duração do contrato ainda não foi confirmada com a empresa.",
+    postedAt: "2026-09-02",
   },
   {
     code: "074",

@@ -18,7 +18,12 @@ import {
 
 type Filter = CountryCode | "all";
 
-const entryTypes: EntryType[] = ["imediato", "futuro", "confirmar"];
+const entryTypes: EntryType[] = [
+  "imediato",
+  "imediatoOuFuturo",
+  "futuro",
+  "confirmar",
+];
 
 /** Quadro completo: filtro por país, grade de vagas e as ressalvas. */
 const VacancyBoard = () => {

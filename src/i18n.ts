@@ -205,6 +205,10 @@ const resources = {
             label: "Ingresso imediato",
             hint: "você embarca assim que for aprovado, sem esperar permissão de trabalho.",
           },
+          imediatoOuFuturo: {
+            label: "Imediato ou futuro",
+            hint: "a vaga aceita as duas vias — parte dos candidatos embarca assim que aprovada, parte espera a permissão de trabalho.",
+          },
           futuro: {
             label: "Ingresso futuro",
             hint: "a permissão de trabalho sai antes do embarque. A espera costuma ser de 6 a 12 semanas.",
@@ -456,6 +460,10 @@ const resources = {
             label: "Immediate start",
             hint: "you travel as soon as you are approved, with no wait for a work permit.",
           },
+          imediatoOuFuturo: {
+            label: "Immediate or future",
+            hint: "the role takes both routes — some candidates travel as soon as they are approved, others wait for the work permit.",
+          },
           futuro: {
             label: "Future start",
             hint: "the work permit is issued before departure. The wait is usually 6 to 12 weeks.",
@@ -706,6 +714,10 @@ const resources = {
           imediato: {
             label: "Ingreso inmediato",
             hint: "embarcas apenas seas aprobado, sin esperar el permiso de trabajo.",
+          },
+          imediatoOuFuturo: {
+            label: "Inmediato o futuro",
+            hint: "la vacante acepta las dos vías — parte de los candidatos embarca apenas es aprobada, parte espera el permiso de trabajo.",
           },
           futuro: {
             label: "Ingreso futuro",

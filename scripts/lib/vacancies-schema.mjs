@@ -36,7 +36,7 @@ export const HEADERS = Object.keys(COLUMNS);
 /** Valores aceitos nas colunas de lista suspensa. */
 export const ENUMS = {
   PAIS: ["pl", "hr", "me", "dk"],
-  PRAZO: ["imediato", "futuro", "confirmar"],
+  PRAZO: ["imediato", "imediatoOuFuturo", "futuro", "confirmar"],
   SAL_UNIDADE: ["MONTH", "HOUR"],
   SIM_NAO: ["sim", "não"],
 };
@@ -66,6 +66,16 @@ const data = (v) => {
   const br = s.match(/^(\d{2})[/-](\d{2})[/-](\d{4})$/);
   if (br) return `${br[3]}-${br[2]}-${br[1]}`;
   return s; // deixa passar para o zod reprovar com mensagem clara
+};
+
+/**
+ * Resolve o valor contra a lista aceita, ignorando caixa e acentos de
+ * digitação. Necessário porque nem todo valor da lista é minúsculo —
+ * `imediatoOuFuturo` e `MONTH`, por exemplo.
+ */
+const daLista = (v, lista) => {
+  const alvo = texto(v).toLowerCase();
+  return lista.find((op) => op.toLowerCase() === alvo) ?? texto(v);
 };
 
 const obrigatorio = (campo) =>
@@ -121,21 +131,21 @@ export const normalizeRow = (raw) => {
   return {
     code: texto(get("CODIGO")),
     publish: booleano(get("PUBLICAR")),
-    country: texto(get("PAIS")).toLowerCase(),
+    country: daLista(get("PAIS"), ENUMS.PAIS),
     title: texto(get("CARGO")),
     context: texto(get("CONTEXTO")) || undefined,
     salaryBRL: texto(get("SALARIO_BRL")) || undefined,
     salaryLocal: texto(get("SALARIO_LOCAL")),
     salMin: numero(get("SAL_MIN")),
     salMax: numero(get("SAL_MAX")),
-    salUnit: texto(get("SAL_UNIDADE")).toUpperCase(),
+    salUnit: daLista(get("SAL_UNIDADE"), ENUMS.SAL_UNIDADE),
     location: texto(get("LOCAL")),
     schedule: texto(get("JORNADA")),
     requirements: texto(get("REQUISITOS")),
     duties: texto(get("O_TRABALHO")) || undefined,
     documents: texto(get("DOCUMENTACAO")) || undefined,
     benefits: texto(get("CONDICOES")),
-    entry: texto(get("PRAZO")).toLowerCase(),
+    entry: daLista(get("PRAZO"), ENUMS.PRAZO),
     isNew: booleano(get("DESTAQUE")),
     warning: texto(get("RESSALVA")) || undefined,
     postedAt: data(get("PUBLICADA_EM")),

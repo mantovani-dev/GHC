@@ -9,8 +9,13 @@
 
 export type CountryCode = "pl" | "me" | "hr" | "dk";
 
-/** Prazo de ingresso, como definido na legenda do material. */
-export type EntryType = "imediato" | "futuro" | "confirmar";
+/**
+ * Prazo de ingresso, como definido na legenda do material.
+ *
+ * `imediatoOuFuturo` cobre a vaga que aceita as duas vias: parte dos
+ * candidatos embarca assim que aprovada, parte espera a permissão.
+ */
+export type EntryType = "imediato" | "imediatoOuFuturo" | "futuro" | "confirmar";
 
 export interface Vacancy {
   /** Código interno da vaga, usado como âncora e identificador. */
