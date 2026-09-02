@@ -81,6 +81,9 @@ const descriptionOf = (vacancy: Vacancy): string => {
     `<p><strong>Jornada:</strong> ${vacancy.schedule}</p>`,
     `<p><strong>Requisitos:</strong> ${vacancy.requirements}</p>`,
     vacancy.duties ? `<p><strong>O trabalho:</strong> ${vacancy.duties}</p>` : "",
+    vacancy.documents
+      ? `<p><strong>Documentação necessária:</strong> ${vacancy.documents}</p>`
+      : "",
     `<p><strong>Benefícios:</strong> ${vacancy.benefits}</p>`,
     vacancy.warning ? `<p><strong>Atenção:</strong> ${vacancy.warning}</p>` : "",
   ].join("");
@@ -101,6 +104,8 @@ const jobPosting = (vacancy: Vacancy) => {
       value: vacancy.code,
     },
     datePosted: vacancy.postedAt ?? VACANCIES_POSTED_AT,
+    /* Sem validThrough o Google expira o anúncio ~30 dias após o datePosted */
+    ...(vacancy.validThrough ? { validThrough: vacancy.validThrough } : {}),
     employmentType: "FULL_TIME",
     ...(vacancy.duties ? { responsibilities: vacancy.duties } : {}),
     hiringOrganization: ORG,

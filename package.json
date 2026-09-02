@@ -8,6 +8,9 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
+    "vagas:sync": "node scripts/sync-vacancies.mjs",
+    "vagas:check": "node scripts/sync-vacancies.mjs --check",
+    "vagas:planilha": "node scripts/export-vacancies-xlsx.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -77,6 +80,7 @@
     "eslint": "^9.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
+    "exceljs": "^4.4.0",
     "globals": "^15.15.0",
     "lovable-tagger": "^1.1.13",
     "postcss": "^8.5.6",

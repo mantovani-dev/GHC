@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Planilha modelo gerada por npm run vagas:planilha — a fonte vive no OneDrive
+CONTROLE-VAGAS-SITE.xlsx
