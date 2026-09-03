@@ -7,7 +7,10 @@ import {
   type Vacancy,
 } from "../data/vacancies";
 
-export const SITE_URL = "https://ghc.com.br";
+/* Host canonico. Use o mesmo que a Vercel serve de fato: o apex
+   globalhiring.com.br redireciona 308 para www, entao canonical,
+   sitemap e os JobPosting apontam direto para www e evitam o salto. */
+export const SITE_URL = "https://www.globalhiring.com.br";
 
 const COUNTRY_LIST = countries.map((c) => c.name).join(", ");
 
