@@ -116,9 +116,13 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger(),
 
     VitePWA({
-      // "prompt" → exibe notificação para o usuário antes de atualizar
-      // (não recarrega a página sem aviso)
-      registerType: "prompt",
+      // "autoUpdate" → a versão nova assume sozinha na próxima visita.
+      //
+      // Era "prompt", que deixava o Service Worker novo em espera até o
+      // visitante clicar num aviso. Num site de vagas isso é perigoso: quem
+      // não clicasse continuaria vendo o quadro antigo por tempo indefinido
+      // e poderia se inscrever numa vaga já encerrada.
+      registerType: "autoUpdate",
 
       // Não gera manifest PWA — queremos só o Service Worker
       manifest: false,

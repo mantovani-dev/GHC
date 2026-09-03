@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import UpdatePrompt from "@/components/UpdatePrompt";
+import ServiceWorkerUpdate from "@/components/ServiceWorkerUpdate";
 import Index from "./pages/Index";
 import Vacancies from "./pages/Vacancies";
 import NotFound from "./pages/NotFound";
@@ -18,7 +18,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <UpdatePrompt />
+        <ServiceWorkerUpdate />
         <BrowserRouter>
           <Routes>
             {/* Rota principal (Landing Page) */}
