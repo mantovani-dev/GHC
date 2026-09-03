@@ -1,8 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true,
+  "redirects": [
+    { "source": "/vagas.html", "destination": "/vagas", "permanent": true },
+    { "source": "/index.html", "destination": "/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/vagas", "destination": "/vagas.html" },
+    { "source": "/vagas/", "destination": "/vagas.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
@@ -13,7 +17,7 @@
       ]
     },
     {
-      "source": "/(index|vagas).html",
+      "source": "/(.*).html",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
     },
     {
