@@ -1,7 +1,7 @@
 /**
  * GERADO AUTOMATICAMENTE — não edite este arquivo à mão.
  *
- * Fonte: CONTROLE-VAGAS-SITE.xlsx
+ * Fonte: CONTROLE DE VAGAS - RECRUTADORES.xlsx (15/09/2026), sem as vagas do recrutador Gustavo
  * Gerado por: scripts/sync-vacancies.mjs
  *
  * 29 vagas publicadas (pl: 21 · me: 3 · hr: 4 · dk: 1).
@@ -13,7 +13,7 @@
 import type { Vacancy } from "./vacancies";
 
 /** Data da última sincronização com a planilha. */
-export const VACANCIES_UPDATED_AT = "2026-09-02";
+export const VACANCIES_UPDATED_AT = "2026-09-16";
 
 export const vacancies: Vacancy[] = [
   {
@@ -30,44 +30,6 @@ export const vacancies: Vacancy[] = [
     benefits:
       "Contrato com registro (ZUS) · acomodação 500 PLN · transporte grátis · cartão de residência de até 3 anos",
     entry: "futuro",
-  },
-  {
-    code: "075",
-    country: "pl",
-    title: "Soldador MIG / MAG / TIG",
-    salaryBRL: "R$ 10.800 a R$ 11.800",
-    salaryLocal:
-      "PLN 7.700 a 8.400 por mês — 35 PLN líquidos por hora (36 a 37 PLN/h com nível técnico superior, até PLN 8.880)",
-    salaryValue: { min: 7700, max: 8400, unit: "MONTH" },
-    location: "Polônia — cidade definida conforme o projeto",
-    schedule: "220 a 240h/mês — segunda a sexta, 10 a 12h por dia",
-    requirements:
-      "Experiência comprovável em MIG, MAG ou TIG · leitura e interpretação de planos técnicos · manuseio de ferramentas e equipamentos de medição · disponibilidade para atuar em diferentes cidades da Polônia",
-    duties:
-      "Preparo de superfícies e materiais, montagem e posicionamento de peças, execução de solda em estruturas e componentes metálicos e verificação visual das uniões.",
-    benefits:
-      "Alojamento cerca de 850 PLN · aumento por avaliação técnica e desempenho · acompanhamento documental e migratório · projetos industriais em várias cidades da Polônia",
-    entry: "imediato",
-    isNew: true,
-    warning:
-      "Pode ser exigido teste prático de soldagem durante a seleção. A experiência informada no currículo precisa ser demonstrada.",
-    postedAt: "2026-08-26",
-  },
-  {
-    code: "061",
-    country: "pl",
-    title: "Operador(a) de Armazém",
-    context: "Centro Logístico",
-    salaryBRL: "R$ 7.800 a R$ 10.900",
-    salaryLocal: "PLN 5.554 a 7.776 líquidos",
-    salaryValue: { min: 5554, max: 7776, unit: "MONTH" },
-    location: "Krzyżowice (Wrocław)",
-    schedule: "200 a 280h/mês — turnos de 12h, 5 a 6 dias",
-    requirements: "A partir de 18 anos · não exige idioma · não exige experiência",
-    benefits:
-      "Treinamento no local · transporte grátis · alojamento 900-930 PLN · até 34 PLN/h para estudante menor de 26",
-    entry: "futuro",
-    warning: "Embarque previsto em 6 a 10 semanas",
   },
   {
     code: "078",
@@ -87,20 +49,23 @@ export const vacancies: Vacancy[] = [
     postedAt: "2026-09-02",
   },
   {
-    code: "074",
+    code: "079",
     country: "pl",
-    title: "Instalador de Painéis Solares Fotovoltaicos",
-    salaryBRL: "R$ 8.600 a R$ 10.300",
-    salaryLocal: "PLN 6.120 a 7.344 por mês — 25,50 PLN por hora",
-    salaryValue: { min: 6120, max: 7344, unit: "MONTH" },
-    location: "Projetos em todo o país",
-    schedule: "240 a 288h/mês — segunda a sábado, 10 a 12h por dia",
-    requirements:
-      "Passaporte vigente · disponibilidade para trabalho em altura · o perfil auxiliar não exige experiência",
-    benefits:
-      "Alojamento de 300 PLN — o mais barato do quadro · preparação antes do embarque · acompanhamento migratório",
-    entry: "imediato",
+    title: "Trabalhador(a) de Armazém",
+    context: "Autopeças",
+    salaryBRL: "R$ 6.700 a R$ 11.100",
+    salaryLocal: "PLN 4.806 a 7.896 brutos por mês — 28,61 PLN brutos por hora",
+    salaryValue: { min: 4806, max: 7896, unit: "MONTH" },
+    location: "Zakroczym",
+    schedule:
+      "Base de 168h/mês, até 240h com horas extras — adicional noturno de 20%, hora extra +50% em dia útil e +100% no fim de semana",
+    requirements: "Até 44 anos",
+    benefits: "Bônus de 300 a 1.500 PLN líquidos · alojamento 300 PLN · transporte grátis",
+    entry: "futuro",
     isNew: true,
+    warning:
+      "O salário informado é bruto. A permissão de trabalho é paga pelo candidato e reembolsada após 2 meses, e o exame médico custa 250 PLN. A duração do contrato ainda não foi confirmada com a empresa.",
+    postedAt: "2026-09-03",
   },
   {
     code: "072",
@@ -116,7 +81,6 @@ export const vacancies: Vacancy[] = [
     benefits:
       "Alojamento a partir de 600 PLN · transporte grátis · capacitação remunerada · bônus de até 800 PLN · aceita casais",
     entry: "imediato",
-    isNew: true,
   },
   {
     code: "062",
@@ -148,28 +112,6 @@ export const vacancies: Vacancy[] = [
     entry: "futuro",
   },
   {
-    code: "076",
-    country: "pl",
-    title: "Operador de Empilhadeira",
-    salaryBRL: "R$ 8.600 a R$ 9.400",
-    salaryLocal:
-      "PLN 6.160 a 6.720 por mês — 28 PLN líquidos por hora (29 PLN/h com bom desempenho, até PLN 6.960)",
-    salaryValue: { min: 6160, max: 6720, unit: "MONTH" },
-    location: "Gdańsk",
-    schedule: "220 a 240h/mês — segunda a sexta, 10 a 12h por dia",
-    requirements:
-      "Inglês básico obrigatório · habilitação de operador conforme a exigência polonesa · agilidade e boa coordenação · experiência com empilhadeira conta pontos, mas não é eliminatória",
-    duties:
-      "Operação de empilhadeira em armazém, carga e descarga de mercadorias, movimentação e organização de pallets e abastecimento das áreas de produção.",
-    benefits:
-      "Alojamento cerca de 850 PLN · aumento por desempenho após avaliação · acompanhamento documental e migratório · operação logística em Gdańsk, cidade portuária no norte do país",
-    entry: "imediato",
-    isNew: true,
-    warning:
-      "Inglês básico é obrigatório — é preciso entender instruções de trabalho e de segurança em inglês. Pode ser exigida avaliação prática de operação, e a documentação é conferida antes da alocação.",
-    postedAt: "2026-08-26",
-  },
-  {
     code: "073",
     country: "pl",
     title: "Operador(a) de Logística Postal",
@@ -182,13 +124,51 @@ export const vacancies: Vacancy[] = [
     benefits:
       "10 posições abertas · alojamento 500 PLN · transporte grátis · contrato que pode virar registro em carteira",
     entry: "imediato",
+  },
+  {
+    code: "081",
+    country: "pl",
+    title: "Trabalhador(a) de Armazém",
+    context: "Motorol",
+    salaryBRL: "R$ 6.800 a R$ 9.700",
+    salaryLocal:
+      "PLN 4.860 a 6.900 líquidos por mês — 24 PLN líquidos por hora até 160h, 25,50 PLN acima disso",
+    salaryValue: { min: 4860, max: 6900, unit: "MONTH" },
+    location: "Kraków",
+    schedule: "200 a 280h/mês — turnos de 8 a 12h, segunda a sexta e 2 sábados obrigatórios",
+    requirements:
+      "Disponibilidade para 2 sábados por mês · demais requisitos não informados pela empresa",
+    benefits: "Alojamento 450 PLN",
+    entry: "futuro",
     isNew: true,
+    warning:
+      "A permissão de trabalho é paga pelo candidato e reembolsada após 2 meses, e o exame médico custa 250 PLN. A duração do contrato ainda não foi confirmada com a empresa.",
+    postedAt: "2026-09-03",
+  },
+  {
+    code: "080",
+    country: "pl",
+    title: "Trabalhador de Produção",
+    context: "Indústria Ferroviária",
+    salaryBRL: "R$ 6.100 a R$ 9.100",
+    salaryLocal:
+      "PLN 4.368 a 6.480 líquidos por mês — 26 PLN líquidos por hora no 1º mês, 27 PLN a partir do 2º com avaliação positiva",
+    salaryValue: { min: 4368, max: 6480, unit: "MONTH" },
+    location: "Goczałków (Wrocław)",
+    schedule: "168 a 240h/mês — 3 turnos de 8h, segunda a sexta e alguns sábados",
+    requirements: "Exclusiva para homens",
+    benefits: "Alojamento 450 PLN · aumento por hora a partir do 2º mês",
+    entry: "futuro",
+    isNew: true,
+    warning:
+      "A permissão de trabalho é paga pelo candidato e reembolsada após 2 meses, e o exame médico custa 250 PLN. A duração do contrato ainda não foi confirmada com a empresa.",
+    postedAt: "2026-09-03",
   },
   {
     code: "057",
     country: "pl",
     title: "Operador(a) de Embalagem em Armazém",
-    salaryBRL: "R$ 7.500 a R$ 9.300",
+    salaryBRL: "R$ 7.200 a R$ 9.000",
     salaryLocal: "PLN 5.328 a 6.660 líquidos",
     salaryValue: { min: 5328, max: 6660, unit: "MONTH" },
     location: "Kąty Wrocławskie (Wrocław)",
@@ -212,7 +192,7 @@ export const vacancies: Vacancy[] = [
     requirements: "Não exige experiência",
     benefits:
       "Alojamento 400 PLN · transporte grátis · refeição a 1 PLN · bônus de presença · até 32 PLN/h para estudante",
-    entry: "futuro",
+    entry: "confirmar",
   },
   {
     code: "047",
@@ -229,22 +209,40 @@ export const vacancies: Vacancy[] = [
     entry: "confirmar",
   },
   {
+    code: "083",
+    country: "pl",
+    title: "Ajudante de Cozinha",
+    salaryBRL: "R$ 7.100 a R$ 7.900",
+    salaryLocal: "PLN 5.100 a 5.610 líquidos por mês — 25,50 PLN líquidos por hora",
+    salaryValue: { min: 5100, max: 5610, unit: "MONTH" },
+    location: "Białystok",
+    schedule: "200 a 220h/mês — 3 turnos rotativos",
+    requirements: "Homens e mulheres até 60 anos · aceita casais",
+    benefits: "Alojamento 600 a 750 PLN, quartos para até 3 pessoas · há quartos para casais",
+    entry: "imediatoOuFuturo",
+    isNew: true,
+    warning:
+      "Só começa a trabalhar com a documentação completa — quem chega como turista espera de 3 a 4 semanas pela permissão. A duração do contrato ainda não foi confirmada com a empresa.",
+    postedAt: "2026-09-15",
+  },
+  {
     code: "077",
     country: "pl",
     title: "Operador(a) de Costura Industrial",
     salaryBRL: "R$ 7.700",
     salaryLocal: "PLN 5.500 líquidos por mês — 25 PLN líquidos por hora, média de 220h/mês",
     salaryValue: { min: 5500, unit: "MONTH" },
-    location: "Polônia",
+    location: "Orneta",
     schedule:
       "Turnos de 8h — 1º das 6h às 14h, 2º das 14h às 22h. Média projetada de 220h mensais, conforme a escala de produção. Quem tem mais experiência pode trabalhar das 6h às 16h.",
-    requirements: "Experiência mínima · até 50 anos · disponibilidade para início imediato",
+    requirements:
+      "Inglês comunicativo · experiência comprovada · até 48 anos · todas as nacionalidades · disponibilidade para início imediato",
     duties:
       "Confecção de mochilas militares em máquinas planas, de coluna, de braço cilíndrico, de uma e de várias agulhas — costura reta e corrente, seleção de agulha e linha, ajuste de tensão e ponto, controle de qualidade e limpeza do posto.",
     documents: "Passaporte válido · foto e vídeo curto de apresentação, em português",
-    benefits: "Alojamento de PLN 500 por mês, descontados do salário",
+    benefits:
+      "Contrato de 18 meses · 90 a 120 posições abertas · alojamento de PLN 500 por mês, descontados do salário",
     entry: "imediato",
-    isNew: true,
     postedAt: "2026-08-27",
   },
   {
@@ -281,7 +279,7 @@ export const vacancies: Vacancy[] = [
     code: "056",
     country: "pl",
     title: "Operador(a) de Triagem de Encomendas",
-    salaryBRL: "R$ 5.600 a R$ 7.300",
+    salaryBRL: "R$ 5.400 a R$ 7.000",
     salaryLocal: "PLN 4.000 a 5.220 líquidos (moradia já descontada)",
     salaryValue: { min: 4000, max: 5220, unit: "MONTH" },
     location: "Varsóvia · Wrocław · Poznań · Katowice · Piotrków",
@@ -289,7 +287,7 @@ export const vacancies: Vacancy[] = [
     requirements: "Não exige experiência · homens e mulheres",
     benefits:
       "Registro no ZUS · alojamento a pé do trabalho · apoio com PESEL, conta bancária e cartão de residência · bônus de até 700 PLN",
-    entry: "futuro",
+    entry: "confirmar",
   },
   {
     code: "066",
@@ -352,7 +350,7 @@ export const vacancies: Vacancy[] = [
     country: "me",
     title: "Mecânico de Ônibus",
     context: "Diesel",
-    salaryBRL: "R$ 7.800 a R$ 9.600",
+    salaryBRL: "R$ 7.700 a R$ 9.500",
     salaryLocal: "EUR 1.300 no inverno · EUR 1.500 a 1.600 no verão",
     salaryValue: { min: 1300, max: 1600, unit: "MONTH" },
     location: "Montenegro",
@@ -365,7 +363,7 @@ export const vacancies: Vacancy[] = [
     code: "063",
     country: "me",
     title: "Motorista de Ônibus",
-    salaryBRL: "R$ 6.000",
+    salaryBRL: "R$ 5.900",
     salaryLocal: "EUR 1.000 por mês",
     salaryValue: { min: 1000, unit: "MONTH" },
     location: "Montenegro",
@@ -379,7 +377,7 @@ export const vacancies: Vacancy[] = [
     code: "065",
     country: "me",
     title: "Ajudante de Cozinha",
-    salaryBRL: "R$ 4.800",
+    salaryBRL: "R$ 4.700",
     salaryLocal: "EUR 800 líquidos por mês",
     salaryValue: { min: 800, unit: "MONTH" },
     location: "Montenegro",
@@ -393,7 +391,7 @@ export const vacancies: Vacancy[] = [
     code: "043",
     country: "hr",
     title: "Carpinteiro",
-    salaryBRL: "R$ 7.200",
+    salaryBRL: "R$ 7.100",
     salaryLocal: "EUR 1.200 por mês",
     salaryValue: { min: 1200, unit: "MONTH" },
     location: "Croácia",
@@ -406,7 +404,7 @@ export const vacancies: Vacancy[] = [
     code: "044",
     country: "hr",
     title: "Pintor",
-    salaryBRL: "R$ 7.200",
+    salaryBRL: "R$ 7.100",
     salaryLocal: "EUR 1.200 por mês",
     salaryValue: { min: 1200, unit: "MONTH" },
     location: "Croácia",
@@ -419,7 +417,7 @@ export const vacancies: Vacancy[] = [
     code: "045",
     country: "hr",
     title: "Pedreiro",
-    salaryBRL: "R$ 7.200",
+    salaryBRL: "R$ 7.100",
     salaryLocal: "EUR 1.200 por mês",
     salaryValue: { min: 1200, unit: "MONTH" },
     location: "Croácia",
@@ -432,7 +430,7 @@ export const vacancies: Vacancy[] = [
     code: "071",
     country: "hr",
     title: "Auxiliar de Supermercado",
-    salaryBRL: "R$ 6.600",
+    salaryBRL: "R$ 6.700",
     salaryLocal: "EUR 1.100 líquidos por mês",
     salaryValue: { min: 1100, unit: "MONTH" },
     location: "Rab (ilha)",

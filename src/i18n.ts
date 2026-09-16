@@ -229,7 +229,7 @@ const resources = {
           ],
         },
         exchangeNote:
-          "Valores convertidos pelo câmbio de 24/08/2026: 1 PLN = R$ 1,40 · 1 EUR = R$ 6,00. O salário garantido é o da moeda local — o valor em real varia com o câmbio do dia.",
+          "Os valores em real são aproximados e usam o câmbio da data em que cada vaga foi aberta. O salário garantido é o da moeda local — o valor em real varia com o câmbio do dia.",
       },
 
       contact: {
@@ -484,7 +484,7 @@ const resources = {
           ],
         },
         exchangeNote:
-          "Converted at the exchange rate of 24/08/2026: 1 PLN = R$ 1.40 · 1 EUR = R$ 6.00. The guaranteed salary is the one in local currency — the amount in reais varies with the daily rate.",
+          "Amounts in reais are approximate and use the exchange rate from the date each role was opened. The guaranteed salary is the one in local currency — the amount in reais varies with the daily rate.",
       },
 
       contact: {
@@ -739,7 +739,7 @@ const resources = {
           ],
         },
         exchangeNote:
-          "Valores convertidos al cambio del 24/08/2026: 1 PLN = R$ 1,40 · 1 EUR = R$ 6,00. El salario garantizado es el de la moneda local — el valor en reales varía con el cambio del día.",
+          "Los valores en reales son aproximados y usan el cambio de la fecha en que se abrió cada vacante. El salario garantizado es el de la moneda local — el valor en reales varía con el cambio del día.",
       },
 
       contact: {
