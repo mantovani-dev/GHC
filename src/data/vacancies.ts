@@ -70,8 +70,6 @@ export const VACANCIES_POSTED_AT = "2026-08-24";
 export const countries: Country[] = [
   { code: "pl", name: "Polônia", isoCode: "PL", formUrl: "https://forms.gle/UFGi51QKLQFfRNA48" },
   { code: "hr", name: "Croácia", isoCode: "HR", formUrl: "https://forms.gle/xeRvXUuJAjmgp2Rq9" },
-  { code: "me", name: "Montenegro", isoCode: "ME", formUrl: "https://forms.gle/EVKFuMc4gEqeX9jx9" },
-  { code: "dk", name: "Dinamarca", isoCode: "DK", formUrl: null },
 ];
 
 /* Importa e reexporta: o re-export puro nao traz o nome para o escopo

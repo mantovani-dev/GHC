@@ -12,7 +12,13 @@ import {
    sitemap e os JobPosting apontam direto para www e evitam o salto. */
 export const SITE_URL = "https://www.globalhiring.com.br";
 
-const COUNTRY_LIST = countries.map((c) => c.name).join(", ");
+/* "Polônia e Croácia" — com dois países, um join por vírgula ficaria
+   "Polônia, Croácia" no meio da frase da meta description. */
+const COUNTRY_LIST = countries
+  .map((c) => c.name)
+  .reduce((texto, nome, i, lista) =>
+    i === 0 ? nome : i === lista.length - 1 ? `${texto} e ${nome}` : `${texto}, ${nome}`
+  );
 
 /** Título, descrição e canonical de cada página, injetados no HTML em build. */
 export const seoMeta = {
@@ -32,7 +38,7 @@ export const seoMeta = {
       `${vacancies.length} vagas abertas em ${COUNTRY_LIST} para brasileiros e latino-americanos. ` +
       `Salário em euro ou zloty, alojamento, transporte e apoio na documentação. Veja as vagas e inscreva-se.`,
     keywords:
-      "vagas de trabalho no exterior, emprego no exterior, trabalhar na Europa, vagas na Polônia, trabalhar na Polônia, vagas na Croácia, vagas em Montenegro, vagas na Dinamarca, recrutamento internacional, vaga com contrato de trabalho no exterior, emprego para brasileiros na Europa, operador de armazém Polônia, trabalho em frigorífico na Europa, GHC",
+      "vagas de trabalho no exterior, emprego no exterior, trabalhar na Europa, vagas na Polônia, trabalhar na Polônia, vagas na Croácia, recrutamento internacional, vaga com contrato de trabalho no exterior, emprego para brasileiros na Europa, operador de armazém Polônia, trabalho em frigorífico na Europa, GHC",
   },
 };
 

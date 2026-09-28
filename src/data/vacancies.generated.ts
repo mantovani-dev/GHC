@@ -1,10 +1,10 @@
 /**
  * GERADO AUTOMATICAMENTE — não edite este arquivo à mão.
  *
- * Fonte: CONTROLE DE VAGAS - RECRUTADORES.xlsx (15/09/2026), sem as vagas do recrutador Gustavo
+ * Fonte: VACANTES - ES - 25-09-2026 (só as marcadas em verde) + Croácia
  * Gerado por: scripts/sync-vacancies.mjs
  *
- * 29 vagas publicadas (pl: 21 · me: 3 · hr: 4 · dk: 1).
+ * 18 vagas publicadas (pl: 14 · hr: 4).
  *
  * Para mudar uma vaga, edite a planilha. A GitHub Action lê, valida e
  * reescreve este arquivo; qualquer edição manual aqui é perdida no
@@ -13,24 +13,9 @@
 import type { Vacancy } from "./vacancies";
 
 /** Data da última sincronização com a planilha. */
-export const VACANCIES_UPDATED_AT = "2026-09-16";
+export const VACANCIES_UPDATED_AT = "2026-09-28";
 
 export const vacancies: Vacancy[] = [
-  {
-    code: "069",
-    country: "pl",
-    title: "Operador de Produção",
-    context: "Fábrica de Kebab",
-    salaryBRL: "R$ 7.900 a R$ 12.400",
-    salaryLocal: "PLN 5.650 a 8.850 líquidos — pagamento por produção (0,65 PLN/kg)",
-    salaryValue: { min: 5650, max: 8850, unit: "MONTH" },
-    location: "Połajewo (Wielkopolska)",
-    schedule: "Turno noturno de 8h, seg a sex + 6h no sábado — domingos livres",
-    requirements: "Sem exigência de idioma",
-    benefits:
-      "Contrato com registro (ZUS) · acomodação 500 PLN · transporte grátis · cartão de residência de até 3 anos",
-    entry: "futuro",
-  },
   {
     code: "078",
     country: "pl",
@@ -146,25 +131,6 @@ export const vacancies: Vacancy[] = [
     postedAt: "2026-09-03",
   },
   {
-    code: "080",
-    country: "pl",
-    title: "Trabalhador de Produção",
-    context: "Indústria Ferroviária",
-    salaryBRL: "R$ 6.100 a R$ 9.100",
-    salaryLocal:
-      "PLN 4.368 a 6.480 líquidos por mês — 26 PLN líquidos por hora no 1º mês, 27 PLN a partir do 2º com avaliação positiva",
-    salaryValue: { min: 4368, max: 6480, unit: "MONTH" },
-    location: "Goczałków (Wrocław)",
-    schedule: "168 a 240h/mês — 3 turnos de 8h, segunda a sexta e alguns sábados",
-    requirements: "Exclusiva para homens",
-    benefits: "Alojamento 450 PLN · aumento por hora a partir do 2º mês",
-    entry: "futuro",
-    isNew: true,
-    warning:
-      "A permissão de trabalho é paga pelo candidato e reembolsada após 2 meses, e o exame médico custa 250 PLN. A duração do contrato ainda não foi confirmada com a empresa.",
-    postedAt: "2026-09-03",
-  },
-  {
     code: "057",
     country: "pl",
     title: "Operador(a) de Embalagem em Armazém",
@@ -192,20 +158,6 @@ export const vacancies: Vacancy[] = [
     requirements: "Não exige experiência",
     benefits:
       "Alojamento 400 PLN · transporte grátis · refeição a 1 PLN · bônus de presença · até 32 PLN/h para estudante",
-    entry: "confirmar",
-  },
-  {
-    code: "047",
-    country: "pl",
-    title: "Operador(a) de Produção",
-    context: "Padaria Industrial",
-    salaryBRL: "R$ 7.000 a R$ 8.400",
-    salaryLocal: "PLN 5.024 a 6.028 líquidos",
-    salaryValue: { min: 5024, max: 6028, unit: "MONTH" },
-    location: "Região de Varsóvia",
-    schedule: "40 a 48h semanais — turnos de 8h, não rotativos",
-    requirements: "Preparo físico moderado",
-    benefits: "Turno fixo — não roda entre manhã e noite",
     entry: "confirmar",
   },
   {
@@ -246,21 +198,6 @@ export const vacancies: Vacancy[] = [
     postedAt: "2026-08-27",
   },
   {
-    code: "070",
-    country: "pl",
-    title: "Operador de Produção",
-    context: "Componentes para Tesla",
-    salaryBRL: "R$ 7.000",
-    salaryLocal: "PLN 5.000 líquidos",
-    salaryValue: { min: 5000, unit: "MONTH" },
-    location: "Poznań",
-    schedule: "~200h/mês — turnos de até 12h, seg a sáb",
-    requirements: "Inglês, polonês ou espanhol · boa condição física",
-    benefits: "17 posições abertas · alojamento 750–1.000 PLN · seguro de saúde · uniforme incluso",
-    entry: "imediato",
-    warning: "EXCLUSIVA para quem JÁ está legalmente na Polônia — não é embarque do Brasil",
-  },
-  {
     code: "068",
     country: "pl",
     title: "Operador(a) de Produção",
@@ -274,20 +211,6 @@ export const vacancies: Vacancy[] = [
     benefits:
       "Alojamento 500 PLN a 15 min a pé · almoço grátis · roupa de trabalho grátis · homens, mulheres e casais",
     entry: "futuro",
-  },
-  {
-    code: "056",
-    country: "pl",
-    title: "Operador(a) de Triagem de Encomendas",
-    salaryBRL: "R$ 5.400 a R$ 7.000",
-    salaryLocal: "PLN 4.000 a 5.220 líquidos (moradia já descontada)",
-    salaryValue: { min: 4000, max: 5220, unit: "MONTH" },
-    location: "Varsóvia · Wrocław · Poznań · Katowice · Piotrków",
-    schedule: "200 a 240h/mês — turno noturno (23h–07h)",
-    requirements: "Não exige experiência · homens e mulheres",
-    benefits:
-      "Registro no ZUS · alojamento a pé do trabalho · apoio com PESEL, conta bancária e cartão de residência · bônus de até 700 PLN",
-    entry: "confirmar",
   },
   {
     code: "066",
@@ -316,76 +239,6 @@ export const vacancies: Vacancy[] = [
     requirements: "Sem exigência de idioma",
     benefits: "Apoio na permissão de trabalho · caderneta sanitária",
     entry: "futuro",
-  },
-  {
-    code: "058",
-    country: "pl",
-    title: "Operador(a) de Maquinário",
-    context: "Indústria Automotiva",
-    salaryBRL: null,
-    salaryLocal: "31,40 PLN por hora (bruto)",
-    salaryValue: { min: 31.4, unit: "HOUR" },
-    location: "Polônia",
-    schedule: "Contrato de 18 meses",
-    requirements: "Homens de 18 a 45 anos",
-    benefits: "Hospedagem 600 PLN/mês · apoio na permissão de trabalho",
-    entry: "futuro",
-  },
-  {
-    code: "059",
-    country: "pl",
-    title: "Especialista em Vulcanização",
-    context: "Indústria Automotiva",
-    salaryBRL: null,
-    salaryLocal: "31,40 PLN por hora (bruto)",
-    salaryValue: { min: 31.4, unit: "HOUR" },
-    location: "Polônia",
-    schedule: "Contrato de 18 meses",
-    requirements: "Homens de 18 a 45 anos",
-    benefits: "Mesma fábrica da vaga 058 · apoio na permissão de trabalho",
-    entry: "futuro",
-  },
-  {
-    code: "064",
-    country: "me",
-    title: "Mecânico de Ônibus",
-    context: "Diesel",
-    salaryBRL: "R$ 7.700 a R$ 9.500",
-    salaryLocal: "EUR 1.300 no inverno · EUR 1.500 a 1.600 no verão",
-    salaryValue: { min: 1300, max: 1600, unit: "MONTH" },
-    location: "Montenegro",
-    schedule: "8h/dia, 6 dias por semana",
-    requirements: "Inglês básico · experiência em mecânica diesel",
-    benefits: "Acomodação + alimentação inclusas",
-    entry: "imediato",
-  },
-  {
-    code: "063",
-    country: "me",
-    title: "Motorista de Ônibus",
-    salaryBRL: "R$ 5.900",
-    salaryLocal: "EUR 1.000 por mês",
-    salaryValue: { min: 1000, unit: "MONTH" },
-    location: "Montenegro",
-    schedule: "8h/dia, 6 dias por semana",
-    requirements: "Inglês básico · habilitação para ônibus",
-    benefits:
-      "5 posições abertas · acomodação + 1 refeição · contrato mínimo de 1 ano · 7º dia e horas extras pagos à parte",
-    entry: "imediato",
-  },
-  {
-    code: "065",
-    country: "me",
-    title: "Ajudante de Cozinha",
-    salaryBRL: "R$ 4.700",
-    salaryLocal: "EUR 800 líquidos por mês",
-    salaryValue: { min: 800, unit: "MONTH" },
-    location: "Montenegro",
-    schedule: "9h/dia, 6 dias por semana, 1 folga",
-    requirements: "Inglês básico obrigatório",
-    benefits:
-      "Apenas 2 posições · apartamento privado · contrato de 1 ano renovável · horas extras remuneradas · preferência para casal ou dupla",
-    entry: "imediato",
   },
   {
     code: "043",
@@ -440,18 +293,5 @@ export const vacancies: Vacancy[] = [
       "10 posições abertas · transporte + seguro-saúde inclusos · 20 dias de férias · horas extras pagas",
     entry: "futuro",
     warning: "Alojamento e alimentação a confirmar",
-  },
-  {
-    code: "054",
-    country: "dk",
-    title: "Açougueiro / Abatedor de Suínos",
-    salaryBRL: "R$ 16.200",
-    salaryLocal: "EUR 2.700 líquidos por mês",
-    salaryValue: { min: 2700, unit: "MONTH" },
-    location: "Dinamarca",
-    schedule: "40h por semana — pagamento quinzenal",
-    requirements: "Experiência em açougue ou abate",
-    benefits: "O maior salário do nosso quadro de vagas",
-    entry: "confirmar",
   },
 ];

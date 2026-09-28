@@ -170,7 +170,7 @@ const resources = {
         title: "{{count}} vagas de trabalho no exterior",
         titleAccent: "com contrato na Europa",
         description:
-          "Oportunidades para brasileiros e latino-americanos na Polônia, Croácia, Montenegro e Dinamarca — com salário em zloty ou euro, alojamento, transporte e apoio na documentação do início ao embarque.",
+          "Oportunidades para brasileiros e latino-americanos na Polônia e na Croácia — com salário em zloty ou euro, alojamento, transporte e apoio na documentação do início ao embarque.",
         updatedAt: "Quadro atualizado em {{date}}",
         filterAll: "Todas",
         month: "mês",
@@ -425,7 +425,7 @@ const resources = {
         title: "{{count}} jobs abroad",
         titleAccent: "with a contract in Europe",
         description:
-          "Openings for Brazilians and Latin Americans in Poland, Croatia, Montenegro and Denmark — paid in zloty or euro, with accommodation, transport and paperwork support from the first step to departure.",
+          "Openings for Brazilians and Latin Americans in Poland and Croatia — paid in zloty or euro, with accommodation, transport and paperwork support from the first step to departure.",
         updatedAt: "Board updated on {{date}}",
         filterAll: "All",
         month: "month",
@@ -680,7 +680,7 @@ const resources = {
         title: "{{count}} empleos en el exterior",
         titleAccent: "con contrato en Europa",
         description:
-          "Oportunidades para brasileños y latinoamericanos en Polonia, Croacia, Montenegro y Dinamarca — con salario en esloti o euro, alojamiento, transporte y apoyo con la documentación hasta el embarque.",
+          "Oportunidades para brasileños y latinoamericanos en Polonia y Croacia — con salario en esloti o euro, alojamiento, transporte y apoyo con la documentación hasta el embarque.",
         updatedAt: "Cuadro actualizado el {{date}}",
         filterAll: "Todas",
         month: "mes",

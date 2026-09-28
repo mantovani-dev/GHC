@@ -35,21 +35,21 @@ const copy: Record<string, Record<Page, { title: string; description: string }>>
   en: {
     home: {
       title: "GHC | International Recruitment for Brazilians and Latin Americans",
-      description: `We connect Latin American professionals to jobs abroad with a contract, paperwork and support up to departure. ${n} open roles in Poland, Croatia, Montenegro and Denmark.`,
+      description: `We connect Latin American professionals to jobs abroad with a contract, paperwork and support up to departure. ${n} open roles in Poland and Croatia.`,
     },
     vacancies: {
       title: `Jobs Abroad | ${n} Roles with a Contract in Europe | GHC`,
-      description: `${n} open roles in Poland, Croatia, Montenegro and Denmark for Brazilians and Latin Americans. Paid in euro or zloty, with accommodation, transport and paperwork support.`,
+      description: `${n} open roles in Poland and Croatia for Brazilians and Latin Americans. Paid in euro or zloty, with accommodation, transport and paperwork support.`,
     },
   },
   es: {
     home: {
       title: "GHC | Reclutamiento Internacional para Brasileños y Latinoamericanos",
-      description: `Conectamos a profesionales latinoamericanos con empleos en el exterior con contrato, documentación y apoyo hasta el embarque. ${n} vacantes abiertas en Polonia, Croacia, Montenegro y Dinamarca.`,
+      description: `Conectamos a profesionales latinoamericanos con empleos en el exterior con contrato, documentación y apoyo hasta el embarque. ${n} vacantes abiertas en Polonia y Croacia.`,
     },
     vacancies: {
       title: `Empleos en el Exterior | ${n} Vacantes con Contrato en Europa | GHC`,
-      description: `${n} vacantes abiertas en Polonia, Croacia, Montenegro y Dinamarca para brasileños y latinoamericanos. Salario en euro o esloti, con alojamiento, transporte y apoyo documental.`,
+      description: `${n} vacantes abiertas en Polonia y Croacia para brasileños y latinoamericanos. Salario en euro o esloti, con alojamiento, transporte y apoyo documental.`,
     },
   },
 };
