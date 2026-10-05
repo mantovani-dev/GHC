@@ -15,11 +15,11 @@ import { GlassCard } from "@/components/ui/glass-card";
 import { CountUp } from "@/components/ui/count-up";
 import { vacancies } from "@/data/vacancies";
 
-import imgStack from "@/assets/gallery/departure9.jpeg";
-import face1 from "@/assets/gallery/departure.jpeg";
-import face2 from "@/assets/gallery/departure2.jpeg";
-import face3 from "@/assets/gallery/departure5.jpeg";
-import face4 from "@/assets/gallery/departure11.jpeg";
+import imgStack from "@/assets/gallery/departure9.webp";
+import face1 from "@/assets/gallery/departure.avatar.webp";
+import face2 from "@/assets/gallery/departure2.avatar.webp";
+import face3 from "@/assets/gallery/departure5.avatar.webp";
+import face4 from "@/assets/gallery/departure11.avatar.webp";
 
 const faces = [face1, face2, face3, face4];
 
@@ -99,7 +99,18 @@ const HeroSection = ({ id }: HeroSectionProps) => {
           {/* Stack de vidro: foto + card do marco */}
           <div className="stack">
             <div className="pane p-img">
-              <img src={imgStack} alt="Embarque GHC" />
+              <img
+                src={imgStack}
+                alt="Embarque GHC"
+                width={720}
+                height={1280}
+                decoding="async"
+                /* Em minúsculas de propósito: o React 18 não conhece
+                   `fetchPriority` em camelCase — ele avisa no console e
+                   descarta o atributo, que era justamente o contrário do
+                   pretendido. Assim ele chega ao HTML. */
+                {...{ fetchpriority: "high" }}
+              />
             </div>
 
             <div className="pane card-fx">
@@ -112,7 +123,15 @@ const HeroSection = ({ id }: HeroSectionProps) => {
                 <CountUp to={embarked} prefix="+" className="stat-n" />
                 <div className="faces">
                   {faces.map((src, i) => (
-                    <img key={i} src={src} alt="" aria-hidden="true" />
+                    <img
+                      key={i}
+                      src={src}
+                      alt=""
+                      aria-hidden="true"
+                      width={128}
+                      height={128}
+                      decoding="async"
+                    />
                   ))}
                 </div>
               </div>

@@ -4,23 +4,23 @@ import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 import { AnimateIn } from "@/components/ui/animate-in";
 
-import departure from "@/assets/gallery/departure.jpeg";
-import departure9 from "@/assets/gallery/departure9.jpeg";
-import departure14 from "@/assets/gallery/departure14.jpeg";
-import departure2 from "@/assets/gallery/departure2.jpeg";
-import departure3 from "@/assets/gallery/departure3.jpeg";
-import departure4 from "@/assets/gallery/departure4.jpeg";
-import departure5 from "@/assets/gallery/departure5.jpeg";
-import departure6 from "@/assets/gallery/departure6.jpeg";
-import departure7 from "@/assets/gallery/departure7.jpeg";
-import departure8 from "@/assets/gallery/departure8.jpeg";
-import departure11 from "@/assets/gallery/departure11.jpeg";
-import departure12 from "@/assets/gallery/departure12.jpeg";
-import departure13 from "@/assets/gallery/departure13.jpeg";
-import departure15 from "@/assets/gallery/departure15.jpeg";
-import departure16 from "@/assets/gallery/departure16.jpeg";
-import departure17 from "@/assets/gallery/departure17.jpeg";
-import departure18 from "@/assets/gallery/departure18.jpeg";
+import departure from "@/assets/gallery/departure.webp";
+import departure9 from "@/assets/gallery/departure9.webp";
+import departure14 from "@/assets/gallery/departure14.webp";
+import departure2 from "@/assets/gallery/departure2.webp";
+import departure3 from "@/assets/gallery/departure3.webp";
+import departure4 from "@/assets/gallery/departure4.webp";
+import departure5 from "@/assets/gallery/departure5.webp";
+import departure6 from "@/assets/gallery/departure6.webp";
+import departure7 from "@/assets/gallery/departure7.webp";
+import departure8 from "@/assets/gallery/departure8.webp";
+import departure11 from "@/assets/gallery/departure11.webp";
+import departure12 from "@/assets/gallery/departure12.webp";
+import departure13 from "@/assets/gallery/departure13.webp";
+import departure15 from "@/assets/gallery/departure15.webp";
+import departure16 from "@/assets/gallery/departure16.webp";
+import departure17 from "@/assets/gallery/departure17.webp";
+import departure18 from "@/assets/gallery/departure18.webp";
 
 const photos = [
   departure, departure9, departure14,
