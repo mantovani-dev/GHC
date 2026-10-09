@@ -103,6 +103,49 @@ const seoTags = (): Plugin => ({
 });
 
 // https://vitejs.dev/config/
+
+/**
+ * Anuncia no HTML o pedaço de rota que aquela página vai pedir.
+ *
+ * Com o import() dinâmico em App.tsx, o pedaço da rota só é descoberto
+ * depois de baixar E executar o main.js — duas viagens em série antes de
+ * qualquer pixel. No celular isso deixava /vagas em branco por segundos.
+ *
+ * Cada HTML tem uma rota certa (index.html → Index, vagas.html →
+ * Vacancies), então dá para buscá-la em paralelo com o main.
+ *
+ * Precisa ser um plugin separado, na fase "post": em `order: "pre"` o
+ * `ctx.bundle` ainda não existe (verificado — vinha undefined), e sem ele
+ * não há como saber o nome com hash do arquivo.
+ */
+const preloadDaRota = (): Plugin => ({
+  name: "ghc-preload-rota",
+
+  transformIndexHtml: {
+    order: "post",
+    handler(_html, ctx) {
+      if (!ctx.bundle) return [];
+
+      const pagina = ctx.path.includes("vagas") ? "Vacancies" : "Index";
+
+      const alvo = Object.values(ctx.bundle).find(
+        (c) => c.type === "chunk" && c.name === pagina
+      );
+      if (!alvo || alvo.type !== "chunk") return [];
+
+      /* O pedaço da rota e os compartilhados que ele importa de forma
+         estática — o do fundo ambiente, por exemplo. */
+      return [alvo.fileName, ...alvo.imports].map(
+        (arquivo): HtmlTagDescriptor => ({
+          tag: "link",
+          attrs: { rel: "modulepreload", crossorigin: "", href: "/" + arquivo },
+          injectTo: "head",
+        })
+      );
+    },
+  },
+});
+
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
@@ -112,6 +155,7 @@ export default defineConfig(({ mode }) => ({
     react(),
 
     seoTags(),
+    preloadDaRota(),
 
     mode === "development" && componentTagger(),
 
