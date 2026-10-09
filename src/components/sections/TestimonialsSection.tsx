@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { AnimateIn } from "@/components/ui/animate-in";
 import DepartureGallery from "./DepartureGallery";
+import InstagramReel from "./InstagramReel";
 
 interface TestimonialsSectionProps {
   id?: string;
@@ -56,17 +57,10 @@ const TestimonialsSection = ({ id }: TestimonialsSectionProps) => {
 
         {/* Reel do Instagram na moldura de vidro */}
         <AnimateIn animation="slide-right" delay={70}>
-          <div className="reel">
-            <iframe
-              src="https://www.instagram.com/reel/DaS5BLxxB7G/embed"
-              className="block w-full min-h-[600px] sm:min-h-[660px] md:min-h-[700px]"
-              frameBorder="0"
-              scrolling="no"
-              allow="encrypted-media"
-              title={t("socialProof.video")}
-              loading="lazy"
-            />
-          </div>
+          <InstagramReel
+            src="https://www.instagram.com/reel/DaS5BLxxB7G/embed"
+            title={t("socialProof.video")}
+          />
         </AnimateIn>
       </div>
 

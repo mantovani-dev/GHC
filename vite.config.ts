@@ -131,11 +131,19 @@ export default defineConfig(({ mode }) => ({
       devOptions: { enabled: false },
 
       workbox: {
-        // Precache apenas JS, CSS, HTML e assets pequenos (fontes, ícones, logos)
-        // Imagens grandes do carrossel ficam fora — o cache HTTP do Netlify já as serve
-        globPatterns: [
-          "**/*.{js,css,html,ico,svg,woff,woff2}",
-        ],
+        /* Só a casca entra no precache: os dois HTML, o ícone, o CSS e o
+           pacote principal.
+
+           Antes o padrão pegava todo e qualquer .js, o que fazia o Service
+           Worker baixar TODOS os pedaços de rota — Index, Vacancies,
+           GhcBio, NotFound — logo na primeira visita, em paralelo com a
+           página que a pessoa estava tentando abrir. Isso anulava a
+           divisão por rota e roubava banda no pior momento possível.
+
+           Os pedaços passam a ser guardados quando forem de fato usados,
+           pelo runtimeCaching mais abaixo. As imagens continuam de fora:
+           quem as serve é o cache HTTP da Vercel. */
+        globPatterns: ["index.html", "vagas.html", "favicon.ico", "assets/main-*.{js,css}"],
 
         // Limite de 500 KB por arquivo no precache (segurança extra)
         maximumFileSizeToCacheInBytes: 500 * 1024,
@@ -155,6 +163,13 @@ export default defineConfig(({ mode }) => ({
 
         // Runtime caching: Google Fonts (CacheFirst — raramente mudam)
         runtimeCaching: [
+          {
+            /* Pedaços de rota: guarda ao usar, serve do cache na próxima e
+               revalida em segundo plano. */
+            urlPattern: /\/assets\/.*\.js$/,
+            handler: "StaleWhileRevalidate",
+            options: { cacheName: "pedacos-de-rota" },
+          },
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
             handler: "CacheFirst",
