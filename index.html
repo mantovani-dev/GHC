@@ -6,19 +6,18 @@
     <meta name="theme-color" content="#0b0e14" />
 
     <!--
-      Fontes: um unico pedido, descoberto ja no HTML.
-      Antes eram tres @import no topo do index.css, o que obrigava o
-      navegador a baixar e interpretar o CSS inteiro antes de sequer saber
-      que precisava das fontes - uma cascata em serie antes do primeiro
-      desenho. O preconnect abre a conexao com o Google em paralelo.
-      Pesos: so os que o site usa (sem o 300 e sem italicos).
+      Fontes servidas pelo nosso domínio (public/fonts), com as @font-face
+      dentro do nosso próprio CSS. Antes vinham de servidores do Google:
+      uma ida para buscar a folha de estilo e OUTRA, em domínio diferente,
+      para os arquivos .woff2 — cada uma com DNS e TLS próprios. No celular
+      isso atrasava a troca de fonte por segundos, e era o texto "se
+      ajeitando" depois de a página já ter aparecido.
+
+      Só os dois pesos mais usados são pré-carregados: o 400 do corpo e o
+      600 dos títulos. Os outros o navegador busca ao topar com a regra.
     -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
-    />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/space-grotesk-400-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/space-grotesk-600-latin.woff2" crossorigin />
 
     <!-- Cache control: garante que o browser nunca guarde este HTML -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />

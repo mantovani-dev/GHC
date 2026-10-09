@@ -1,3 +1,7 @@
+/* Resolvido em tempo de build pelo Vite: o conteudo de fonts.css entra
+   aqui dentro, nao vira um pedido separado no navegador. */
+@import "./fonts.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
