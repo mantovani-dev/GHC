@@ -23,31 +23,50 @@
     <script>
       (function () {
         try {
-          if (!("serviceWorker" in navigator)) return;
-          navigator.serviceWorker.getRegistrations().then(function (regs) {
-            if (!regs || !regs.length) return;
-            Promise.all(
-              regs.map(function (r) {
-                return r.unregister();
-              })
-            )
-              .then(function () {
-                if (!window.caches) return null;
-                return caches.keys().then(function (chaves) {
+          var temSW = "serviceWorker" in navigator;
+
+          var limpaSW = temSW
+            ? navigator.serviceWorker
+                .getRegistrations()
+                .then(function (regs) {
+                  return Promise.all(
+                    regs.map(function (r) {
+                      return r.unregister();
+                    })
+                  ).then(function () {
+                    return regs.length > 0;
+                  });
+                })
+                .catch(function () {
+                  return false;
+                })
+            : Promise.resolve(false);
+
+          var limpaCache = window.caches
+            ? caches
+                .keys()
+                .then(function (chaves) {
                   return Promise.all(
                     chaves.map(function (k) {
                       return caches.delete(k);
                     })
-                  );
-                });
-              })
-              .then(function () {
-                if (sessionStorage.getItem("ghc-limpo")) return;
-                sessionStorage.setItem("ghc-limpo", "1");
-                location.reload();
-              })
-              .catch(function () {});
-          });
+                  ).then(function () {
+                    return chaves.length > 0;
+                  });
+                })
+                .catch(function () {
+                  return false;
+                })
+            : Promise.resolve(false);
+
+          Promise.all([limpaSW, limpaCache])
+            .then(function (removeu) {
+              if (!removeu[0] && !removeu[1]) return;
+              if (sessionStorage.getItem("ghc-limpo")) return;
+              sessionStorage.setItem("ghc-limpo", "1");
+              location.reload();
+            })
+            .catch(function () {});
         } catch (e) {}
       })();
     </script>
