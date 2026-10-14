@@ -22,7 +22,7 @@
       "destination": "/vagas.html"
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!assets/|fonts/|sw\\.js|workbox-).*)",
       "destination": "/index.html"
     }
   ],
