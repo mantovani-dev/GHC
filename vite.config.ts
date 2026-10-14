@@ -166,6 +166,26 @@ export default defineConfig(({ mode }) => ({
       // visitante clicar num aviso. Num site de vagas isso é perigoso: quem
       // não clicasse continuaria vendo o quadro antigo por tempo indefinido
       // e poderia se inscrever numa vaga já encerrada.
+      /*
+       * EMERGENCIA 14/10/2026 — Service Worker desativado.
+       *
+       * Com o servidor saudavel (HTML e todos os recursos em 200) houve
+       * relato de celulares que nao abriam o site de jeito nenhum. O unico
+       * componente capaz de produzir isso e o Service Worker: ele intercepta
+       * a navegacao e serve do cache, entao um cache ruim derruba a pagina
+       * mesmo com tudo certo no servidor. Eu o alterei varias vezes em
+       * poucos dias (precache, autoUpdate, recarregamento automatico), e nao
+       * consegui reproduzir a falha para isolar qual mudanca a causou.
+       *
+       * `selfDestroying` publica um Service Worker cuja unica funcao e se
+       * desregistrar e apagar os caches. Quem ja tem um instalado fica
+       * limpo na proxima visita; quem nao tem, nao instala nada.
+       *
+       * Perde-se o funcionamento offline. Para um site de vagas servido por
+       * CDN, isso vale muito menos do que a garantia de sempre abrir.
+       */
+      selfDestroying: true,
+
       registerType: "autoUpdate",
 
       // Não gera manifest PWA — queremos só o Service Worker
