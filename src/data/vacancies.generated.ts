@@ -4,7 +4,7 @@
  * Fonte: VACANTES - ES - 25-09-2026 (só as marcadas em verde) + Croácia
  * Gerado por: scripts/sync-vacancies.mjs
  *
- * 18 vagas publicadas (pl: 14 · hr: 4).
+ * 13 vagas publicadas (pl: 9 · hr: 4).
  *
  * Para mudar uma vaga, edite a planilha. A GitHub Action lê, valida e
  * reescreve este arquivo; qualquer edição manual aqui é perdida no
@@ -13,7 +13,7 @@
 import type { Vacancy } from "./vacancies";
 
 /** Data da última sincronização com a planilha. */
-export const VACANCIES_UPDATED_AT = "2026-09-28";
+export const VACANCIES_UPDATED_AT = "2026-10-14";
 
 export const vacancies: Vacancy[] = [
   {
@@ -27,7 +27,7 @@ export const vacancies: Vacancy[] = [
     schedule: "264 a 312h/mês — turnos de 12h, segunda a sexta, com sábado conforme a produção",
     requirements: "Exclusiva para mulheres · até 60 anos · não exige experiência · não exige idioma",
     benefits: "Alojamento 700 PLN · caderneta sanitária (Sanepid) 200 PLN no primeiro mês",
-    entry: "imediatoOuFuturo",
+    entry: "futuro",
     isNew: true,
     warning:
       "O trabalho é em sala refrigerada a +8 °C. A duração do contrato ainda não foi confirmada com a empresa.",
@@ -51,21 +51,6 @@ export const vacancies: Vacancy[] = [
     warning:
       "O salário informado é bruto. A permissão de trabalho é paga pelo candidato e reembolsada após 2 meses, e o exame médico custa 250 PLN. A duração do contrato ainda não foi confirmada com a empresa.",
     postedAt: "2026-09-03",
-  },
-  {
-    code: "072",
-    country: "pl",
-    title: "Operador(a) de Armazém",
-    context: "Amazon",
-    salaryBRL: "R$ 5.700 a R$ 10.200",
-    salaryLocal: "PLN 4.058 a 7.304 líquidos",
-    salaryValue: { min: 4058, max: 7304, unit: "MONTH" },
-    location: "Nowa Niedrzwica (Gorzów Wielkopolski)",
-    schedule: "160 a 288h/mês — turnos de 8 a 12h, 5 a 6 dias",
-    requirements: "Inglês · até 55 anos · não exige experiência",
-    benefits:
-      "Alojamento a partir de 600 PLN · transporte grátis · capacitação remunerada · bônus de até 800 PLN · aceita casais",
-    entry: "imediato",
   },
   {
     code: "062",
@@ -97,20 +82,6 @@ export const vacancies: Vacancy[] = [
     entry: "futuro",
   },
   {
-    code: "073",
-    country: "pl",
-    title: "Operador(a) de Logística Postal",
-    salaryBRL: "R$ 6.500 a R$ 9.700",
-    salaryLocal: "PLN 4.608 a 6.912 líquidos — 24 PLN/h (+1 PLN/h com moradia própria)",
-    salaryValue: { min: 4608, max: 6912, unit: "MONTH" },
-    location: "Poznań",
-    schedule: "192 a 288h/mês — 6 dias, turnos de 8 a 12h, incluindo noturno",
-    requirements: "Boa condição física · não exige idioma · não exige experiência",
-    benefits:
-      "10 posições abertas · alojamento 500 PLN · transporte grátis · contrato que pode virar registro em carteira",
-    entry: "imediato",
-  },
-  {
     code: "081",
     country: "pl",
     title: "Trabalhador(a) de Armazém",
@@ -131,36 +102,6 @@ export const vacancies: Vacancy[] = [
     postedAt: "2026-09-03",
   },
   {
-    code: "057",
-    country: "pl",
-    title: "Operador(a) de Embalagem em Armazém",
-    salaryBRL: "R$ 7.200 a R$ 9.000",
-    salaryLocal: "PLN 5.328 a 6.660 líquidos",
-    salaryValue: { min: 5328, max: 6660, unit: "MONTH" },
-    location: "Kąty Wrocławskie (Wrocław)",
-    schedule: "Turnos de 10h",
-    requirements: "Não exige experiência",
-    benefits:
-      "Alojamento 400 PLN · transporte grátis · refeição a 1 PLN · homens, mulheres e casais",
-    entry: "futuro",
-    warning: "Embarque previsto para outubro/2026",
-  },
-  {
-    code: "053",
-    country: "pl",
-    title: "Operador(a) de Armazém",
-    context: "SHEIN",
-    salaryBRL: "R$ 7.000 a R$ 8.400",
-    salaryLocal: "PLN 5.000 a 6.000 líquidos",
-    salaryValue: { min: 5000, max: 6000, unit: "MONTH" },
-    location: "Kąty Wrocławskie (Wrocław)",
-    schedule: "~50h semanais — 10h/dia, seg a sex, 2 turnos",
-    requirements: "Não exige experiência",
-    benefits:
-      "Alojamento 400 PLN · transporte grátis · refeição a 1 PLN · bônus de presença · até 32 PLN/h para estudante",
-    entry: "confirmar",
-  },
-  {
     code: "083",
     country: "pl",
     title: "Ajudante de Cozinha",
@@ -171,31 +112,11 @@ export const vacancies: Vacancy[] = [
     schedule: "200 a 220h/mês — 3 turnos rotativos",
     requirements: "Homens e mulheres até 60 anos · aceita casais",
     benefits: "Alojamento 600 a 750 PLN, quartos para até 3 pessoas · há quartos para casais",
-    entry: "imediatoOuFuturo",
+    entry: "futuro",
     isNew: true,
     warning:
       "Só começa a trabalhar com a documentação completa — quem chega como turista espera de 3 a 4 semanas pela permissão. A duração do contrato ainda não foi confirmada com a empresa.",
     postedAt: "2026-09-15",
-  },
-  {
-    code: "077",
-    country: "pl",
-    title: "Operador(a) de Costura Industrial",
-    salaryBRL: "R$ 7.700",
-    salaryLocal: "PLN 5.500 líquidos por mês — 25 PLN líquidos por hora, média de 220h/mês",
-    salaryValue: { min: 5500, unit: "MONTH" },
-    location: "Orneta",
-    schedule:
-      "Turnos de 8h — 1º das 6h às 14h, 2º das 14h às 22h. Média projetada de 220h mensais, conforme a escala de produção. Quem tem mais experiência pode trabalhar das 6h às 16h.",
-    requirements:
-      "Inglês comunicativo · experiência comprovada · até 48 anos · todas as nacionalidades · disponibilidade para início imediato",
-    duties:
-      "Confecção de mochilas militares em máquinas planas, de coluna, de braço cilíndrico, de uma e de várias agulhas — costura reta e corrente, seleção de agulha e linha, ajuste de tensão e ponto, controle de qualidade e limpeza do posto.",
-    documents: "Passaporte válido · foto e vídeo curto de apresentação, em português",
-    benefits:
-      "Contrato de 18 meses · 90 a 120 posições abertas · alojamento de PLN 500 por mês, descontados do salário",
-    entry: "imediato",
-    postedAt: "2026-08-27",
   },
   {
     code: "068",

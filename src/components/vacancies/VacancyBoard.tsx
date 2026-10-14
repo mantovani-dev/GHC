@@ -18,12 +18,20 @@ import {
 
 type Filter = CountryCode | "all";
 
-const entryTypes: EntryType[] = [
-  "imediato",
-  "imediatoOuFuturo",
-  "futuro",
-  "confirmar",
-];
+/** Ordem em que as modalidades aparecem na legenda, da mais rápida à indefinida. */
+const ORDEM_ENTRADA: EntryType[] = ["imediato", "imediatoOuFuturo", "futuro", "confirmar"];
+
+/*
+ * A legenda mostra só as modalidades que existem no quadro agora.
+ *
+ * Antes a lista era fixa no código: quando as vagas de ingresso imediato
+ * saíram, a legenda continuaria explicando uma modalidade sem nenhuma vaga —
+ * o candidato leria "você embarca assim que for aprovado" e não acharia uma
+ * única vaga assim.
+ */
+const entryTypes: EntryType[] = ORDEM_ENTRADA.filter((e) =>
+  vacancies.some((v) => v.entry === e)
+);
 
 /** Quadro completo: filtro por país, grade de vagas e as ressalvas. */
 const VacancyBoard = () => {
