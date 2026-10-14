@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
-      "source": "/((?!sw\\.js$).*)",
+      "source": "/((?!sw\\.js$|api/limpar).*)",
       "has": [
         {
           "type": "host",
@@ -25,6 +25,10 @@
   ],
   "rewrites": [
     {
+      "source": "/api/limpar",
+      "destination": "/api/limpar.html"
+    },
+    {
       "source": "/vagas",
       "destination": "/vagas.html"
     },
@@ -38,6 +42,19 @@
     }
   ],
   "headers": [
+    {
+      "source": "/api/limpar(\\.html)?",
+      "headers": [
+        {
+          "key": "Clear-Site-Data",
+          "value": "\"cache\", \"storage\""
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
     {
       "source": "/assets/(.*)",
       "headers": [
