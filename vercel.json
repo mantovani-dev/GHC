@@ -2,6 +2,17 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/((?!sw\\.js$).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "globalhiring.com.br"
+        }
+      ],
+      "destination": "https://www.globalhiring.com.br/$1",
+      "permanent": true
+    },
+    {
       "source": "/vagas.html",
       "destination": "/vagas",
       "permanent": true
