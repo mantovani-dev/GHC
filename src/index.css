@@ -147,7 +147,12 @@
   .ambient-glow {
     position: absolute;
     border-radius: 50%;
-    filter: blur(130px);
+    /* Sem filter: blur() de propósito.
+       O fundo destas auréolas ja e um radial-gradient que termina em
+       transparent 68% — nao existe borda dura para suavizar. O blur(130px)
+       que havia aqui desfocava algo ja difuso, e desfoque de raio grande em
+       elemento de 900x900 e dos efeitos mais caros que existem no Safari do
+       iPhone: ele repinta a cada rolagem. Removido sem perda visivel. */
   }
 
   .ambient-glow-1 {
@@ -565,8 +570,7 @@
     right: -160px;
     top: -220px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(51, 186, 233, 0.24), transparent 68%);
-    filter: blur(70px);
+    background: radial-gradient(circle, rgba(51, 186, 233, 0.24), transparent 72%);
     pointer-events: none;
   }
 
@@ -1634,6 +1638,47 @@
  * (`.btn-orbita.btn-orbita` = 0,2,0 + :hover) para ganhar sem depender da
  * posição no arquivo. */
 @media (hover: none) {
+  /*
+   * Vidro sem desfoque no celular.
+   *
+   * backdrop-filter obriga o navegador a ler o que esta atras do elemento,
+   * desfocar e recompor — por camada. A pagina de vagas tem 13 cards de
+   * vidro, mais a barra, o rodape e a legenda. No desktop isso passa
+   * despercebido; no Safari do iPhone e o que fazia a pagina demorar a
+   * aparecer e rolar travando.
+   *
+   * O fundo fica mais opaco para compensar: sem o desfoque, os valores
+   * originais deixariam os paineis quase invisiveis sobre o fundo escuro.
+   */
+  .glass,
+  .pane,
+  .navbar,
+  .drawer,
+  .arrow,
+  .orbita-footer {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .pane {
+    background: rgba(20, 25, 36, 0.88);
+  }
+  .navbar {
+    background: rgba(16, 20, 29, 0.9);
+  }
+  .drawer {
+    background: rgba(8, 10, 15, 0.97);
+  }
+  .arrow {
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .orbita-footer {
+    background: rgba(8, 10, 15, 0.92);
+  }
+
   .glass-hov.glass-hov:hover {
     transform: none;
     box-shadow: none;
