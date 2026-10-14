@@ -6,6 +6,54 @@
     <meta name="theme-color" content="#0b0e14" />
 
     <!--
+      Limpeza de estado herdado. Fica aqui, inline no HTML, de proposito.
+
+      Versoes anteriores deste site instalaram um Service Worker. Quando os
+      nomes com hash dos arquivos mudaram, esses clientes passaram a pedir
+      arquivos que nao existem mais e a pagina parava de subir. A limpeza nao
+      podia morar no pacote JavaScript: nos aparelhos travados e exatamente
+      o pacote que nao carrega, entao o codigo que cura nunca rodava.
+
+      Aqui ela roda sempre, antes de tudo, sem depender de nada. Em quem nao
+      tem Service Worker, nao faz absolutamente nada.
+
+      A trava em sessionStorage garante um unico recarregamento por sessao,
+      para nao virar um laco.
+    -->
+    <script>
+      (function () {
+        try {
+          if (!("serviceWorker" in navigator)) return;
+          navigator.serviceWorker.getRegistrations().then(function (regs) {
+            if (!regs || !regs.length) return;
+            Promise.all(
+              regs.map(function (r) {
+                return r.unregister();
+              })
+            )
+              .then(function () {
+                if (!window.caches) return null;
+                return caches.keys().then(function (chaves) {
+                  return Promise.all(
+                    chaves.map(function (k) {
+                      return caches.delete(k);
+                    })
+                  );
+                });
+              })
+              .then(function () {
+                if (sessionStorage.getItem("ghc-limpo")) return;
+                sessionStorage.setItem("ghc-limpo", "1");
+                location.reload();
+              })
+              .catch(function () {});
+          });
+        } catch (e) {}
+      })();
+    </script>
+
+
+    <!--
       Fontes servidas pelo nosso domínio (public/fonts), com as @font-face
       dentro do nosso próprio CSS. Antes vinham de servidores do Google:
       uma ida para buscar a folha de estilo e OUTRA, em domínio diferente,
