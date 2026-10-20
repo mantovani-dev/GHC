@@ -29,27 +29,27 @@ const copy: Record<string, Record<Page, { title: string; description: string }>>
     },
     vacancies: {
       title: `Vagas de Trabalho no Exterior | ${n} Empregos com Contrato na Europa | GHC`,
-      description: `${n} vagas abertas em ${countryList} para brasileiros e latino-americanos. Salário em euro ou zloty, alojamento, transporte e apoio na documentação.`,
+      description: `${n} vagas abertas em ${countryList} para brasileiros e latino-americanos. Salário em zloty, alojamento, transporte e apoio na documentação.`,
     },
   },
   en: {
     home: {
       title: "GHC | International Recruitment for Brazilians and Latin Americans",
-      description: `We connect Latin American professionals to jobs abroad with a contract, paperwork and support up to departure. ${n} open roles in Poland and Croatia.`,
+      description: `We connect Latin American professionals to jobs abroad with a contract, paperwork and support up to departure. ${n} open roles in Poland.`,
     },
     vacancies: {
       title: `Jobs Abroad | ${n} Roles with a Contract in Europe | GHC`,
-      description: `${n} open roles in Poland and Croatia for Brazilians and Latin Americans. Paid in euro or zloty, with accommodation, transport and paperwork support.`,
+      description: `${n} open roles in Poland for Brazilians and Latin Americans. Paid in zloty, with accommodation, transport and paperwork support.`,
     },
   },
   es: {
     home: {
       title: "GHC | Reclutamiento Internacional para Brasileños y Latinoamericanos",
-      description: `Conectamos a profesionales latinoamericanos con empleos en el exterior con contrato, documentación y apoyo hasta el embarque. ${n} vacantes abiertas en Polonia y Croacia.`,
+      description: `Conectamos a profesionales latinoamericanos con empleos en el exterior con contrato, documentación y apoyo hasta el embarque. ${n} vacantes abiertas en Polonia.`,
     },
     vacancies: {
       title: `Empleos en el Exterior | ${n} Vacantes con Contrato en Europa | GHC`,
-      description: `${n} vacantes abiertas en Polonia y Croacia para brasileños y latinoamericanos. Salario en euro o esloti, con alojamiento, transporte y apoyo documental.`,
+      description: `${n} vacantes abiertas en Polonia para brasileños y latinoamericanos. Salario en esloti, con alojamiento, transporte y apoyo documental.`,
     },
   },
 };

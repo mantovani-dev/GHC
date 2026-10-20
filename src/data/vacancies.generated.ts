@@ -4,7 +4,7 @@
  * Fonte: VACANTES - ES - 25-09-2026 (só as marcadas em verde) + Croácia
  * Gerado por: scripts/sync-vacancies.mjs
  *
- * 13 vagas publicadas (pl: 9 · hr: 4).
+ * 9 vagas publicadas (todas na Polônia).
  *
  * Para mudar uma vaga, edite a planilha. A GitHub Action lê, valida e
  * reescreve este arquivo; qualquer edição manual aqui é perdida no
@@ -13,7 +13,7 @@
 import type { Vacancy } from "./vacancies";
 
 /** Data da última sincronização com a planilha. */
-export const VACANCIES_UPDATED_AT = "2026-10-14";
+export const VACANCIES_UPDATED_AT = "2026-10-20";
 
 export const vacancies: Vacancy[] = [
   {
@@ -26,7 +26,7 @@ export const vacancies: Vacancy[] = [
     location: "Wolbórz",
     schedule: "264 a 312h/mês — turnos de 12h, segunda a sexta, com sábado conforme a produção",
     requirements: "Exclusiva para mulheres · até 60 anos · não exige experiência · não exige idioma",
-    benefits: "Alojamento 700 PLN · caderneta sanitária (Sanepid) 200 PLN no primeiro mês",
+    benefits: "Alojamento 700 PLN",
     entry: "futuro",
     isNew: true,
     warning:
@@ -48,8 +48,7 @@ export const vacancies: Vacancy[] = [
     benefits: "Bônus de 300 a 1.500 PLN líquidos · alojamento 300 PLN · transporte grátis",
     entry: "futuro",
     isNew: true,
-    warning:
-      "O salário informado é bruto. A permissão de trabalho é paga pelo candidato e reembolsada após 2 meses, e o exame médico custa 250 PLN. A duração do contrato ainda não foi confirmada com a empresa.",
+    warning: "O salário informado é bruto. A duração do contrato ainda não foi confirmada com a empresa.",
     postedAt: "2026-09-03",
   },
   {
@@ -97,8 +96,7 @@ export const vacancies: Vacancy[] = [
     benefits: "Alojamento 450 PLN",
     entry: "futuro",
     isNew: true,
-    warning:
-      "A permissão de trabalho é paga pelo candidato e reembolsada após 2 meses, e o exame médico custa 250 PLN. A duração do contrato ainda não foi confirmada com a empresa.",
+    warning: "A duração do contrato ainda não foi confirmada com a empresa.",
     postedAt: "2026-09-03",
   },
   {
@@ -160,59 +158,5 @@ export const vacancies: Vacancy[] = [
     requirements: "Sem exigência de idioma",
     benefits: "Apoio na permissão de trabalho · caderneta sanitária",
     entry: "futuro",
-  },
-  {
-    code: "043",
-    country: "hr",
-    title: "Carpinteiro",
-    salaryBRL: "R$ 7.100",
-    salaryLocal: "EUR 1.200 por mês",
-    salaryValue: { min: 1200, unit: "MONTH" },
-    location: "Croácia",
-    schedule: "60h por semana — contrato de 3 anos",
-    requirements: "Experiência em carpintaria · inglês básico",
-    benefits: "Hospedagem + transporte + alimentação inclusos",
-    entry: "confirmar",
-  },
-  {
-    code: "044",
-    country: "hr",
-    title: "Pintor",
-    salaryBRL: "R$ 7.100",
-    salaryLocal: "EUR 1.200 por mês",
-    salaryValue: { min: 1200, unit: "MONTH" },
-    location: "Croácia",
-    schedule: "60h por semana — contrato de 3 anos",
-    requirements: "Experiência em pintura predial · inglês básico",
-    benefits: "Hospedagem + transporte + alimentação inclusos",
-    entry: "confirmar",
-  },
-  {
-    code: "045",
-    country: "hr",
-    title: "Pedreiro",
-    salaryBRL: "R$ 7.100",
-    salaryLocal: "EUR 1.200 por mês",
-    salaryValue: { min: 1200, unit: "MONTH" },
-    location: "Croácia",
-    schedule: "60h por semana — contrato de 3 anos",
-    requirements: "Experiência em construção civil · inglês básico",
-    benefits: "Hospedagem + transporte + alimentação inclusos",
-    entry: "confirmar",
-  },
-  {
-    code: "071",
-    country: "hr",
-    title: "Auxiliar de Supermercado",
-    salaryBRL: "R$ 6.700",
-    salaryLocal: "EUR 1.100 líquidos por mês",
-    salaryValue: { min: 1100, unit: "MONTH" },
-    location: "Rab (ilha)",
-    schedule: "40h por semana em turnos — contrato de 12 meses renovável",
-    requirements: "Inglês A2 a B1 · idade de 25 a 45 anos",
-    benefits:
-      "10 posições abertas · transporte + seguro-saúde inclusos · 20 dias de férias · horas extras pagas",
-    entry: "futuro",
-    warning: "Alojamento e alimentação a confirmar",
   },
 ];

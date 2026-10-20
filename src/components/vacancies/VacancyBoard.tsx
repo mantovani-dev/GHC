@@ -43,35 +43,39 @@ const VacancyBoard = () => {
 
   return (
     <>
-      {/* Filtro por país — trilha rolável no celular, linha única no desktop */}
       <AnimateIn>
-        <div
-          className="vac-filters"
-          role="group"
-          aria-label={t("vacancies.filterLabel")}
-        >
-          <button
-            onClick={() => setFilter("all")}
-            aria-pressed={filter === "all"}
-            className={cn("vac-pill", filter === "all" && "vac-pill-on")}
-          >
-            {t("vacancies.filterAll")}
-            <span className="vac-pill-count">{vacancies.length}</span>
-          </button>
-
-          {countries.map((c) => (
+        {/*
+         * Filtro por país — trilha rolável no celular, linha única no desktop.
+         *
+         * Com um país só não há o que filtrar: as duas opções mostrariam o
+         * mesmo quadro ("Todas 9" e "Polônia 9"). Some até existir um
+         * segundo país, e volta sozinho quando existir.
+         */}
+        {countries.length > 1 && (
+          <div className="vac-filters" role="group" aria-label={t("vacancies.filterLabel")}>
             <button
-              key={c.code}
-              onClick={() => setFilter(c.code)}
-              aria-pressed={filter === c.code}
-              className={cn("vac-pill", filter === c.code && "vac-pill-on")}
+              onClick={() => setFilter("all")}
+              aria-pressed={filter === "all"}
+              className={cn("vac-pill", filter === "all" && "vac-pill-on")}
             >
-              <Flag code={c.code} />
-              {c.name}
-              <span className="vac-pill-count">{countByCountry(c.code)}</span>
+              {t("vacancies.filterAll")}
+              <span className="vac-pill-count">{vacancies.length}</span>
             </button>
-          ))}
-        </div>
+
+            {countries.map((c) => (
+              <button
+                key={c.code}
+                onClick={() => setFilter(c.code)}
+                aria-pressed={filter === c.code}
+                className={cn("vac-pill", filter === c.code && "vac-pill-on")}
+              >
+                <Flag code={c.code} />
+                {c.name}
+                <span className="vac-pill-count">{countByCountry(c.code)}</span>
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Quantas vagas o filtro atual mostra */}
         <p className="mono mt-4 text-foreground/40" aria-live="polite">

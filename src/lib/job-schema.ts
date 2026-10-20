@@ -36,9 +36,9 @@ export const seoMeta = {
     title: `Vagas de Trabalho no Exterior | ${vacancies.length} Empregos com Contrato na Europa | GHC`,
     description:
       `${vacancies.length} vagas abertas em ${COUNTRY_LIST} para brasileiros e latino-americanos. ` +
-      `Salário em euro ou zloty, alojamento, transporte e apoio na documentação. Veja as vagas e inscreva-se.`,
+      `Salário em zloty, alojamento, transporte e apoio na documentação. Veja as vagas e inscreva-se.`,
     keywords:
-      "vagas de trabalho no exterior, emprego no exterior, trabalhar na Europa, vagas na Polônia, trabalhar na Polônia, vagas na Croácia, recrutamento internacional, vaga com contrato de trabalho no exterior, emprego para brasileiros na Europa, operador de armazém Polônia, trabalho em frigorífico na Europa, GHC",
+      "vagas de trabalho no exterior, emprego no exterior, trabalhar na Europa, vagas na Polônia, trabalhar na Polônia, recrutamento internacional, vaga com contrato de trabalho no exterior, emprego para brasileiros na Europa, operador de armazém Polônia, trabalho em frigorífico na Europa, GHC",
   },
 };
 
