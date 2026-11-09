@@ -21,8 +21,16 @@ import departure15 from "@/assets/gallery/departure15.webp";
 import departure16 from "@/assets/gallery/departure16.webp";
 import departure17 from "@/assets/gallery/departure17.webp";
 import departure18 from "@/assets/gallery/departure18.webp";
+import departure19 from "@/assets/gallery/departure19.webp";
+import departure20 from "@/assets/gallery/departure20.webp";
+import departure21 from "@/assets/gallery/departure21.webp";
+import departure22 from "@/assets/gallery/departure22.webp";
+import departure23 from "@/assets/gallery/departure23.webp";
+import departure24 from "@/assets/gallery/departure24.webp";
 
 const photos = [
+  /* Embarques mais recentes primeiro — quem abre a galeria vê o que há de novo. */
+  departure19, departure20, departure21, departure22, departure23, departure24,
   departure, departure9, departure14,
   departure2, departure3, departure4, departure5,
   departure6, departure7, departure8, departure11,
@@ -39,7 +47,7 @@ const DepartureGallery = () => {
 
   /* As molduras ficam todas montadas para a transição de .6s funcionar na
      troca de classe, mas só carregam a imagem depois de entrar na janela
-     prev/cur/next — são 17 fotos, e baixar todas de uma vez custaria caro. */
+     prev/cur/next — são 23 fotos, e baixar todas de uma vez custaria caro. */
   const [loaded, setLoaded] = useState<number[]>([]);
 
   const goTo = useCallback((next: number) => {
