@@ -37,6 +37,14 @@
       "destination": "/vagas.html"
     },
     {
+      "source": "/privacidade",
+      "destination": "/privacidade.html"
+    },
+    {
+      "source": "/privacidade/",
+      "destination": "/privacidade.html"
+    },
+    {
       "source": "/((?!assets/|fonts/|sw\\.js|workbox-).*)",
       "destination": "/index.html"
     }

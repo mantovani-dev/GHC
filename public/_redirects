@@ -3,5 +3,9 @@
 /vagas   /vagas.html   200
 /vagas/  /vagas.html   200
 
+# Política de privacidade: HTML estático, legível sem JavaScript (exigência da Meta)
+/privacidade   /privacidade.html   200
+/privacidade/  /privacidade.html   200
+
 # Fallback de SPA para as demais rotas do react-router
 /*       /index.html   200

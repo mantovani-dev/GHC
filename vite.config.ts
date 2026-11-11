@@ -79,6 +79,7 @@ const seoTags = (): Plugin => ({
       { loc: SITE_URL + "/", priority: "1.0", changefreq: "weekly" },
       { loc: SITE_URL + "/vagas", priority: "0.9", changefreq: "weekly" },
       { loc: SITE_URL + "/bio", priority: "0.5", changefreq: "monthly" },
+      { loc: SITE_URL + "/privacidade", priority: "0.2", changefreq: "yearly" },
     ];
     const body = urls
       .map(

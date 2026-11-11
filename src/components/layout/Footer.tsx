@@ -94,7 +94,8 @@ const Footer = () => {
             © {currentYear} Global Hiring &amp; Careers (GHC). {t("footer.rights")}
           </span>
           <span className="flex gap-[22px]">
-            <a href="#" className="transition-colors hover:text-accent">
+            {/* Página estática (public/privacidade.html), não rota do React */}
+            <a href="/privacidade" className="transition-colors hover:text-accent">
               {t("footer.privacy")}
             </a>
             <a href="#" className="transition-colors hover:text-accent">
