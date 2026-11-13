@@ -107,9 +107,12 @@ export const rowSchema = z
     duties: z.string().trim().optional(),
     documents: z.string().trim().optional(),
     benefits: obrigatorio("CONDICOES"),
-    entry: z.enum(ENUMS.PRAZO, {
-      errorMap: () => ({ message: `PRAZO precisa ser um de: ${ENUMS.PRAZO.join(", ")}` }),
-    }),
+    entry: z
+      .enum(ENUMS.PRAZO, {
+        errorMap: () => ({ message: `PRAZO precisa ser um de: ${ENUMS.PRAZO.join(", ")}` }),
+      })
+      /* Em branco é válido: a vaga fica sem selo de prazo no card. */
+      .optional(),
     isNew: z.boolean(),
     warning: z.string().trim().optional(),
     postedAt: z
@@ -145,7 +148,7 @@ export const normalizeRow = (raw) => {
     duties: texto(get("O_TRABALHO")) || undefined,
     documents: texto(get("DOCUMENTACAO")) || undefined,
     benefits: texto(get("CONDICOES")),
-    entry: daLista(get("PRAZO"), ENUMS.PRAZO),
+    entry: texto(get("PRAZO")) ? daLista(get("PRAZO"), ENUMS.PRAZO) : undefined,
     isNew: booleano(get("DESTAQUE")),
     warning: texto(get("RESSALVA")) || undefined,
     postedAt: data(get("PUBLICADA_EM")),
@@ -172,7 +175,7 @@ export const toVacancy = (row) => ({
   ...(row.duties ? { duties: row.duties } : {}),
   ...(row.documents ? { documents: row.documents } : {}),
   benefits: row.benefits,
-  entry: row.entry,
+  ...(row.entry ? { entry: row.entry } : {}),
   ...(row.isNew ? { isNew: true } : {}),
   ...(row.warning ? { warning: row.warning } : {}),
   ...(row.postedAt ? { postedAt: row.postedAt } : {}),
@@ -197,7 +200,7 @@ export const toRow = (v) => ({
   O_TRABALHO: v.duties ?? "",
   DOCUMENTACAO: v.documents ?? "",
   CONDICOES: v.benefits,
-  PRAZO: v.entry,
+  PRAZO: v.entry ?? "",
   DESTAQUE: v.isNew ? "sim" : "",
   RESSALVA: v.warning ?? "",
   PUBLICADA_EM: v.postedAt ?? "",

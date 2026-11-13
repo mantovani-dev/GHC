@@ -46,9 +46,11 @@ const VacancyCard = ({ vacancy, communityLink }: VacancyCardProps) => {
           <Flag code={vacancy.country} />
           {country.name}
         </span>
-        <span className={cn("vac-badge shrink-0", entryStyles[vacancy.entry])}>
-          {t(`vacancies.entry.${vacancy.entry}.label`)}
-        </span>
+        {vacancy.entry && (
+          <span className={cn("vac-badge shrink-0", entryStyles[vacancy.entry])}>
+            {t(`vacancies.entry.${vacancy.entry}.label`)}
+          </span>
+        )}
       </div>
 
       {/* Código da vaga */}

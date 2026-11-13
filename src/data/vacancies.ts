@@ -40,7 +40,9 @@ export interface Vacancy {
   /** Documentos que o candidato precisa apresentar. Separado dos requisitos
       de perfil, e do apoio documental que a GHC oferece em `benefits`. */
   documents?: string;
-  entry: EntryType;
+  /** Prazo de ingresso. Ausente quando a vaga não declara um — o card
+      então não mostra selo algum, em vez de afirmar o que não se sabe. */
+  entry?: EntryType;
   /** Destaque de "VAGA NOVA" no material. */
   isNew?: boolean;
   /** Ressalva que aparece com ⚠ no material. */
