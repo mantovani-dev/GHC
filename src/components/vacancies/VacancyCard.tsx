@@ -78,9 +78,11 @@ const VacancyCard = ({ vacancy, communityLink }: VacancyCardProps) => {
         {vacancy.salaryBRL ? (
           <div className="vac-pay-brl">
             <span className="grad">{vacancy.salaryBRL}</span>
+            {/* O período vem da unidade da vaga: havia vaga cotada por hora
+                exibindo "por hora / mês", porque isto era fixo em mês. */}
             <span className="text-[13px] font-normal text-foreground/45">
               {" "}
-              / {t("vacancies.month")}
+              / {t(vacancy.salaryValue.unit === "HOUR" ? "vacancies.hour" : "vacancies.month")}
             </span>
           </div>
         ) : (

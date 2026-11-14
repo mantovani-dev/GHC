@@ -174,6 +174,7 @@ const resources = {
         updatedAt: "Quadro atualizado em {{date}}",
         filterAll: "Todas",
         month: "mês",
+        hour: "hora",
         onRequest: "Sob consulta",
         newBadge: "Vaga nova",
         detailsShow: "Ver especificações",
@@ -229,7 +230,7 @@ const resources = {
           ],
         },
         exchangeNote:
-          "Os valores em real são aproximados e usam o câmbio da data em que cada vaga foi aberta. O salário garantido é o da moeda local — o valor em real varia com o câmbio do dia.",
+          "Os valores em real são aproximados, convertidos a 1 PLN = R$ 1,42. O salário garantido é o da moeda local — o valor em real varia com o câmbio do dia. Onde o anúncio diz bruto, os descontos ainda não foram aplicados.",
       },
 
       contact: {
@@ -429,6 +430,7 @@ const resources = {
         updatedAt: "Board updated on {{date}}",
         filterAll: "All",
         month: "month",
+        hour: "hour",
         onRequest: "On request",
         newBadge: "New role",
         detailsShow: "See full details",
@@ -484,7 +486,7 @@ const resources = {
           ],
         },
         exchangeNote:
-          "Amounts in reais are approximate and use the exchange rate from the date each role was opened. The guaranteed salary is the one in local currency — the amount in reais varies with the daily rate.",
+          "Amounts in reais are approximate, converted at 1 PLN = R$ 1.42. The guaranteed salary is the one in local currency — the amount in reais varies with the daily rate. Where the listing says gross, deductions have not been applied yet.",
       },
 
       contact: {
@@ -684,6 +686,7 @@ const resources = {
         updatedAt: "Cuadro actualizado el {{date}}",
         filterAll: "Todas",
         month: "mes",
+        hour: "hora",
         onRequest: "A consultar",
         newBadge: "Vacante nueva",
         detailsShow: "Ver especificaciones",
@@ -739,7 +742,7 @@ const resources = {
           ],
         },
         exchangeNote:
-          "Los valores en reales son aproximados y usan el cambio de la fecha en que se abrió cada vacante. El salario garantizado es el de la moneda local — el valor en reales varía con el cambio del día.",
+          "Los valores en reales son aproximados, convertidos a 1 PLN = R$ 1,42. El salario garantizado es el de la moneda local — el valor en reales varía con el cambio del día. Donde el anuncio dice bruto, aún no se aplicaron los descuentos.",
       },
 
       contact: {
