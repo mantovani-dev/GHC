@@ -49,6 +49,12 @@ export interface Vacancy {
   warning?: string;
   /** Data de publicação, quando difere da do quadro original. */
   postedAt?: string;
+  /** Formulário de inscrição já preenchido com esta vaga. Quando existe,
+      tem prioridade sobre o formulário genérico do país. */
+  formUrl?: string;
+  /** Vaga contemplada pela campanha de Black Friday. O selo só aparece
+      enquanto a campanha estiver no ar (ver src/data/campaign.ts). */
+  blackFriday?: boolean;
   /** Até quando a vaga vale (AAAA-MM-DD). Vira `validThrough` no JSON-LD;
       sem ela o Google expira o anúncio sozinho em ~30 dias. */
   validThrough?: string;

@@ -9,10 +9,13 @@ import AmbientBackground from "@/components/layout/AmbientBackground";
 import { AnimateIn } from "@/components/ui/animate-in";
 import { Flag } from "@/components/ui/flag";
 import VacancyBoard from "@/components/vacancies/VacancyBoard";
+import BlackFridayBanner from "@/components/campaign/BlackFridayBanner";
+import { useBlackFridayActive } from "@/components/campaign/useBlackFriday";
 import { vacancies, countries, countByCountry, VACANCIES_UPDATED_AT } from "@/data/vacancies";
 
 const Vacancies = () => {
   const { t, i18n } = useTranslation();
+  const blackFriday = useBlackFridayActive();
 
   const updatedAt = new Date(`${VACANCIES_UPDATED_AT}T12:00:00`).toLocaleDateString(
     i18n.language,
@@ -30,6 +33,13 @@ const Vacancies = () => {
 
         <main className="relative z-[1]">
           <div className="wrap pb-[clamp(48px,6vw,72px)] pt-[clamp(28px,4vw,48px)]">
+            {/* Arte da campanha no topo — some sozinha no fim do prazo */}
+            {blackFriday && (
+              <div className="mb-[clamp(36px,5vw,56px)]">
+                <BlackFridayBanner variant="board" />
+              </div>
+            )}
+
             <AnimateIn>
               <Link
                 to="/"

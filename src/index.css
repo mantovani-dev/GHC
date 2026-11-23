@@ -1697,3 +1697,220 @@
     transform: scale(0.97);
   }
 }
+
+/* =====================================================================
+   BLACK FRIDAY — arte da campanha (até 26/11/2026, 23h59 de Brasília)
+
+   Sem filter: blur e sem backdrop-filter: os dois foram removidos do site
+   por travarem o Safari do iPhone. Todo o brilho aqui é gradiente e
+   text-shadow. O preto vem de rgba(0,0,0,…) sobre o próprio fundo — nenhuma
+   cor nova entra no sistema; o ciano é o --accent do Órbita.
+   ===================================================================== */
+@layer components {
+  .bf {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    border: 1px solid rgba(51, 186, 233, 0.3);
+    background:
+      radial-gradient(110% 130% at 100% 0%, rgba(51, 186, 233, 0.2), transparent 55%),
+      radial-gradient(80% 90% at 0% 100%, rgba(51, 186, 233, 0.08), transparent 60%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.78));
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+      0 30px 80px -40px rgba(51, 186, 233, 0.5);
+  }
+
+  /* Grade fina, eco do fundo ambiente, só dentro da arte */
+  .bf::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse 90% 80% at 80% 20%, #000 20%, transparent 75%);
+    mask-image: radial-gradient(ellipse 90% 80% at 80% 20%, #000 20%, transparent 75%);
+  }
+
+  /* ---------- faixa corrida ---------- */
+  .bf-ticker {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    background: #33bae9;
+    color: #04141c;
+  }
+
+  .bf-ticker-track {
+    display: inline-flex;
+    gap: 26px;
+    padding: 9px 0;
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    animation: bf-marquee 32s linear infinite;
+  }
+
+  @keyframes bf-marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bf-ticker-track {
+      animation: none;
+    }
+  }
+
+  /* ---------- corpo ---------- */
+  .bf-body {
+    position: relative;
+    display: grid;
+    align-items: center;
+    gap: clamp(32px, 4vw, 56px);
+    padding: clamp(28px, 4.5vw, 56px);
+  }
+
+  @media (min-width: 901px) {
+    .bf-body {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    }
+  }
+
+  .bf-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Space Mono", monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #33bae9;
+  }
+
+  .bf-eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #33bae9;
+    box-shadow: 0 0 0 4px rgba(51, 186, 233, 0.18);
+    animation: bf-pulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes bf-pulse {
+    50% {
+      box-shadow: 0 0 0 7px rgba(51, 186, 233, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bf-eyebrow-dot {
+      animation: none;
+    }
+  }
+
+  .bf-title {
+    display: flex;
+    flex-direction: column;
+    margin-top: 18px;
+    font-size: clamp(58px, 10.5vw, 132px);
+    font-weight: 700;
+    line-height: 0.86;
+    letter-spacing: -0.045em;
+    text-transform: uppercase;
+    color: #e8ecf4;
+  }
+
+  .bf-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px #33bae9;
+    text-shadow: 0 0 26px rgba(51, 186, 233, 0.32);
+  }
+
+  .bf-lead {
+    margin-top: 24px;
+    max-width: 31rem;
+    font-size: clamp(15px, 1.4vw, 17px);
+    line-height: 1.6;
+    color: rgba(232, 236, 244, 0.72);
+  }
+
+  /* ---------- relógio ---------- */
+  .bf-clock-label {
+    margin-bottom: 14px;
+    font-family: "Space Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(232, 236, 244, 0.5);
+  }
+
+  .bf-clock {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(8px, 1.2vw, 12px);
+  }
+
+  .bf-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(14px, 2vw, 22px) 4px clamp(12px, 1.6vw, 16px);
+    border: 1px solid rgba(51, 186, 233, 0.3);
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(4, 20, 28, 0.85), rgba(4, 20, 28, 0.55));
+  }
+
+  .bf-num {
+    font-family: "Space Mono", monospace;
+    font-size: clamp(30px, 5vw, 54px);
+    font-weight: 700;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    color: #e8ecf4;
+    text-shadow: 0 0 18px rgba(51, 186, 233, 0.45);
+  }
+
+  .bf-unit {
+    margin-top: 9px;
+    font-family: "Space Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(232, 236, 244, 0.45);
+  }
+
+  .bf-deadline {
+    margin-top: 14px;
+    font-size: 13px;
+    color: rgba(232, 236, 244, 0.45);
+  }
+
+  /* ---------- selo no card da vaga ---------- */
+  .bf-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border: 1px solid rgba(51, 186, 233, 0.45);
+    border-radius: 999px;
+    background: #000;
+    font-family: "Space Mono", monospace;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #33bae9;
+  }
+
+  .vac-card-bf {
+    border-color: rgba(51, 186, 233, 0.32);
+    box-shadow: 0 24px 60px -36px rgba(51, 186, 233, 0.55);
+  }
+}

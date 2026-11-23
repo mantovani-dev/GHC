@@ -12,6 +12,7 @@ import { GlassCard } from "@/components/ui/glass-card";
 import { Flag } from "@/components/ui/flag";
 import { entryStyles } from "@/components/vacancies/entry-styles";
 import { countryOf, splitList, type Vacancy } from "@/data/vacancies";
+import { useBlackFridayActive } from "@/components/campaign/useBlackFriday";
 
 interface VacancyCardProps {
   vacancy: Vacancy;
@@ -22,7 +23,11 @@ interface VacancyCardProps {
 const VacancyCard = ({ vacancy, communityLink }: VacancyCardProps) => {
   const { t } = useTranslation();
   const country = countryOf(vacancy.country);
-  const applyUrl = country.formUrl ?? communityLink;
+  /* O formulário da própria vaga vem primeiro: ele já chega preenchido
+     com ela, e o candidato não precisa achar a vaga numa lista. */
+  const formUrl = vacancy.formUrl ?? country.formUrl;
+  const applyUrl = formUrl ?? communityLink;
+  const blackFriday = useBlackFridayActive() && vacancy.blackFriday;
 
   /* Cada bloco do material vira uma seção nomeada. Requisitos e condições
      vêm como linha corrida separada por "·" — viram itens, senão alojamento
@@ -39,18 +44,26 @@ const VacancyCard = ({ vacancy, communityLink }: VacancyCardProps) => {
   ];
 
   return (
-    <GlassCard as="article" hover id={`vaga-${vacancy.code}`} className="flex h-full flex-col p-6">
+    <GlassCard
+      as="article"
+      hover
+      id={`vaga-${vacancy.code}`}
+      className={cn("flex h-full flex-col p-6", blackFriday && "vac-card-bf")}
+    >
       {/* Topo: país + prazo de ingresso */}
       <div className="flex items-start justify-between gap-3">
         <span className="inline-flex items-center gap-2 text-[12.5px] font-medium text-foreground/70">
           <Flag code={vacancy.country} />
           {country.name}
         </span>
-        {vacancy.entry && (
-          <span className={cn("vac-badge shrink-0", entryStyles[vacancy.entry])}>
-            {t(`vacancies.entry.${vacancy.entry}.label`)}
-          </span>
-        )}
+        <div className="flex flex-wrap justify-end gap-2">
+          {blackFriday && <span className="bf-tag">{t("blackFriday.tag")}</span>}
+          {vacancy.entry && (
+            <span className={cn("vac-badge shrink-0", entryStyles[vacancy.entry])}>
+              {t(`vacancies.entry.${vacancy.entry}.label`)}
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Código da vaga */}
@@ -154,7 +167,7 @@ const VacancyCard = ({ vacancy, communityLink }: VacancyCardProps) => {
           className="w-full justify-center"
           onClick={() => window.open(applyUrl, "_blank", "noopener,noreferrer")}
         >
-          {country.formUrl ? (
+          {formUrl ? (
             <>
               {t("vacancies.apply")}
               <ArrowRight />
