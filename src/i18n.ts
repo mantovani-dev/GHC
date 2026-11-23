@@ -180,6 +180,10 @@ const resources = {
         seconds: "seg",
         deadline: "Até 26/11, às 23h59 — horário de Brasília.",
         tag: "Black Friday",
+        barText: "{{count}} vagas com condição especial",
+        barEndsIn: "termina em",
+        barCta: "Ver vagas",
+        barAria: "Black Friday GHC: ver as vagas com condição especial",
       },
       vacancies: {
         tag: "Vagas Abertas",
@@ -452,6 +456,10 @@ const resources = {
         seconds: "sec",
         deadline: "Until Nov 26, 11:59 PM — Brasília time.",
         tag: "Black Friday",
+        barText: "{{count}} roles with special terms",
+        barEndsIn: "ends in",
+        barCta: "See roles",
+        barAria: "GHC Black Friday: see the roles with special terms",
       },
       vacancies: {
         tag: "Open Roles",
@@ -724,6 +732,10 @@ const resources = {
         seconds: "seg",
         deadline: "Hasta el 26/11, a las 23:59 — horario de Brasilia.",
         tag: "Black Friday",
+        barText: "{{count}} vacantes con condición especial",
+        barEndsIn: "termina en",
+        barCta: "Ver vacantes",
+        barAria: "Black Friday GHC: ver las vacantes con condición especial",
       },
       vacancies: {
         tag: "Vacantes Abiertas",

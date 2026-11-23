@@ -7,6 +7,7 @@ import { LanguageToggle } from "@/components/LanguageToggle";
 import { useTranslation } from "react-i18next";
 import { useCommunityLink } from "@/hooks/useCommunityLink";
 import MobileDrawer from "@/components/layout/MobileDrawer";
+import BlackFridayBar from "@/components/campaign/BlackFridayBar";
 import { navLinks, sectionLinks, type NavLink } from "@/lib/nav";
 
 import logoGhcWhite from "@/assets/logo-ghc-invisible-white.png";
@@ -66,6 +67,9 @@ const Header = () => {
 
   return (
     <>
+      {/* Faixa da campanha: fora do header sticky, para sair ao rolar */}
+      <BlackFridayBar />
+
       <header
         className={cn(
           "sticky top-0 z-[60] transition-[padding] duration-300",
